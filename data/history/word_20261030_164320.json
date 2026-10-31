@@ -1,0 +1,183 @@
+{
+  "agency_upper": "ĐẢNG BỘ THÀNH PHỐ ĐÀ NẴNG",
+  "agency_name": "ĐẢNG UỶ XÃ QUẾ SƠN",
+  "doc_date_text": "Quế Sơn, ngày 25 tháng 10 năm 2026",
+  "doc_title": "lịch công tác của Ban Thường vụ Đảng ủy từ ngày 26/10/2026 đến ngày 01/11/2026",
+  "days": [
+    {
+      "day_name": "Thứ Hai",
+      "date_str": "26/10",
+      "morning": [
+        {
+          "leader": "TT.ĐU, C.Hằng",
+          "content": "- 08h00: Họp Thường trực Đảng ủy.",
+          "location": "Phòng họp số 1",
+          "staff": "A.Tâm",
+          "is_red": false
+        },
+        {
+          "leader": "A.Trung, A.Hùng",
+          "content": "- 09h00: Họp đánh giá hồ sơ OCOP.",
+          "location": "Phòng họp số 4",
+          "staff": "",
+          "is_red": false
+        },
+        {
+          "leader": "A.Tùng",
+          "content": "- 07h00: Hội nghị trực tuyến về quản lý tài sản công và chỉ tiêu thống\nkê GRDP.",
+          "location": "Phòng họp số 2",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "A.Tùng",
+          "content": "- 15h00: Làm việc với Sở Công thương về Tổ chức Chương trình Kết nối giao thương giữa doanh nghiệp, hợp tác xã, các cơ sở sản xuất, kinh doanh về tổ chức xúc tiến thương mại tại thành phố Đà Nẵng năm 2026.",
+          "location": "Phòng họp số 2",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Ba",
+      "date_str": "27/10",
+      "morning": [
+        {
+          "leader": "A.Hùng, A.Công",
+          "content": "- 08h00: Tham gia lớp bồi dưỡng cấp ủy cấp xã, phường năm 2026 (thời gian từ ngày 27/10 – 02/11/2026).",
+          "location": "Số 18 Lam Sơn, P. Bàn Thạch",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "BTV",
+          "content": "- 14h00: Họp Ban Thường vụ Đảng ủy.",
+          "location": "Phòng họp số 1",
+          "staff": "A.Tâm",
+          "is_red": true
+        },
+        {
+          "leader": "A.Tùng",
+          "content": "- 14h00: Làm việc với các hộ dân thôn Châu Sơn về công tác  môi trường.",
+          "location": "Phòng họp số 2",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Tư",
+      "date_str": "28/10",
+      "morning": [
+        {
+          "leader": "BTV",
+          "content": "- 08h00: Họp Ban Chỉ đạo cơ sở dữ liệu đất đai.",
+          "location": "Phòng họp số 4",
+          "staff": "C.Nguyệt",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "A.Vũ",
+          "content": "- 14h00: Đi kiểm tra, khảo sát thực tế.",
+          "location": "Tại thực tế",
+          "staff": "A.Lực",
+          "is_red": false
+        },
+        {
+          "leader": "A.Trung, A.Tùng",
+          "content": "- 14h00: Họp giao ban lãnh đạo UBND xã.",
+          "location": "Phòng họp số 1",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Năm",
+      "date_str": "29/10",
+      "morning": [
+        {
+          "leader": "A. Vũ, A.Trung(QS)",
+          "content": "- 08h00: Sinh hoạt Đảng bộ Quân sự.",
+          "location": "Phòng họp BCHQS xã",
+          "staff": "",
+          "is_red": false
+        },
+        {
+          "leader": "A.Trung, A.Hùng",
+          "content": "- 08h00: Họp xét khuyết tật.",
+          "location": "Hội trường xã Quế Sơn",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "TT.ĐU",
+          "content": "- 14h00: Thường trực Đảng ủy làm việc với các Đảng bộ trường học trên địa bàn xã.",
+          "location": "Phòng họp số 2",
+          "staff": "A.Lưu, A.Phương",
+          "is_red": false
+        },
+        {
+          "leader": "A.Tùng",
+          "content": "- 14h00: Làm việc với các hộ dân Tổ 16, thôn Đại Lộc.",
+          "location": "Phòng họp số 1",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Sáu",
+      "date_str": "30/10",
+      "morning": [
+        {
+          "leader": "BTV",
+          "content": "- 08h00: Họp HĐND xã lần thứ 4",
+          "location": "Phòng họp số 5",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "A.Trung, A.Tùng",
+          "content": "- 14h00: Dự nghe Trung tâm CUDVSN công xã báo cáo Phương án chỉnh trang khu Trung tâm xã",
+          "location": "Phòng họp số 2",
+          "staff": "",
+          "is_red": true
+        }
+      ]
+    }
+  ],
+  "driver_duty_note": "* Thứ Bảy, Chủ nhật, ngày 31/10 – 01/11/2026. A.Lực trực lái xe Đảng ủy.",
+  "invitation_note": "* Lịch công tác thay cho giấy mời họp Thường trực, Ban Thường vụ Đảng ủy.",
+  "change_note": "",
+  "next_week_title": "* Tuần 45:",
+  "next_week_items": [
+    "- 14h00 ngày 02/11/2026: BTV: Dự hội nghị quán triệt, triển khai các văn bản của Trung ương, Thành ủy tại hội trường xã Quế Sơn.",
+    "- 14h00 ngày 03/11/2026: TTĐU: Họp tổ chức đánh giá việc thực hiện các Thông báo kết luận và các nội dung chỉ đạo của Trưởng Ban chỉ đạo tại các cuộc họp tại phòng họp số 2, xã Quế Sơn.",
+    "- 08h00 ngày 04/11/2026: A.Vũ: Tổ đại biểu bầu cử số 12 của HĐND thành phố về tiếp xúc cử tri kỳ họp thường lệ năm 2026, khóa XI, nhiệm kỳ 2026-2031 tại số 545 Hùng Vương, xã Nam Phước.",
+    "- 08h00 ngày 05/11/2026: A.Vũ: Tổ đại biểu bầu cử số 12 của HĐND thành phố về tiếp xúc cử tri kỳ họp thường lệ năm 2026, khóa XI, nhiệm kỳ 2026-2031 tại Hội trường xã Quế Sơn."
+  ],
+  "recipients": [
+    "- Ủy viên BTV Đảng ủy;",
+    "- Thường trực HĐND, UBND xã;",
+    "- Các cơ quan CTTM, GV Đảng ủy;",
+    "- Lưu Văn phòng Đảng ủy."
+  ],
+  "signer_authority": "T/L BAN THƯỜNG VỤ",
+  "signer_title": "CHÁNH VĂN PHÒNG",
+  "signer_name": "Nguyễn Phước Tâm",
+  "include_signature": true,
+  "name": "lịch công tác của Ban Thường vụ Đảng ủy từ ngày 26/10/2026 đến ngày 01/11/2026",
+  "saved_at": "2026-10-30 16:43:20",
+  "id": "word_20261030_164320"
+}

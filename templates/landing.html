@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>OfficeFormat - Chuẩn Hóa Văn Bản Nghị Định 30 Cho Microsoft Word Miễn Phí</title>
+  <meta name="title" content="OfficeFormat - Chuẩn Hóa Văn Bản Nghị Định 30 Cho Microsoft Word Miễn Phí">
+  <meta name="description" content="Tải miễn phí phần mềm OfficeFormat cho Microsoft Word: Tự động chuẩn hóa thể thức công văn theo Nghị định 30/2020/NĐ-CP, Hướng dẫn 05-HD/VPTW, kiểm tra chính tả tiếng Việt và kho biểu mẫu chuẩn 100% miễn phí.">
+  <meta name="keywords" content="OfficeFormat, chuẩn hóa văn bản, nghị định 30, hướng dẫn 05, kiểm tra chính tả word, add in word nghi dinh 30, căn lề chuẩn word, biểu mẫu công văn, driver chữ ký số">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Vietnamese">
+  <meta name="author" content="OfficeFormat Community">
+  <link rel="canonical" href="https://officeformat.vercel.app/">
+
+  <!-- Open Graph / Facebook / Zalo -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://officeformat.vercel.app/">
+  <meta property="og:title" content="OfficeFormat - Chuẩn Hóa Văn Bản Nghị Định 30 Cho Microsoft Word Miễn Phí">
+  <meta property="og:description" content="Add-in Microsoft Word 1-click chuẩn hóa thể thức công văn theo Nghị định 30 & Hướng dẫn 05. 100% Miễn phí trọn đời cho Cán bộ, Công chức, Giáo viên và Nhân viên văn phòng.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://officeformat.vercel.app/">
+  <meta property="twitter:title" content="OfficeFormat - Chuẩn Hóa Văn Bản Nghị Định 30 Cho Microsoft Word Miễn Phí">
+  <meta property="twitter:description" content="Phần mềm OfficeFormat miễn phí cho Word: Chuẩn hóa thể thức hành chính, kiểm tra chính tả tiếng Việt và kho biểu mẫu công vụ.">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&h=630&q=80">
+
+  <!-- Favicon gốc của OfficeFormat -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN với bảng màu chủ đạo chuẩn OfficeFormat (#E04F26) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#FFF6F0',
+              100: '#FFF1E6',
+              200: '#FED7C3',
+              300: '#FDB695',
+              400: '#FA8453',
+              500: '#FF7A45',
+              600: '#E04F26', /* Màu nhận diện cốt lõi của OfficeFormat */
+              700: '#C83E18', /* Hover state */
+              800: '#A63010', /* Pressed state */
+              900: '#832309',
+              950: '#481003',
+            },
+            warm: {
+              50: '#FDF8F4',
+              100: '#FAF0E7',
+              200: '#EFE0D3',
+              300: '#E2C8B5',
+              700: '#8B6351',
+              800: '#6B4C3E',
+              900: '#27150E',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 200, 181, 0.6);
+    }
+    .gradient-hero {
+      background: radial-gradient(circle at 50% 10%, #FFF1E6 0%, #FDF8F4 45%, #ffffff 85%);
+    }
+    .bg-brand-gradient {
+      background: linear-gradient(135deg, #FF7A45 0%, #E04F26 55%, #C23812 100%);
+    }
+  </style>
+
+  <!-- Schema.org Structured Data (JSON-LD) for Peak SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "OfficeFormat",
+        "operatingSystem": "Windows 10, Windows 11, Windows 7, Windows 8",
+        "applicationCategory": "OfficeApplication, BusinessApplication",
+        "softwareVersion": "1.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "VND"
+        },
+        "description": "Phần mềm Add-in Microsoft Word chuẩn hóa thể thức văn bản hành chính theo Nghị định 30/2020/NĐ-CP và Hướng dẫn 05-HD/VPTW, kiểm tra chính tả tiếng Việt tự động.",
+        "downloadUrl": "https://officeformat.vercel.app/downloads/OfficeFormat-1.0-Setup.exe"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Phần mềm OfficeFormat có hoàn toàn miễn phí không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Đúng vậy, OfficeFormat được phát triển hoàn toàn miễn phí trọn đời (100% Free), phi lợi nhuận nhằm hỗ trợ công chức, viên chức, giáo viên và cán bộ văn phòng trên toàn quốc tiết kiệm thời gian soạn thảo công văn."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "OfficeFormat tương thích với các phiên bản Microsoft Word nào?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "OfficeFormat tương thích hoàn hảo với Microsoft Word 2013, 2016, 2019, 2021 và Office 365 trên hệ điều hành Windows 7/8/10/11 (cả 32-bit và 64-bit)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cài đặt OfficeFormat có cần quyền Quản trị viên (Administrator) không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Không cần. Bộ cài đặt OfficeFormat được tối ưu để người dùng có thể nhấp đúp cài đặt ngay trong thư mục người dùng cá nhân (Local User), không yêu cầu quyền Admin của cơ quan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "OfficeFormat có xung đột với bộ gõ tiếng Việt Unikey không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hoàn toàn không xung đột. OfficeFormat hoạt động độc lập trên thanh công cụ Microsoft Word, tương thích tuyệt đối với Unikey, EVKey và các bộ gõ tiếng Việt chuẩn Unicode hiện hành."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-warm-50 text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- Top Announcement Bar (Tinh tế, chuẩn công vụ, không giật nháy) -->
+  <aside class="bg-warm-900 text-warm-200 text-xs font-medium py-2 px-4 border-b border-warm-800 text-center">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-brand-600 text-white">
+        Miễn phí 100%
+      </span>
+      <span>Phần mềm chuẩn hóa thể thức công văn Nghị định 30/2020/NĐ-CP & Hướng dẫn 05-HD/VPTW</span>
+      <a href="#officeformat" class="text-brand-300 hover:text-white underline underline-offset-2 font-semibold ml-1 transition">Tìm hiểu thêm &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar (Clean Typography-First, không lạm dụng icon) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-warm-200 transition-all">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Menu chính">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-sm group-hover:bg-brand-700 transition">
+            <i class="fa-solid fa-file-signature text-base"></i>
+          </div>
+          <div>
+            <span class="font-display text-xl font-extrabold tracking-tight text-warm-900">Office<span class="text-brand-600">Format</span></span>
+            <span class="block text-[10px] font-semibold text-warm-700 tracking-wider">Chuẩn Thể Thức Công Vụ</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links (Typography sạch, trật tự) -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-warm-800">
+        <a href="#officeformat" class="hover:text-brand-600 transition">Giới Thiệu</a>
+        <a href="#lich-tuan" class="text-brand-700 hover:text-brand-600 font-bold transition flex items-center gap-1.5">
+          <span>Lịch Công Tác Tuần</span>
+          <span class="px-1.5 py-0.2 text-[10px] bg-brand-100 text-brand-800 rounded font-bold">Online</span>
+        </a>
+        <a href="#tinh-nang" class="hover:text-brand-600 transition">Tính Năng</a>
+        <a href="#ky-so" class="hover:text-brand-600 transition">Driver Ký Số</a>
+        <a href="#huong-dan" class="hover:text-brand-600 transition">Hướng Dẫn</a>
+        <a href="#faq" class="hover:text-brand-600 transition">Hỏi Đáp</a>
+      </div>
+
+      <!-- Action Buttons (Rõ ràng phân cấp Primary / Secondary) -->
+      <div class="flex items-center gap-2.5">
+        <a href="/lich-tuan" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-warm-100 hover:bg-brand-50 text-brand-700 border border-brand-200/80 hover:border-brand-400 font-semibold text-xs transition" title="Mở ứng dụng tạo lịch công tác tuần trực tuyến">
+          <i class="fa-solid fa-calendar-check text-[11px]"></i>
+          <span>Tạo Lịch Tuần</span>
+        </a>
+        <a href="downloads/OfficeFormat-1.0-Setup.exe" download="OfficeFormat-1.0-Setup.exe" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs shadow-sm transition active:scale-95">
+          <i class="fa-solid fa-download text-[11px]"></i>
+          <span>Tải Add-in Word</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION: FOCUS HEAVILY ON OFFICEFORMAT -->
+    <section id="officeformat" class="relative pt-12 pb-20 lg:pt-18 lg:pb-28 gradient-hero overflow-hidden border-b border-warm-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-700 text-xs sm:text-sm font-bold mb-5 border border-brand-200">
+            <i class="fa-solid fa-award text-brand-600"></i>
+            <span>DỰ ÁN PHI LỢI NHUẬN • MIỄN PHÍ 100% TRỌN ĐỜI</span>
+          </div>
+          
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-warm-900 tracking-tight leading-tight sm:leading-none mb-6">
+            Chuẩn Hóa Thể Thức Văn Bản <br class="hidden sm:block">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-amber-600">Nghị Định 30 Chỉ 1 Click</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-warm-800 leading-relaxed mb-8">
+            <strong class="font-bold text-warm-900">OfficeFormat</strong> là tiện ích mở rộng (Add-in) chuyên sâu cho Microsoft Word: Tự động căn lề chuẩn quốc gia, định dạng Tiêu ngữ, Quốc hiệu, Số ký hiệu, Bảng biểu, kiểm tra lỗi chính tả tiếng Việt và cung cấp kho biểu mẫu hành chính chuẩn mực.
+          </p>
+
+          <!-- Download & Web App Action Area -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 flex-wrap">
+            <a href="downloads/OfficeFormat-1.0-Setup.exe" download="OfficeFormat-1.0-Setup.exe" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-2xl bg-brand-gradient text-white font-bold text-sm hover:brightness-105 shadow-xl shadow-brand-600/30 hover:shadow-brand-600/40 transition transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-download text-lg"></i>
+              <div class="text-left">
+                <span class="block text-[10px] uppercase opacity-90 font-medium">Bản Cài Đặt Cho Word</span>
+                <span class="text-sm font-black">Tải OfficeFormat v1.0 (.exe)</span>
+              </div>
+            </a>
+
+            <a href="/lich-tuan" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm shadow-xl shadow-amber-500/25 transition transform hover:-translate-y-0.5 border border-amber-400">
+              <i class="fa-solid fa-calendar-check text-lg text-slate-950"></i>
+              <div class="text-left">
+                <span class="block text-[10px] uppercase font-bold text-amber-950">Công cụ Online Miễn Phí</span>
+                <span class="text-sm font-black">Tạo Lịch Công Tác Tuần &rarr;</span>
+              </div>
+            </a>
+
+            <a href="https://zalo.me/g/apzz0fibw75hlqlrt9xy" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-comments text-base"></i>
+              <span>Nhóm Zalo</span>
+            </a>
+
+            <a href="#huong-dan" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white text-warm-900 font-bold text-sm border border-warm-300 hover:border-brand-500 hover:text-brand-600 hover:bg-brand-50/50 shadow-sm transition">
+              <i class="fa-solid fa-book-open text-brand-600"></i>
+              <span>Xem Hướng Dẫn</span>
+            </a>
+          </div>
+
+          <!-- Quick badges -->
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-5 text-xs text-warm-700 font-semibold">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Không cần quyền Admin</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Word 2013, 2016, 2019, 2021, 365</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Bảo mật 100% Offline</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Không quảng cáo</span>
+          </div>
+        </div>
+
+        <!-- Word Ribbon UI Mockup mang tông màu OfficeFormat -->
+        <div class="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-warm-300 bg-white">
+          <div class="bg-warm-900 px-4 py-2.5 flex items-center justify-between text-warm-200 text-xs select-none">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              <span class="ml-2 font-medium text-warm-100"><i class="fa-solid fa-file-word text-blue-400 mr-1.5"></i> Microsoft Word - To_trinh_Ke_hoach_UBND.docx</span>
+            </div>
+            <div class="flex items-center gap-3 text-warm-300">
+              <span class="bg-brand-600 text-white text-[10px] px-2 py-0.5 rounded font-bold shadow-sm">OfficeFormat Active</span>
+            </div>
+          </div>
+
+          <div class="bg-warm-100 border-b border-warm-200 px-4 pt-2 flex items-center gap-1 text-xs font-semibold text-slate-600">
+            <span class="px-3 py-1.5 hover:bg-warm-200 rounded-t cursor-pointer">Tệp (File)</span>
+            <span class="px-3 py-1.5 hover:bg-warm-200 rounded-t cursor-pointer">Trang đầu (Home)</span>
+            <span class="px-3 py-1.5 hover:bg-warm-200 rounded-t cursor-pointer">Chèn (Insert)</span>
+            <span class="px-3 py-1.5 hover:bg-warm-200 rounded-t cursor-pointer">Bố trí (Layout)</span>
+            <span class="px-4 py-1.5 bg-white text-brand-600 font-bold border-t-2 border-brand-600 rounded-t shadow-sm">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1 text-brand-600"></i> OFFICEFORMAT
+            </span>
+          </div>
+
+          <div class="bg-gradient-to-b from-white to-warm-50 p-4 border-b border-warm-200 flex flex-wrap items-center gap-3 sm:gap-6 text-slate-700">
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-brand-50 border border-brand-200 hover:bg-brand-100 transition cursor-pointer text-center w-28 group">
+              <i class="fa-solid fa-scale-balanced text-xl text-brand-600 mb-1 group-hover:scale-110 transition"></i>
+              <span class="text-[11px] font-bold text-warm-900 leading-tight">Chuẩn Hóa<br>Nghị Định 30</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-amber-50 border border-amber-200 hover:bg-amber-100 transition cursor-pointer text-center w-28 group">
+              <i class="fa-solid fa-flag text-xl text-amber-600 mb-1 group-hover:scale-110 transition"></i>
+              <span class="text-[11px] font-bold text-warm-900 leading-tight">Chuẩn Hóa<br>Hướng Dẫn 05</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition cursor-pointer text-center w-28 group">
+              <i class="fa-solid fa-spell-check text-xl text-emerald-600 mb-1 group-hover:scale-110 transition"></i>
+              <span class="text-[11px] font-bold text-warm-900 leading-tight">Soát Lỗi<br>Chính Tả TV</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-rose-50 border border-rose-200 hover:bg-rose-100 transition cursor-pointer text-center w-28 group">
+              <i class="fa-solid fa-table text-xl text-rose-600 mb-1 group-hover:scale-110 transition"></i>
+              <span class="text-[11px] font-bold text-warm-900 leading-tight">Tự Căn Bảng<br>& Lề Chuẩn</span>
+            </div>
+
+            <div class="flex flex-col items-center justify-center p-2 rounded-xl bg-orange-50 border border-orange-200 hover:bg-orange-100 transition cursor-pointer text-center w-28 group">
+              <i class="fa-solid fa-folder-open text-xl text-orange-600 mb-1 group-hover:scale-110 transition"></i>
+              <span class="text-[11px] font-bold text-warm-900 leading-tight">Kho Biểu Mẫu<br>Hành Chính</span>
+            </div>
+            
+            <div class="hidden lg:flex ml-auto items-center gap-3 bg-brand-50 border border-brand-200 px-3 py-2 rounded-xl">
+              <i class="fa-solid fa-circle-check text-brand-600 text-lg"></i>
+              <span class="text-xs font-semibold text-brand-800">Trạng thái: Bản quyền vĩnh viễn</span>
+            </div>
+          </div>
+
+          <div class="p-6 sm:p-10 bg-warm-100/60 flex justify-center">
+            <div class="w-full max-w-2xl bg-white shadow-md p-6 sm:p-8 rounded-lg border border-warm-200 font-serif text-[12px] sm:text-[13px] leading-relaxed text-slate-800 select-none">
+              <div class="flex justify-between items-start mb-6 pb-4 border-b border-dashed border-warm-300">
+                <div class="text-center w-5/12">
+                  <div class="font-bold text-[12px]">ỦY BAN NHÂN DÂN...</div>
+                  <div class="font-bold text-[12px] underline decoration-1 underline-offset-2">SỞ / PHÒNG BAN</div>
+                  <div class="text-[11px] mt-1 text-slate-600">Số: ... /UBND-VP</div>
+                </div>
+                <div class="text-center w-7/12">
+                  <div class="font-bold text-[12px]">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                  <div class="font-bold text-[12px] underline decoration-1 underline-offset-4">Độc lập - Tự do - Hạnh phúc</div>
+                  <div class="text-[11px] italic mt-1 text-slate-600">..., ngày ... tháng ... năm 2026</div>
+                </div>
+              </div>
+              <div class="text-center font-bold text-sm sm:text-base my-3 uppercase tracking-wide text-brand-700">
+                KẾ HOẠCH TRIỂN KHAI NHIỆM VỤ CÔNG TÁC
+              </div>
+              <p class="text-justify indent-6 mb-2">
+                Căn cứ Nghị định số 30/2020/NĐ-CP ngày 05/03/2020 của Chính phủ về công tác văn thư; OfficeFormat tự động căn chỉnh toàn bộ lề trên 20mm, lề dưới 20mm, lề trái 30mm, lề phải 15mm; chuẩn hóa font chữ Times New Roman và giãn dòng tự động đúng chuẩn thể thức hành chính hiện hành.
+              </p>
+              <div class="mt-4 flex justify-end">
+                <div class="text-center w-52">
+                  <div class="font-bold uppercase text-[11px]">CHỦ TỊCH</div>
+                  <div class="text-[10px] italic text-slate-500 my-4">(Đã ký số điện tử)</div>
+                  <div class="font-bold text-[12px]">Họ và Tên</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION MỚI: TẠO LỊCH CÔNG TÁC TUẦN TRỰC TUYẾN (WEB APP) -->
+    <section id="lich-tuan" class="py-20 bg-gradient-to-b from-warm-100/70 via-white to-warm-50 border-b border-warm-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-900 text-xs font-bold mb-3 border border-amber-300">
+            <i class="fa-solid fa-star text-amber-600"></i> CÔNG CỤ TRỰC TUYẾN MỚI NHẤT
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-warm-900 mb-4 tracking-tight">
+            Lập & Xuất Lịch Công Tác Tuần <br class="hidden sm:block">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-amber-600">Chuẩn Thể Thức Hướng Dẫn 05-HD/VPTW</span>
+          </h2>
+          <p class="text-warm-800 text-sm sm:text-base leading-relaxed">
+            Phần mềm web chuyên nghiệp dành cho Chánh Văn phòng Đảng ủy, Thường trực HĐND, UBND và các cơ quan, đơn vị: Soạn thảo, xem trước thời gian thực A4 và xuất ra file Word (.docx) chuẩn 100% chỉ trong 2 phút.
+          </p>
+        </div>
+
+        <!-- Highlight Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="glass-card p-6 rounded-2xl border border-warm-300/80 hover:shadow-lg transition">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl mb-4 shadow-sm">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Chuyển Tuần Thông Minh</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Mặc định tuần hiện tại. Chuyển sang <strong>Tuần sau</strong> chỉ với 1 click: hệ thống tự động nhảy ngày tháng và xóa trắng toàn bộ nội dung để lên lịch mới tinh.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl border border-warm-300/80 hover:shadow-lg transition">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4 shadow-sm">
+              <i class="fa-solid fa-file-import"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Nạp Lịch Cũ Từ File Word</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Tải trực tiếp file Word (.docx / .doc) của tuần trước đã xuất: Hệ thống tự động bóc tách các cuộc họp, thành phần lãnh đạo, địa điểm để tái sử dụng ngay.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl border border-warm-300/80 hover:shadow-lg transition">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4 shadow-sm">
+              <i class="fa-solid fa-file-word"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Xuất Word Chuẩn Thể Thức</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Bảng biểu phân chia sáng/chiều, đường viền kép, dòng phân cách nét chấm, phần <em>Nơi nhận:</em> không in đậm, chèn chữ ký mực xanh và ghi chú phân công trực xe.
+            </p>
+          </div>
+        </div>
+
+        <!-- Banner Kêu gọi mở Web App -->
+        <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-warm-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-brand-700/60">
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="max-w-2xl text-center lg:text-left">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold mb-3 backdrop-blur-sm border border-white/10">
+                <i class="fa-solid fa-bolt"></i> CHẠY TRỰC TIẾP TRÊN TRÌNH DUYỆT • KHÔNG CẦN CÀI ĐẶT
+              </div>
+              <h3 class="font-display text-2xl sm:text-3xl font-extrabold mb-3">
+                Trải Nghiệm Trình Tạo Lịch Công Tác Ngay Hôm Nay
+              </h3>
+              <p class="text-warm-100 text-sm sm:text-base leading-relaxed opacity-90">
+                Giao diện chia đôi màn hình: Vừa soạn thảo bên trái, vừa xem trước chuẩn trang in A4 bên phải. Lưu kho lịch cũ, xuất file Word sẵn sàng ký ban hành.
+              </p>
+            </div>
+
+            <div class="flex-shrink-0 flex flex-col sm:flex-row gap-3.5">
+              <a href="/lich-tuan" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base shadow-xl shadow-amber-500/30 transition transform hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Mở Trình Tạo Lịch Tuần</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TÍNH NĂNG CỐT LÕI (CORE FEATURES) -->
+    <section id="tinh-nang" class="py-20 bg-white border-b border-warm-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold mb-3 border border-brand-200">
+            <i class="fa-solid fa-sparkles text-brand-600"></i> GIẢI PHÁP ĐỘT PHÁ
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-warm-900 mb-4">
+            Tính Năng Nổi Bật Của OfficeFormat
+          </h2>
+          <p class="text-warm-800 text-sm sm:text-base">
+            Tiết kiệm 90% thời gian căn chỉnh văn bản hành chính, đảm bảo không bao giờ bị trả lại công văn vì sai lỗi thể thức.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition border border-warm-200">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">1-Click Căn Lề & Thể Thức</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Tự động áp dụng chuẩn Nghị định 30/2020/NĐ-CP và Hướng dẫn 05 Đảng: Lề trang, tiêu ngữ, quốc hiệu, số hiệu và nơi nhận.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition border border-warm-200">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-spell-check"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Sửa Chính Tả Tiếng Việt</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Bộ từ điển tiếng Việt và thuật ngữ hành chính hơn 150.000 từ. Quét và sửa lỗi gõ sai Unikey, lỗi dính chữ và dấu thanh điệu.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition border border-warm-200">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-table-cells"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Tự Động Căn Bảng Biểu</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Tự động căn chỉnh độ rộng cột, lề ô bảng biểu vừa vặn với trang giấy, chống tràn lề hay gãy chữ bảng số liệu báo cáo.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition border border-warm-200">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-box-archive"></i>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Kho Mẫu Văn Bản Chuẩn</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Tích hợp sẵn đầy đủ mẫu: Tờ trình, Kế hoạch, Quyết định, Báo cáo, Công văn, Giấy mời... Chỉ cần mở ra và điền nội dung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: KHO PHẦN MỀM & DRIVER CHỮ KÝ SỐ (DIGITAL SIGNATURE HUB) -->
+    <section id="ky-so" class="py-20 bg-warm-50 border-b border-warm-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold mb-3 border border-brand-200">
+            <i class="fa-solid fa-shield-halved text-brand-600"></i> CÔNG CỤ DỊCH VỤ CÔNG & HÓA ĐƠN ĐIỆN TỬ
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-warm-900 mb-4">
+            Kho Driver & Phần Mềm Chữ Ký Số Chính Hãng
+          </h2>
+          <p class="text-warm-800 text-sm sm:text-base">
+            Tổng hợp link tải trực tiếp bộ cài Driver USB Token và ứng dụng ký số PDF chuẩn, giúp khắc phục triệt để lỗi "Không tìm thấy chứng thư số" trên Cổng DVC Quốc gia, Thuế điện tử và Kho bạc.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Viettel-CA -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-solid fa-shield-cat"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">Viettel-CA</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">Driver USB Token Viettel</h3>
+            <p class="text-xs text-warm-700 mb-4">Trình điều khiển Token v1, v2, v3 và phần mềm Viettel Sign Tool ký hóa đơn, bảo hiểm xã hội.</p>
+            <div class="space-y-2">
+              <a href="https://viettel-ca.vn/tai-ve" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-warm-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải Driver Viettel-CA Trực Tiếp
+              </a>
+            </div>
+          </div>
+
+          <!-- VNPT-CA -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-solid fa-tower-broadcast"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">VNPT-CA</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">VNPT Token PKI Manager</h3>
+            <p class="text-xs text-warm-700 mb-4">Bộ cài driver chứng thư số VNPT-CA và plugin tích hợp ký số một cửa Dịch vụ công.</p>
+            <div class="space-y-2">
+              <a href="https://kyso.vnpt.vn/tai-phan-mem" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-warm-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải Driver VNPT-CA Trực Tiếp
+              </a>
+            </div>
+          </div>
+
+          <!-- BKAV-CA -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">Bkav-CA</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">Bkav CA Token Manager</h3>
+            <p class="text-xs text-warm-700 mb-4">Bộ cài trình điều khiển chữ ký số Bkav và công cụ sửa lỗi chứng thư số tự động.</p>
+            <div class="space-y-2">
+              <a href="https://bkavca.vn/tai-ve" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-warm-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải Driver Bkav-CA Trực Tiếp
+              </a>
+            </div>
+          </div>
+
+          <!-- MISA-eSign -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-solid fa-file-invoice"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">MISA eSign</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">MISA eSign Driver & Service</h3>
+            <p class="text-xs text-warm-700 mb-4">Bộ kết nối ký hóa đơn điện tử Meinvoice, phần mềm kế toán MISA SME và nộp thuế.</p>
+            <div class="space-y-2">
+              <a href="https://esign.misa.vn/tai-ngay/" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-warm-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải MISA eSign Trực Tiếp
+              </a>
+            </div>
+          </div>
+
+          <!-- vSignPdf Cơ Yếu -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-solid fa-stamp"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">Ban Cơ Yếu</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">vSignPdf - Ký Số Văn Bản PDF</h3>
+            <p class="text-xs text-warm-700 mb-4">Phần mềm ký số công vụ chuyên dụng của Ban Cơ yếu Chính phủ dùng cho cơ quan nhà nước.</p>
+            <div class="space-y-2">
+              <a href="https://ca.gov.vn/tai-phan-mem" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải vSignPdf Bản Chuẩn
+              </a>
+            </div>
+          </div>
+
+          <!-- Java 8 Chuẩn Ký Thuế / Kho Bạc -->
+          <div class="glass-card p-6 rounded-2xl border border-warm-200 hover:border-brand-500 hover:shadow-lg transition">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-black">
+                <i class="fa-brands fa-java"></i>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-warm-100 text-warm-800 font-bold">Ký Thuế / DVC</span>
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-1">Java 8 Chuẩn Ký Điện Tử</h3>
+            <p class="text-xs text-warm-700 mb-4">Gói môi trường Java 8 32-bit tối ưu để ký hồ sơ Thuế điện tử và Cổng Dịch vụ công Kho bạc.</p>
+            <div class="space-y-2">
+              <a href="https://thuedientu.gdt.gov.vn/" target="_blank" rel="noopener" class="w-full py-2.5 px-4 rounded-xl bg-warm-900 hover:bg-black text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-download"></i> Tải Java Ký Số Trực Tiếp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 rounded-2xl bg-brand-50 border border-brand-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-2xl shrink-0 shadow-md">
+              <i class="fa-solid fa-wrench"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-warm-900 text-base">Cắm USB Token nhưng máy tính không nhận chứng thư số?</h4>
+              <p class="text-xs sm:text-sm text-warm-800 mt-0.5">Khắc phục nhanh: Rút Token cắm lại sang cổng USB 2.0 (màu đen), mở phần mềm Token Manager của hãng và kiểm tra ngày hết hạn chứng thư số.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HƯỚNG DẪN CÀI ĐẶT OFFICEFORMAT (3 BƯỚC) -->
+    <section id="huong-dan" class="py-20 bg-white border-b border-warm-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold mb-3 border border-brand-200">
+            <i class="fa-solid fa-circle-info"></i> CÀI ĐẶT 1 LẦN DÙNG MÃI MÃI
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-warm-900 mb-4">
+            3 Bước Cài Đặt OfficeFormat Siêu Tốc
+          </h2>
+          <p class="text-warm-800 text-sm sm:text-base">
+            Không cần chuyên viên CNTT, bạn hoàn toàn có thể tự cài đặt trên máy tính của mình chỉ trong chưa đầy 30 giây.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="glass-card p-8 rounded-2xl text-center relative border border-warm-200">
+            <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white font-display text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-600/30">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Tải File Cài Đặt</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Bấm nút tải bộ cài <code class="bg-brand-50 px-2 py-0.5 rounded text-brand-700 font-bold border border-brand-200">OfficeFormat-1.0-Setup.exe</code> trực tiếp từ website này (dung lượng ~3.4 MB).
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center relative border border-warm-200">
+            <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white font-display text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-600/30">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Nhấp Đúp Cài Đặt</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Đóng Microsoft Word, nhấp đúp vào file cài đặt vừa tải về và bấm <strong>Next (Tiếp tục)</strong>. Quá trình đăng ký Add-in tự động hoàn thành trong 5 giây.
+            </p>
+          </div>
+
+          <div class="glass-card p-8 rounded-2xl text-center relative border border-warm-200">
+            <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white font-display text-xl font-bold flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-600/30">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-warm-900 mb-2">Mở Word & Trải Nghiệm</h3>
+            <p class="text-sm text-warm-800 leading-relaxed">
+              Mở Word lên, bạn sẽ thấy ngay tab <strong>OfficeFormat</strong> trên thanh công cụ Ribbon với đầy đủ tính năng chuẩn hóa và soát chính tả tiếng Việt.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="downloads/OfficeFormat-1.0-Setup.exe" download="OfficeFormat-1.0-Setup.exe" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-brand-gradient text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:brightness-105 transition">
+            <i class="fa-solid fa-download"></i> Tải Ngay OfficeFormat (Bản Cài Đặt Miễn Phí)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CÂU HỎI THƯỜNG GẶP (FAQ) CHO SEO RICH SNIPPETS -->
+    <section id="faq" class="py-20 bg-warm-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-warm-900 mb-4">
+            Câu Hỏi Thường Gặp (FAQ)
+          </h2>
+          <p class="text-warm-800 text-sm sm:text-base">
+            Những thắc mắc phổ biến của người dùng khi cài đặt và sử dụng OfficeFormat.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <details class="group bg-white p-5 rounded-2xl border border-warm-200 [&_summary::-webkit-details-marker]:hidden" open>
+            <summary class="flex items-center justify-between cursor-pointer font-bold text-warm-900 text-base">
+              <span>OfficeFormat có thực sự miễn phí hoàn toàn không?</span>
+              <span class="ml-4 shrink-0 rounded-full bg-warm-100 p-1.5 text-warm-900 shadow-sm transition group-open:-rotate-180">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-warm-800 leading-relaxed">
+              <strong>Chính xác 100%.</strong> OfficeFormat là dự án được phát triển phi lợi nhuận nhằm hỗ trợ công chức, viên chức và người làm công tác văn phòng tại Việt Nam. Bạn không phải trả bất kỳ khoản phí nào và không bị giới hạn số ngày sử dụng.
+            </p>
+          </details>
+
+          <details class="group bg-white p-5 rounded-2xl border border-warm-200 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer font-bold text-warm-900 text-base">
+              <span>Cài đặt OfficeFormat có yêu cầu quyền Administrator không?</span>
+              <span class="ml-4 shrink-0 rounded-full bg-warm-100 p-1.5 text-warm-900 shadow-sm transition group-open:-rotate-180">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-warm-800 leading-relaxed">
+              Không cần. Bộ cài đặt OfficeFormat được lập trình để đăng ký trực tiếp vào tài khoản người dùng hiện tại (Current User), do đó bạn hoàn toàn có thể cài đặt trên máy tính cơ quan mà không bị vướng cửa sổ quyền Quản trị viên (Admin).
+            </p>
+          </details>
+
+          <details class="group bg-white p-5 rounded-2xl border border-warm-200 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer font-bold text-warm-900 text-base">
+              <span>OfficeFormat tương thích với các phiên bản Word nào?</span>
+              <span class="ml-4 shrink-0 rounded-full bg-warm-100 p-1.5 text-warm-900 shadow-sm transition group-open:-rotate-180">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-warm-800 leading-relaxed">
+              OfficeFormat tương thích mượt mà với Microsoft Word 2013, 2016, 2019, 2021 và Office 365 trên hệ điều hành Windows 7/8/10/11 (hỗ trợ cả 32-bit và 64-bit).
+            </p>
+          </details>
+
+          <details class="group bg-white p-5 rounded-2xl border border-warm-200 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between cursor-pointer font-bold text-warm-900 text-base">
+              <span>OfficeFormat có xung đột với bộ gõ tiếng Việt Unikey không?</span>
+              <span class="ml-4 shrink-0 rounded-full bg-warm-100 p-1.5 text-warm-900 shadow-sm transition group-open:-rotate-180">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm text-warm-800 leading-relaxed">
+              Hoàn toàn không xung đột. OfficeFormat hoạt động độc lập trên thanh công cụ Microsoft Word, tương thích tuyệt đối với Unikey, EVKey và các bộ gõ tiếng Việt chuẩn Unicode hiện hành.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-warm-900 text-warm-300 py-12 border-t border-warm-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white shadow-md">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+            <span class="font-display text-xl font-black text-white">Office<span class="text-brand-500">Format</span></span>
+          </div>
+          <p class="text-xs text-warm-300 leading-relaxed max-w-md">
+            Phần mềm chuẩn hóa văn bản hành chính công vụ miễn phí dành cho cán bộ, công chức, giáo viên và nhân viên văn phòng. Giúp nâng cao năng suất soạn thảo và chuẩn hóa văn bản theo đúng quy định pháp luật.
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="https://zalo.me/g/apzz0fibw75hlqlrt9xy" target="_blank" rel="noopener" class="px-4 py-2 rounded-xl bg-blue-600 text-white font-bold text-xs flex items-center gap-2 hover:bg-blue-700 transition shadow-sm">
+              <i class="fa-solid fa-comments text-sm"></i> Tham Gia Nhóm Zalo Hỗ Trợ Công Vụ
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Tính Năng Chính</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#tinh-nang" class="hover:text-white transition">Chuẩn Hóa Nghị Định 30</a></li>
+            <li><a href="#tinh-nang" class="hover:text-white transition">Chuẩn Hóa Hướng Dẫn 05</a></li>
+            <li><a href="#tinh-nang" class="hover:text-white transition">Soát Lỗi Chính Tả Word</a></li>
+            <li><a href="#tinh-nang" class="hover:text-white transition">Tự Động Căn Bảng Biểu</a></li>
+            <li><a href="#tinh-nang" class="hover:text-white transition">Kho Biểu Mẫu Công Văn</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Chữ Ký Số & Hỗ Trợ</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#ky-so" class="hover:text-white transition">Driver Token Viettel-CA</a></li>
+            <li><a href="#ky-so" class="hover:text-white transition">Driver Token VNPT-CA</a></li>
+            <li><a href="#ky-so" class="hover:text-white transition">Driver Token Bkav-CA</a></li>
+            <li><a href="#ky-so" class="hover:text-white transition">vSignPdf Ký Số PDF</a></li>
+            <li><a href="#faq" class="hover:text-white transition">Câu Hỏi Thường Gặp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-warm-800 flex flex-col sm:flex-row items-center justify-between text-xs text-warm-400 gap-4">
+        <div>&copy; 2026 OfficeFormat Community. Phát triển vì cộng đồng người dùng văn phòng Việt Nam.</div>
+        <div class="flex items-center gap-4 text-warm-300">
+          <span>Chuẩn Nghị định 30/2020/NĐ-CP</span>
+          <span>•</span>
+          <span>Hướng dẫn 05-HD/VPTW</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Floating Zalo Support Widget -->
+  <aside aria-label="Hỗ trợ Zalo" class="fixed bottom-6 right-6 z-50">
+    <a href="https://zalo.me/g/apzz0fibw75hlqlrt9xy" target="_blank" rel="noopener" aria-label="Tham gia Nhóm Zalo Hỗ Trợ Công Vụ" class="flex items-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-all group border-2 border-white">
+      <div class="relative flex items-center justify-center">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-300 opacity-75"></span>
+        <i class="fa-solid fa-comments text-lg"></i>
+      </div>
+      <span class="text-xs font-bold hidden sm:inline-block">Nhóm Zalo Hỗ Trợ Công Vụ</span>
+    </a>
+  </aside>
+</body>
+</html>

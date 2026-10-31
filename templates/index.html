@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lập & Xuất Lịch Công Tác Tuần - OfficeFormat Chuẩn Hướng Dẫn 05 & NĐ 30</title>
+    <!-- Google Fonts & Font Awesome (OfficeFormat Style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#FFF6F0',
+                            100: '#FFF1E6',
+                            200: '#FED7C3',
+                            300: '#FDB695',
+                            400: '#FA8453',
+                            500: '#FF7A45',
+                            600: '#E04F26',
+                            700: '#C83E18',
+                            800: '#A63010',
+                            900: '#832309',
+                            950: '#481003',
+                        },
+                        warm: {
+                            50: '#FDF8F4',
+                            100: '#FAF0E7',
+                            200: '#EFE0D3',
+                            300: '#E2C8B5',
+                            700: '#8B6351',
+                            800: '#6B4C3E',
+                            900: '#27150E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-warm-50 text-slate-800 font-sans flex flex-col h-screen overflow-hidden selection:bg-brand-600 selection:text-white">
+
+    <!-- HEADER TOP NAVIGATION BAR (OfficeFormat Executive System) -->
+    <header class="bg-[#1C100A] text-white border-b border-warm-900/80 px-3 sm:px-4 lg:px-5 h-14 flex items-center justify-between shadow-md z-30 no-print flex-shrink-0">
+        <!-- BRANDING (LEFT) -->
+        <div class="flex items-center gap-3 shrink-0">
+            <a href="/" class="text-xs px-2.5 py-1.5 rounded-lg text-warm-300 hover:text-white hover:bg-white/10 font-medium transition flex items-center gap-1.5 whitespace-nowrap shrink-0" title="Quay lại Trang chủ OfficeFormat">
+                <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                <span class="hidden sm:inline">Trang chủ</span>
+            </a>
+
+            <div class="h-4 w-[1px] bg-warm-800 shrink-0"></div>
+
+            <h1 class="text-xs font-bold tracking-wider text-warm-100 uppercase whitespace-nowrap">
+                Lịch Công Tác Tuần
+            </h1>
+        </div>
+
+        <!-- CHUYỂN TUẦN & HIỂN THỊ TUẦN (CENTER) -->
+        <div class="flex items-center bg-black/40 p-1 rounded-lg border border-warm-800/80 shrink-0 space-x-1">
+            <button type="button" id="btn-week-current" onclick="switchWeekMode('current')" 
+                    class="px-2.5 py-1 text-xs font-semibold rounded-md transition-all whitespace-nowrap bg-brand-600 text-white shadow-sm"
+                    title="Xem và sửa lịch Tuần hiện tại">
+                <span>Tuần hiện tại</span>
+            </button>
+
+            <button type="button" id="btn-week-next" onclick="switchWeekMode('next')" 
+                    class="px-2.5 py-1 text-xs font-medium rounded-md transition-all whitespace-nowrap text-warm-300 hover:text-white hover:bg-white/10"
+                    title="Chuyển sang soạn thảo Tuần sau (Tự động xóa trắng để lên lịch mới)">
+                <span>Tuần sau</span>
+            </button>
+
+            <div class="h-3.5 w-[1px] bg-warm-800 mx-0.5"></div>
+
+            <div id="current-week-label" class="text-xs text-warm-200 font-mono font-medium px-2 py-0.5 tracking-tight select-none whitespace-nowrap">
+                Tuần 44 (26/10 – 01/11/2026)
+            </div>
+        </div>
+
+        <!-- CÁC THAO TÁC TIỆN ÍCH & XUẤT FILE (RIGHT) -->
+        <div class="flex items-center gap-2 shrink-0">
+            <input type="file" id="direct-word-upload" accept=".docx,.doc" onchange="handleWordFileSelected(event)" class="hidden">
+            
+            <!-- Nhóm công cụ phụ trợ (Clean Toolbar) -->
+            <div class="flex items-center bg-black/40 p-1 rounded-lg border border-warm-800/80 shrink-0 space-x-0.5">
+                <button type="button" onclick="document.getElementById('direct-word-upload').click()" 
+                        class="text-xs px-2 py-1 hover:bg-white/10 text-warm-200 hover:text-white font-medium rounded-md transition flex items-center gap-1.5 whitespace-nowrap"
+                        title="Chọn file Word tuần trước từ máy tính để nạp">
+                    <i class="fa-solid fa-file-arrow-up text-warm-400 text-xs"></i>
+                    <span>Nạp Word</span>
+                </button>
+
+                <button type="button" onclick="openHistoryModal()" 
+                        class="text-xs px-2 py-1 hover:bg-white/10 text-warm-200 hover:text-white font-medium rounded-md transition flex items-center gap-1.5 whitespace-nowrap"
+                        title="Xem kho lưu trữ các tuần trước">
+                    <i class="fa-solid fa-box-archive text-warm-400 text-xs"></i>
+                    <span>Kho lịch</span>
+                    <span id="history-badge-count" class="bg-brand-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold leading-none">2</span>
+                </button>
+
+                <button type="button" onclick="saveCurrentToHistory()" 
+                        class="text-xs px-2 py-1 hover:bg-white/10 text-warm-200 hover:text-white font-medium rounded-md transition flex items-center gap-1.5 whitespace-nowrap"
+                        title="Lưu bản lịch hiện tại vào kho">
+                    <i class="fa-solid fa-floppy-disk text-emerald-400 text-xs"></i>
+                    <span class="hidden 2xl:inline">Lưu</span>
+                </button>
+
+                <button type="button" onclick="clearAllEvents()" 
+                        class="text-xs px-2 py-1 hover:bg-red-500/20 text-warm-300 hover:text-red-300 font-medium rounded-md transition flex items-center gap-1.5 whitespace-nowrap"
+                        title="Xóa trắng để nhập lại">
+                    <i class="fa-solid fa-arrows-rotate text-xs"></i>
+                    <span>Làm mới</span>
+                </button>
+            </div>
+
+            <!-- Nút chính: Xuất file Word (Primary Solid Button) -->
+            <button type="button" id="btn-export-docx" onclick="exportDocx()" 
+                    class="text-xs px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 active:bg-brand-700 text-white font-bold rounded-lg shadow-sm flex items-center gap-1.5 whitespace-nowrap shrink-0 transition active:scale-[0.98] cursor-pointer"
+                    title="Xuất file Word (.docx) chuẩn thể thức Hướng dẫn 05-HD/VPTW">
+                <i class="fa-solid fa-file-word text-sm"></i>
+                <span class="tracking-wide">Xuất Word</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN TWO-COLUMN WORKSPACE -->
+    <div class="flex flex-1 overflow-hidden">
+
+        <!-- CỘT TRÁI: BỘ SOẠN THẢO THÔNG MINH CHO CHÁNH VĂN PHÒNG -->
+        <div class="w-1/2 flex flex-col border-r border-warm-200 bg-warm-50/70 overflow-hidden no-print">
+            
+            <!-- TABS ĐIỀU KHIỂN -->
+            <div class="flex items-center px-4 pt-2.5 bg-white border-b border-warm-200 space-x-2">
+                <button type="button" id="tab-btn-schedule" class="px-4 py-2.5 text-xs font-bold border-b-2 border-brand-600 text-brand-600 transition flex items-center gap-1.5" onclick="switchTab('schedule')">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Lịch Các Ngày Trong Tuần</span>
+                </button>
+                <button type="button" id="tab-btn-meta" class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-warm-700 hover:text-brand-600 transition flex items-center gap-1.5" onclick="switchTab('meta')">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Thông Tin Cơ Quan & Ghi Chú</span>
+                </button>
+            </div>
+
+            <!-- NỘI DUNG TAB 1: LỊCH CÁC NGÀY -->
+            <div id="tab-content-schedule" class="flex-1 overflow-y-auto p-4 space-y-3.5">
+
+                <!-- THANH GỢI Ý NHANH (QUICK CHIPS) -->
+                <div class="bg-white p-3.5 rounded-2xl border border-warm-200/90 shadow-sm">
+                    <div class="text-[11px] font-bold text-warm-900 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+                        <span class="flex items-center gap-1.5 text-brand-700"><i class="fa-solid fa-bolt text-brand-600"></i> Gợi ý nhanh cho Chánh Văn phòng</span>
+                        <span class="text-warm-700 font-normal">Nhấp để sao chép</span>
+                    </div>
+                    
+                    <!-- Lãnh đạo gợi ý -->
+                    <div class="mb-2">
+                        <span class="text-[11px] text-warm-800 font-bold mr-1">Lãnh đạo:</span>
+                        <div id="quick-leaders-list" class="inline-flex flex-wrap gap-1.5"></div>
+                    </div>
+
+                    <!-- Địa điểm gợi ý -->
+                    <div class="mb-2">
+                        <span class="text-[11px] text-warm-800 font-bold mr-1">Địa điểm:</span>
+                        <div id="quick-locations-list" class="inline-flex flex-wrap gap-1.5"></div>
+                    </div>
+
+                    <!-- Cán bộ VP + Lái xe -->
+                    <div>
+                        <span class="text-[11px] text-warm-800 font-bold mr-1">VP + LX:</span>
+                        <div id="quick-staff-list" class="inline-flex flex-wrap gap-1.5"></div>
+                    </div>
+                </div>
+
+                <!-- KHU VỰC CÁC NGÀY TRONG TUẦN -->
+                <div id="days-editor-container"></div>
+            </div>
+
+            <!-- NỘI DUNG TAB 2: THÔNG TIN HÀNH CHÍNH & GHI CHÚ -->
+            <div id="tab-content-meta" class="flex-1 overflow-y-auto p-4 space-y-4 hidden">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-800 text-sm border-b pb-2 flex items-center space-x-2">
+                        <span>🏛️ Thông Tin Thể Thức Ban Hành</span>
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Cơ quan cấp trên</label>
+                            <input type="text" id="input-agency-upper" class="w-full text-xs p-2 border rounded border-slate-300"
+                                   oninput="onMetaFieldChange('agency_upper', this.value)">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Cơ quan ban hành</label>
+                            <input type="text" id="input-agency-name" class="w-full text-xs p-2 border rounded border-slate-300 font-bold"
+                                   oninput="onMetaFieldChange('agency_name', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Địa danh & Ngày ký</label>
+                            <input type="text" id="input-doc-date" class="w-full text-xs p-2 border rounded border-slate-300"
+                                   oninput="onMetaFieldChange('doc_date_text', this.value)">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Tiêu đề thông báo</label>
+                            <input type="text" id="input-doc-title" class="w-full text-xs p-2 border rounded border-slate-300 font-medium"
+                                   oninput="onMetaFieldChange('doc_title', this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GHI CHÚ CUỐI TUẦN & DỰ KIẾN TUẦN SAU -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="font-bold text-slate-800 text-sm border-b pb-2 flex items-center space-x-2">
+                        <span>📝 Ghi Chú & Dự Kiến Lịch Tuần Sau</span>
+                    </h3>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Ghi chú trực lái xe cuối tuần</label>
+                        <input type="text" id="input-driver-note" class="w-full text-xs p-2 border rounded border-slate-300"
+                               oninput="onMetaFieldChange('driver_duty_note', this.value)">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Ghi chú thay cho giấy mời</label>
+                        <input type="text" id="input-invitation-note" class="w-full text-xs p-2 border rounded border-slate-300"
+                               oninput="onMetaFieldChange('invitation_note', this.value)">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Ghi chú giải thích chữ màu ĐỎ (Lịch thay đổi / bổ sung)</label>
+                        <input type="text" id="input-change-note" placeholder="vd: * Chữ màu đỏ là nội dung có thay đổi, bổ sung so với lịch ban đầu." class="w-full text-xs p-2 border rounded border-slate-300 text-red-600 font-medium"
+                               oninput="onMetaFieldChange('change_note', this.value)">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Tiêu đề dự kiến tuần sau</label>
+                        <input type="text" id="input-next-week-title" class="w-full text-xs p-2 border rounded border-slate-300 font-bold"
+                               oninput="onMetaFieldChange('next_week_title', this.value)">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Danh sách công việc dự kiến tuần sau (mỗi việc 1 dòng)</label>
+                        <textarea id="input-next-week-items" rows="4" class="w-full text-xs p-2 border rounded border-slate-300 font-mono text-[11px]"
+                                  oninput="onNextWeekItemsChange(this.value)"></textarea>
+                    </div>
+                </div>
+
+                <!-- NƠI NHẬN & CHỮ KÝ -->
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="font-bold text-slate-800 text-sm border-b pb-2 flex items-center space-x-2">
+                        <span>✍️ Nơi Nhận & Thẩm Quyền Ký</span>
+                    </h3>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Danh sách nơi nhận (mỗi dòng 1 nơi nhận)</label>
+                        <textarea id="input-recipients" rows="4" class="w-full text-xs p-2 border rounded border-slate-300 font-mono text-[11px]"
+                                  oninput="onRecipientsChange(this.value)"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Thẩm quyền ký</label>
+                            <input type="text" id="input-signer-authority" class="w-full text-xs p-2 border rounded border-slate-300 font-bold"
+                                   oninput="onMetaFieldChange('signer_authority', this.value)">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Chức danh người ký</label>
+                            <input type="text" id="input-signer-title" class="w-full text-xs p-2 border rounded border-slate-300 font-bold"
+                                   oninput="onMetaFieldChange('signer_title', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 items-center">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Họ và tên người ký</label>
+                            <input type="text" id="input-signer-name" class="w-full text-xs p-2 border rounded border-slate-300 font-bold"
+                                   oninput="onMetaFieldChange('signer_name', this.value)">
+                        </div>
+                        <div class="pt-4">
+                            <label class="inline-flex items-center cursor-pointer select-none">
+                                <input type="checkbox" id="check-include-signature" checked 
+                                       class="rounded border-warm-300 text-brand-600 focus:ring-brand-500"
+                                       onchange="onMetaFieldChange('include_signature', this.checked)">
+                                <span class="ml-2 text-xs font-semibold text-warm-900">Chèn ảnh chữ ký mực xanh</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CỘT PHẢI: MÀN HÌNH XEM TRƯỚC TRỰC QUAN 1:1 (LIVE PREVIEW) -->
+        <div class="w-1/2 flex flex-col bg-[#3e2820] overflow-hidden">
+            <!-- Toolbar của Preview -->
+            <div class="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-warm-900 to-brand-950 text-warm-200 border-b border-warm-800 z-10 no-print flex-shrink-0">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-white flex items-center space-x-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Xem trước trực quan (A4 Live Preview)</span>
+                    </span>
+                    <span class="text-[11px] text-warm-300">• Tự động cập nhật theo thời gian thực</span>
+                </div>
+
+                <!-- Zoom Controls -->
+                <div class="flex items-center space-x-1 bg-warm-950 px-2 py-0.5 rounded-lg border border-warm-800">
+                    <button type="button" class="px-1.5 text-xs text-warm-300 hover:text-white" onclick="setZoom(Math.max(0.5, appState.zoomLevel - 0.1))" title="Thu nhỏ">−</button>
+                    <span id="zoom-level-text" class="text-xs font-mono px-1 font-bold text-amber-300">100%</span>
+                    <button type="button" class="px-1.5 text-xs text-warm-300 hover:text-white" onclick="setZoom(Math.min(1.5, appState.zoomLevel + 0.1))" title="Phóng to">+</button>
+                    <button type="button" class="text-[10px] text-warm-400 hover:text-white ml-1 px-1 border-l border-warm-800" onclick="setZoom(1.0)">100%</button>
+                    <button type="button" class="text-[10px] text-warm-400 hover:text-white px-1" onclick="setZoom(0.85)">Vừa vặn</button>
+                </div>
+            </div>
+
+            <!-- Khung giấy A4 -->
+            <div class="a4-container flex-1">
+                <div class="a4-page" id="a4-preview-content">
+                    <!-- Nội dung render động qua JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: KHO LỊCH CÔNG TÁC ĐÃ LƯU (NẠP LỊCH CŨ) -->
+    <div id="history-modal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-3xl shadow-2xl border border-warm-200 max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden animate-fade-in">
+            <!-- Modal Header -->
+            <div class="px-5 py-4 bg-gradient-to-r from-warm-900 to-brand-950 text-white flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-box-archive text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-wide">Nạp Lịch Cũ / File Word Tuần Trước</h2>
+                        <p class="text-[11px] text-warm-300">Chọn file Word (.docx / .doc) của tuần trước hoặc chọn từ danh sách đã lưu</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeHistoryModal()" class="text-warm-300 hover:text-white p-1 rounded-lg hover:bg-warm-800 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- VÙNG NẠP TRỰC TIẾP TỪ FILE WORD -->
+            <div class="p-4 bg-brand-50 border-b border-brand-200 flex items-center justify-between flex-shrink-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-gradient text-white flex items-center justify-center font-bold text-lg shadow-md shadow-brand-600/30">
+                        W
+                    </div>
+                    <div>
+                        <div class="font-bold text-xs text-warm-900">Nạp trực tiếp từ file Word (.docx hoặc .doc)</div>
+                        <div class="text-[11px] text-warm-700">Bóc tách tự động lịch họp, lãnh đạo, địa điểm, chữ đỏ từ file Word đã xuất</div>
+                    </div>
+                </div>
+                <input type="file" id="modal-word-upload" accept=".docx,.doc" onchange="handleWordFileSelected(event)" class="hidden">
+                <button type="button" onclick="document.getElementById('modal-word-upload').click()" 
+                        class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center space-x-1.5 cursor-pointer">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span>Chọn file Word từ máy...</span>
+                </button>
+            </div>
+
+            <!-- Danh sách lịch cũ -->
+            <div id="history-list-container" class="flex-1 overflow-y-auto p-5 space-y-3">
+                <div class="text-center py-8 text-warm-700 text-xs">Đang tải danh sách lịch cũ...</div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-5 py-3 bg-warm-100 border-t border-warm-200 flex items-center justify-between text-xs text-warm-700 flex-shrink-0">
+                <div class="flex items-center space-x-1 text-[11px]">
+                    <span>💡 Gợi ý: Bấm <strong>"Nạp sang tuần đang chọn"</strong> để tái sử dụng khung người dự & địa điểm cho tuần mới.</span>
+                </div>
+                <button type="button" onclick="closeHistoryModal()" class="px-4 py-1.5 bg-warm-200 hover:bg-warm-300 text-warm-900 font-semibold rounded-lg transition">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Switch Tab Handler -->
+    <script>
+        function switchTab(tab) {
+            const btnSchedule = document.getElementById("tab-btn-schedule");
+            const btnMeta = document.getElementById("tab-btn-meta");
+            const contentSchedule = document.getElementById("tab-content-schedule");
+            const contentMeta = document.getElementById("tab-content-meta");
+
+            if (tab === 'schedule') {
+                btnSchedule.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-brand-600 text-brand-600 transition flex items-center gap-1.5";
+                btnMeta.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-warm-700 hover:text-brand-600 transition flex items-center gap-1.5";
+                contentSchedule.classList.remove("hidden");
+                contentMeta.classList.add("hidden");
+            } else {
+                btnMeta.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-brand-600 text-brand-600 transition flex items-center gap-1.5";
+                btnSchedule.className = "px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-warm-700 hover:text-brand-600 transition flex items-center gap-1.5";
+                contentMeta.classList.remove("hidden");
+                contentSchedule.classList.add("hidden");
+            }
+        }
+    </script>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

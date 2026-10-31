@@ -1,0 +1,222 @@
+/* =========================================================
+   PHẦN MỀM LẬP & XUẤT LỊCH CÔNG TÁC TUẦN
+   OfficeFormat Design System (#E04F26 & Warm Palette)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap');
+
+:root {
+  --brand-50: #FFF6F0;
+  --brand-100: #FFF1E6;
+  --brand-200: #FED7C3;
+  --brand-300: #FDB695;
+  --brand-500: #FF7A45;
+  --brand-600: #E04F26;
+  --brand-700: #C83E18;
+  --brand-800: #A63010;
+  --brand-900: #832309;
+  
+  --warm-50: #FDF8F4;
+  --warm-100: #FAF0E7;
+  --warm-200: #EFE0D3;
+  --warm-300: #E2C8B5;
+  --warm-700: #8B6351;
+  --warm-800: #6B4C3E;
+  --warm-900: #27150E;
+
+  --primary: #E04F26;
+  --primary-hover: #C83E18;
+  --primary-light: #FFF1E6;
+  --accent-red: #dc2626;
+  --accent-gold: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--warm-50);
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--warm-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--warm-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-300);
+}
+
+/* ================== A4 Preview Sheet ================== */
+.a4-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px;
+  background: #3e2820; /* Deep warm brown matching OfficeFormat executive tone */
+  min-height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm 10mm 15mm 16mm;
+  margin-bottom: 24px;
+  background: white;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  font-family: 'Times New Roman', Times, serif;
+  color: #000;
+  position: relative;
+  transition: transform 0.2s ease;
+  transform-origin: top center;
+  font-size: 14pt;
+  line-height: 1.25;
+}
+
+/* Table styles in A4 Preview */
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-left: 3px double #000;
+  border-right: 3px double #000;
+  border-top: 3px double #000;
+  border-bottom: 1px solid #000;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12pt;
+}
+
+.preview-table th {
+  border: 1px solid #000;
+  border-top: 3px double #000;
+  border-bottom: 2px double #000 !important;
+  border-left: 2px double #000 !important;
+  border-right: 2px double #000 !important;
+  padding: 4px 6px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fafafa;
+}
+
+.preview-table th:first-child {
+  border-left: 3px double #000 !important;
+}
+
+.preview-table th:last-child {
+  border-right: 3px double #000 !important;
+}
+
+.preview-table td {
+  border: 1px solid #000;
+  border-left: 2px double #000 !important;
+  border-right: 2px double #000 !important;
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+.preview-table td:first-child {
+  border-left: 3px double #000 !important;
+}
+
+.preview-table td:last-child {
+  border-right: 3px double #000 !important;
+}
+
+.preview-table td.cell-dotted-bottom {
+  border-bottom: 1px dotted #000 !important;
+}
+
+.preview-table td.cell-dotted-top {
+  border-top: 1px dotted #000 !important;
+}
+
+.text-red-important {
+  color: #dc2626 !important;
+}
+
+/* Quick chips (OfficeFormat Warm Theme) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: var(--brand-50);
+  color: var(--brand-900);
+  border: 1px solid var(--brand-200);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+.chip:hover {
+  background: var(--brand-600);
+  color: #ffffff;
+  border-color: var(--brand-700);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(224, 79, 38, 0.25);
+}
+.chip-active {
+  background: var(--brand-600);
+  color: #ffffff;
+}
+
+/* Event row card */
+.event-card {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+}
+.event-card:hover {
+  border-color: var(--brand-600);
+  box-shadow: 0 4px 12px rgba(224, 79, 38, 0.08);
+}
+.event-card.is-red {
+  border-left: 3px solid #dc2626;
+  background-color: #fef2f2;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+/* Print view */
+@media print {
+  body {
+    background: white;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .a4-container {
+    background: white;
+    padding: 0;
+  }
+  .a4-page {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    page-break-after: always;
+  }
+}

@@ -1,12 +1,43 @@
 import os
 import re
+import sys
+import shutil
+import subprocess
 import docx
 from docx.shared import Inches, Pt, RGBColor
 
-import sys
-
 def convert_doc_to_docx(doc_path, out_docx_path):
-    """Chuyển đổi file .doc cũ sang .docx bằng Microsoft Word COM (trên Windows) hoặc thông báo nếu trên Linux."""
+    """
+    Chuyển đổi file .doc cũ sang .docx:
+    - Trên Linux / Docker: Dùng LibreOffice headless (soffice).
+    - Trên Windows: Dùng LibreOffice nếu có, hoặc Microsoft Word COM (win32com).
+    """
+    abs_doc = os.path.abspath(doc_path)
+    abs_out = os.path.abspath(out_docx_path)
+    out_dir = os.path.dirname(abs_out)
+
+    # 1. Thử qua LibreOffice (soffice / libreoffice) nếu có
+    soffice_cmd = shutil.which('soffice') or shutil.which('libreoffice')
+    if soffice_cmd:
+        try:
+            subprocess.run(
+                [soffice_cmd, '--headless', '--convert-to', 'docx', abs_doc, '--outdir', out_dir],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=45
+            )
+            base_name = os.path.splitext(os.path.basename(doc_path))[0]
+            generated_docx = os.path.join(out_dir, base_name + '.docx')
+            if os.path.exists(generated_docx):
+                if generated_docx != abs_out:
+                    if os.path.exists(abs_out):
+                        os.remove(abs_out)
+                    os.replace(generated_docx, abs_out)
+                return abs_out
+        except Exception as e:
+            print(f"[!] LibreOffice conversion error: {e}")
+
+    # 2. Trên Windows: Thử qua MS Word COM
     if sys.platform == 'win32':
         try:
             import pythoncom
@@ -17,17 +48,23 @@ def convert_doc_to_docx(doc_path, out_docx_path):
                 word.Visible = False
                 word.DisplayAlerts = False
                 try:
-                    doc = word.Documents.Open(os.path.abspath(doc_path))
-                    doc.SaveAs2(os.path.abspath(out_docx_path), FileFormat=16) # wdFormatXMLDocument = 16
+                    doc = word.Documents.Open(abs_doc)
+                    doc.SaveAs2(abs_out, FileFormat=16) # wdFormatXMLDocument = 16
                     doc.Close(False)
                 finally:
                     word.Quit()
             finally:
                 pythoncom.CoUninitialize()
-            return out_docx_path
+            if os.path.exists(abs_out):
+                return abs_out
         except Exception as e:
-            pass
-    raise RuntimeError("Máy chủ đám mây (Linux) không hỗ trợ định dạng .doc cũ. Vui lòng mở file bằng Word trên máy tính và lưu thành file .docx trước khi nạp!")
+            print(f"[!] Windows Word COM error: {e}")
+
+    # 3. Nếu chưa cài LibreOffice
+    raise RuntimeError(
+        "Máy chủ đám mây chưa được kích hoạt Docker/LibreOffice để tự động đọc file .doc cũ. "
+        "Vui lòng mở file bằng Word trên máy tính và lưu thành file .docx trước khi nạp!"
+    )
 
 def is_binary_doc_file(file_path):
     """Kiểm tra xem file có phải định dạng Word nhị phân cũ .doc (OLE2 Compound Document) không."""

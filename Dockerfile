@@ -18,8 +18,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Sao chép toàn bộ mã nguồn ứng dụng
 COPY . .
 
-# Render tự động cấu hình cổng qua biến môi trường $PORT (mặc định 10000)
-ENV PORT=10000
-EXPOSE 10000
+# Tạo thư mục và cấp toàn quyền ghi cho user container (Hugging Face Spaces chạy với UID 1000)
+RUN mkdir -p /app/data /app/data/history /app/downloads && chmod -R 777 /app
 
-CMD ["sh", "-c", "gunicorn server:app --bind 0.0.0.0:${PORT:-10000} --workers 2 --timeout 120"]
+# Cổng mặc định cho Hugging Face Spaces là 7860 (Render sẽ tự động ghi đè qua biến môi trường $PORT)
+ENV PORT=7860
+EXPOSE 7860
+
+CMD ["sh", "-c", "gunicorn server:app --bind 0.0.0.0:${PORT:-7860} --workers 2 --timeout 120"]

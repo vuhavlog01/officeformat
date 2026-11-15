@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.License.LicenseDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:version="clr-namespace:VFormat.Core.Common;assembly=VFormat.Core" Width="660" Height="660" MinWidth="600" MinHeight="520" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" FontFamily="Segoe UI, Tahoma, Arial" UseLayoutRounding="True" xmlns:license="clr-namespace:VFormat.UI.License;assembly=VFormat.UI" Title="{Binding Source={x:Static version:Constants.AppDisplayName}, StringFormat=Quản lý Bản quyền - {0}}">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+      <BooleanToVisibilityConverter x:Key="BoolToVis" />
+      <Style x:Key="CompactCard" TargetType="{x:Type Border}" BasedOn="{StaticResource FluentCard}">
+        <Setter Property="Border.Padding" Value="12,10" />
+      </Style>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Background="{StaticResource BrushCardBackground}" Padding="16,10" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1">
+      <DockPanel>
+        <TextBlock Text="{x:Static version:Constants.VersionBadge}" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" />
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <Path Data="{StaticResource IconShield}" Fill="{StaticResource BrushPrimary}" Width="18" Height="18" Stretch="Uniform" Margin="0,0,8,0" VerticalAlignment="Center" />
+          <TextBlock Text="Bản quyền OfficeFormat" FontSize="18" FontWeight="Bold" Foreground="{StaticResource BrushTextPrimary}" VerticalAlignment="Center" />
+        </StackPanel>
+      </DockPanel>
+    </Border>
+    <ScrollViewer Name="LicenseContentScroll" Grid.Row="1" Padding="16,12" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+      <StackPanel>
+        <Border Style="{StaticResource CompactCard}" Margin="0,0,0,8">
+          <StackPanel>
+            <TextBlock FontSize="13" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding LicenseStatus}">
+              <FrameworkElement.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                  <Setter Property="Foreground" Value="#D97706" />
+                  <Style.Triggers>
+                    <DataTrigger Value="True" Binding="{Binding IsSuccess}">
+                      <Setter Property="Foreground" Value="{StaticResource BrushSuccess}" />
+                    </DataTrigger>
+                  </Style.Triggers>
+                </Style>
+              </FrameworkElement.Style>
+            </TextBlock>
+            <TextBlock FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource BrushTextSecondary}" Margin="0,3,0,0" Text="{Binding ExpirationInfo}" />
+          </StackPanel>
+        </Border>
+        <Border Style="{StaticResource CompactCard}" Margin="0,0,0,8" Visibility="{Binding ShowBuyLicensePrompt, Converter={StaticResource BoolToVis}}">
+          <DockPanel>
+            <Button DockPanel.Dock="Right" Content="Mua bản quyền OfficeFormat" Style="{StaticResource FluentPrimaryButton}" MinHeight="36" Padding="12,6" Command="{Binding BuyLicenseCommand}" />
+            <TextBlock Text="Chưa có mã bản quyền?" VerticalAlignment="Center" FontSize="12" Margin="0,0,12,0" />
+          </DockPanel>
+        </Border>
+        <Grid Margin="0,0,0,8">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <StackPanel>
+            <TextBlock Text="Mã máy tính (HWID)" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,3" />
+            <TextBlock FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource BrushTextPrimary}" ToolTip="Cung cấp mã này cho hỗ trợ khi cần kích hoạt ngoại tuyến." Text="{Binding Hwid}" />
+          </StackPanel>
+          <Button Grid.Column="1" Content="Sao chép" Style="{StaticResource FluentSecondaryButton}" MinHeight="34" Padding="12,6" Margin="12,0,0,0" VerticalAlignment="Center" Command="{Binding CopyHwidCommand}" />
+        </Grid>
+        <TabControl Name="LicenseTabs" Style="{StaticResource FluentTabControl}">
+          <TabItem Header="Kích Hoạt Online" Style="{StaticResource FluentTabItem}">
+            <Border Style="{StaticResource CompactCard}" Margin="0,6,0,0">
+              <StackPanel>
+                <TextBlock Text="Nhập Mã Bản Quyền (License Key):" FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,6" />
+                <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding LicenseKey, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="Kích Hoạt Trực Tuyến" Style="{StaticResource FluentPrimaryButton}" MinHeight="36" Padding="12,6" HorizontalAlignment="Left" Width="180" Command="{Binding ActivateOnlineCommand}" />
+              </StackPanel>
+            </Border>
+          </TabItem>
+          <TabItem Header="Kích Hoạt Ngoại Tuyến" Style="{StaticResource FluentTabItem}">
+            <Border Style="{StaticResource CompactCard}" Margin="0,6,0,0">
+              <StackPanel>
+                <TextBlock Text="Dùng tệp kích hoạt được cấp cho máy này khi không có Internet." TextWrapping="Wrap" FontSize="12" Margin="0,0,0,10" />
+                <Button Content="Nạp Tệp Kích Hoạt" Style="{StaticResource FluentPrimaryButton}" MinHeight="36" Padding="12,6" HorizontalAlignment="Left" Width="200" Margin="0,0,0,8" Command="{Binding ImportActivationFileCommand}" />
+                <TextBlock Text="Hoặc nhập mã kích hoạt đã được cấp:" FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,6" />
+                <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding OfflineCode, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="Kích Hoạt Ngoại Tuyến" Style="{StaticResource FluentPrimaryButton}" MinHeight="36" Padding="12,6" HorizontalAlignment="Left" Width="180" Command="{Binding ActivateOfflineCommand}" />
+              </StackPanel>
+            </Border>
+          </TabItem>
+          <TabItem Header="Đổi máy" Style="{StaticResource FluentTabItem}">
+            <Border Style="{StaticResource CompactCard}" Margin="0,6,0,0">
+              <StackPanel>
+                <TextBlock FontSize="13" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{StaticResource BrushPrimary}" Margin="0,0,0,10" Text="{Binding TransferStatusText}" />
+                <TextBlock Text="Chỉ dành cho bản vĩnh viễn kích hoạt online. Máy hiện tại sẽ ngắt bản quyền sau khi bạn xác nhận." FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,12" />
+                <WrapPanel>
+                  <Button Content="Đổi máy" Style="{StaticResource FluentPrimaryButton}" MinHeight="36" Padding="14,6" Margin="0,0,8,6" Command="{Binding DeviceTransferCommand}" />
+                  <Button Content="Làm mới" Style="{StaticResource FluentSecondaryButton}" MinHeight="36" Padding="12,6" Margin="0,0,8,6" Command="{Binding RefreshCommand}" />
+                  <Button Content="Mua lượt đổi máy OfficeFormat" Style="{StaticResource FluentSecondaryButton}" MinHeight="36" Padding="12,6" Margin="0,0,0,6" ToolTip="Mua lượt không tự ngắt bản quyền." Command="{Binding BuyTransferCreditCommand}" Visibility="{Binding ShowBuyTransferButton, Converter={StaticResource BoolToVis}}" />
+                </WrapPanel>
+              </StackPanel>
+            </Border>
+          </TabItem>
+        </TabControl>
+      </StackPanel>
+    </ScrollViewer>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" Padding="16,10" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0">
+      <DockPanel>
+        <Button DockPanel.Dock="Right" Content="Đóng" Style="{StaticResource FluentSecondaryButton}" MinWidth="80" MinHeight="36" Padding="12,6" Command="{Binding CloseCommand}" />
+        <TextBlock FontSize="12" Foreground="{StaticResource BrushPrimary}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,12,0" Text="{Binding StatusMessage}" />
+      </DockPanel>
+    </Border>
+  </Grid>
+</Window>

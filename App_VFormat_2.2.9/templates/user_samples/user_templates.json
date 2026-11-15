@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "sample_1",
+    "Name": "Tờ trình bổ nhiệm cán bộ năm 2026",
+    "FileName": "To_trinh_bo_nhiem_can_bo_2026.docx",
+    "OriginalFilePath": "C:\\Users\\DT\\AppData\\Roaming\\VFormat\\user_templates\\To_trinh_bo_nhiem_can_bo_2026.docx",
+    "DateAdded": "\/Date(1790135235691)\/",
+    "LastModified": "\/Date(1790135235691)\/",
+    "FileSizeBytes": 38493,
+    "Description": "Mẫu tờ trình chuẩn theo quy trình bổ nhiệm cán bộ lãnh đạo quản lý",
+    "FormattedSize": "37,6 KB",
+    "FormattedDate": "26/09/2026 08:00"
+  },
+  {
+    "Id": "sample_2",
+    "Name": "Báo cáo tình hình thực hiện nhiệm vụ quý",
+    "FileName": "Bao_cao_tinh_hinh_nhiem_vu_quy.docx",
+    "OriginalFilePath": "C:\\Users\\DT\\AppData\\Roaming\\VFormat\\user_templates\\Bao_cao_tinh_hinh_nhiem_vu_quy.docx",
+    "DateAdded": "\/Date(1789876035691)\/",
+    "LastModified": "\/Date(1790048835691)\/",
+    "FileSizeBytes": 38481,
+    "Description": "Mẫu báo cáo định kỳ tháng/quý theo quy chuẩn báo cáo hành chính",
+    "FormattedSize": "37,6 KB",
+    "FormattedDate": "26/09/2026 08:00"
+  },
+  {
+    "Id": "sample_3",
+    "Name": "Kế hoạch tuyên truyền bảo vệ an ninh trật tự",
+    "FileName": "Ke_hoach_tuyen_truyen_an_ninh.docx",
+    "OriginalFilePath": "C:\\Users\\DT\\AppData\\Roaming\\VFormat\\user_templates\\Ke_hoach_tuyen_truyen_an_ninh.docx",
+    "DateAdded": "\/Date(1789616835691)\/",
+    "LastModified": "\/Date(1789962435691)\/",
+    "FileSizeBytes": 38641,
+    "Description": "Kế hoạch phối hợp tuyên truyền vận động quần chúng bảo vệ ANTQ",
+    "FormattedSize": "37,7 KB",
+    "FormattedDate": "26/09/2026 08:00"
+  },
+  {
+    "Id": "sample_4",
+    "Name": "Giấy mời họp Ban Thường vụ",
+    "FileName": "Giay_moi_hop_ban_thuong_vu.docx",
+    "OriginalFilePath": "C:\\Users\\DT\\AppData\\Roaming\\VFormat\\user_templates\\Giay_moi_hop_ban_thuong_vu.docx",
+    "DateAdded": "\/Date(1789357635692)\/",
+    "LastModified": "\/Date(1789876035692)\/",
+    "FileSizeBytes": 38335,
+    "Description": "Mẫu giấy mời họp nội bộ Đảng ủy và Ban Thường vụ",
+    "FormattedSize": "37,4 KB",
+    "FormattedDate": "26/09/2026 08:00"
+  }
+]

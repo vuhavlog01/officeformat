@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.PageMarginDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Title="OfficeFormat - CÀI ĐẶT CĂN LỀ TRANG A4" Width="480" Height="530" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Segoe UI, Tahoma, Arial" xmlns:common="clr-namespace:VFormat.UI.Common;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,12">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <Path Data="{StaticResource IconRulerCombined}" Fill="{StaticResource BrushPrimary}" Width="15" Height="15" Stretch="Uniform" Margin="0,0,8,0" VerticalAlignment="Center" />
+          <TextBlock Text="THIẾT LẬP CĂN LỀ TRANG A4" FontWeight="Bold" FontSize="14" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="Tùy chỉnh 4 lề trang in và khoảng cách Đầu/Chân trang theo đúng quy chuẩn thể thức." FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="23,3,0,0" />
+      </StackPanel>
+    </Border>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="16,10">
+      <StackPanel>
+        <TextBlock Text="Quy chuẩn áp dụng:" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,4" Foreground="{StaticResource BrushTextPrimary}" />
+        <ComboBox Height="30" FontSize="12" Margin="0,0,0,12" ItemsSource="{Binding Regulations}" SelectedIndex="{Binding SelectedRegulationIndex}" />
+        <Border Style="{StaticResource FluentCard}" Margin="0,0,0,12">
+          <StackPanel>
+            <TextBlock Text="THÔNG SỐ CĂN LỀ TRANG A4 (MM)" FontWeight="Bold" FontSize="11.5" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,8" />
+            <Grid Margin="0,0,0,8">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0">
+                <TextBlock Text="Lề trên (Top mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding TopMarginMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+              <StackPanel Grid.Column="2">
+                <TextBlock Text="Lề dưới (Bottom mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding BottomMarginMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,8">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0">
+                <TextBlock Text="Lề trái (Left mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding LeftMarginMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+              <StackPanel Grid.Column="2">
+                <TextBlock Text="Lề phải (Right mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding RightMarginMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,4">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0">
+                <TextBlock Text="Đầu trang (Header mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding HeaderDistanceMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+              <StackPanel Grid.Column="2">
+                <TextBlock Text="Chân trang (Footer mm):" FontSize="11.5" Margin="0,0,0,3" Foreground="{StaticResource BrushTextPrimary}" />
+                <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding FooterDistanceMm, UpdateSourceTrigger=PropertyChanged}" />
+              </StackPanel>
+            </Grid>
+            <CheckBox Content="In 2 mặt đối xứng (Mirror Margins - đổi lề trái/phải mặt sau)" FontSize="11.5" Margin="0,8,0,0" IsChecked="{Binding MirrorMargins}" />
+          </StackPanel>
+        </Border>
+        <Grid Margin="0,0,0,8">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="12" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Border Grid.Column="0" Style="{StaticResource FluentCard}">
+            <StackPanel>
+              <TextBlock Text="PHẠM VI ÁP DỤNG:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+              <RadioButton GroupName="MarginScopeGroup" Content="Toàn bộ văn bản" FontSize="11.5" Margin="0,0,0,4" IsChecked="{Binding IsWholeDocument, Mode=TwoWay}" />
+              <RadioButton GroupName="MarginScopeGroup" Content="Phân vùng hiện tại" FontSize="11.5" IsChecked="{Binding CurrentSectionOnly, Mode=TwoWay}" />
+            </StackPanel>
+          </Border>
+          <Border Grid.Column="2" Style="{StaticResource FluentCard}">
+            <StackPanel>
+              <TextBlock Text="HƯỚNG GIẤY:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+              <RadioButton GroupName="MarginOrientationGroup" Content="Trang đứng (Portrait)" FontSize="11.5" Margin="0,0,0,4" IsChecked="{Binding IsPortrait, Mode=TwoWay}" />
+              <RadioButton GroupName="MarginOrientationGroup" Content="Trang ngang (Landscape)" FontSize="11.5" IsChecked="{Binding IsLandscape, Mode=TwoWay}" />
+            </StackPanel>
+          </Border>
+        </Grid>
+        <TextBlock Text="* Ghi chú: NĐ 30 quy định lề 20-20-30-20mm. HD 05 (Đảng) và TT 68 (BQP) quy định lề phải 15-20mm (chuẩn 15mm). HD 29 (Đoàn): 20-20-30-20mm." FontSize="10.5" FontStyle="Italic" Foreground="{StaticResource BrushTextMuted}" TextWrapping="Wrap" />
+      </StackPanel>
+    </ScrollViewer>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="16,10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="8" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Name="btnResetQC" Grid.Column="0" Content="Mặc định QC" Style="{StaticResource FluentSecondaryButton}" Click="BtnResetQC_Click" />
+        <Button Name="btnApply" Grid.Column="2" Content="ÁP DỤNG CĂN LỀ" Style="{StaticResource FluentPrimaryButton}" Click="BtnApply_Click" />
+        <Button Name="btnClose" Grid.Column="4" Content="Đóng" Style="{StaticResource FluentSecondaryButton}" Click="BtnClose_Click" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

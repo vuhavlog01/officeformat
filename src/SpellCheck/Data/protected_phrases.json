@@ -1,0 +1,82 @@
+[
+  {
+    "text": "Cộng hòa xã hội chủ nghĩa Việt Nam",
+    "case_sensitive": false,
+    "type": "state_motto"
+  },
+  {
+    "text": "Độc lập - Tự do - Hạnh phúc",
+    "case_sensitive": false,
+    "type": "state_motto"
+  },
+  {
+    "text": "ĐẢNG CỘNG SẢN VIỆT NAM",
+    "case_sensitive": false,
+    "type": "political_party"
+  },
+  {
+    "text": "Ủy ban nhân dân",
+    "case_sensitive": false,
+    "type": "organization_phrase"
+  },
+  {
+    "text": "Hội đồng nhân dân",
+    "case_sensitive": false,
+    "type": "organization_phrase"
+  },
+  {
+    "text": "Thủ tướng Chính phủ",
+    "case_sensitive": false,
+    "type": "title_phrase"
+  },
+  {
+    "text": "Chính phủ",
+    "case_sensitive": false,
+    "type": "state_body"
+  },
+  {
+    "text": "Quốc hội",
+    "case_sensitive": false,
+    "type": "state_body"
+  },
+  {
+    "text": "Tòa án nhân dân",
+    "case_sensitive": false,
+    "type": "state_body"
+  },
+  {
+    "text": "Viện kiểm sát nhân dân",
+    "case_sensitive": false,
+    "type": "state_body"
+  },
+  {
+    "text": "Bộ Nội vụ",
+    "case_sensitive": false,
+    "type": "ministry"
+  },
+  {
+    "text": "Bộ Tư pháp",
+    "case_sensitive": false,
+    "type": "ministry"
+  },
+  {
+    "text": "Bộ Giáo dục và Đào tạo",
+    "case_sensitive": false,
+    "type": "ministry"
+  },
+  {
+    "text": "Bộ Quốc phòng",
+    "case_sensitive": false,
+    "type": "ministry"
+  },
+  {
+    "text": "Thủ đô Hà Nội",
+    "case_sensitive": false,
+    "type": "special_geography"
+  },
+  {
+    "text": "Thành phố Hồ Chí Minh",
+    "case_sensitive": false,
+    "type": "special_geography"
+  }
+]

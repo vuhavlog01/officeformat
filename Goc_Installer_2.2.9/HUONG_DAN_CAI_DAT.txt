@@ -1,0 +1,15 @@
+V-FORMAT 2.2.9
+Ngày phát hành: 2026-10-15
+
+Cài đặt:
+1. Lưu tài liệu đang làm việc và đóng Microsoft Word.
+2. Chạy V-Format-2.2.9-Setup.exe và hoàn tất các bước cài đặt.
+3. Mở lại Word để sử dụng V-FORMAT 2.2.9.
+4. Nếu mở Word mà không thấy thanh công cụ V-Format, đóng Word rồi chạy
+   "Khắc phục lỗi không thấy VFormat trong Word" trong menu Start. Nếu vẫn lỗi, liên hệ hỗ trợ và gửi
+   thông tin lỗi cùng nhật ký %LOCALAPPDATA%\VFormat\Logs\addin-startup.log (nếu có).
+
+Nội dung cập nhật:
+V-FORMAT 2.2.9: Sửa nút Cập nhật ngay bị cắt chữ; thu gọn cửa sổ Bản quyền với các tab kích hoạt online, offline và đổi máy, giúp thao tác rõ ràng hơn.
+
+Bộ cài cục bộ; chưa công bố bản cập nhật lên máy chủ.

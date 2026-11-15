@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.ReportDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Title="OfficeFormat - KẾT QUẢ CHUẨN HÓA" Width="490" Height="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Segoe UI, Tahoma, Arial" xmlns:common="clr-namespace:VFormat.UI.Common;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,14">
+      <StackPanel>
+        <TextBlock Text="KẾT QUẢ CHUẨN HÓA THỂ THỨC (1-CLICK)" FontWeight="Bold" FontSize="14" Foreground="{StaticResource BrushPrimary}" />
+        <TextBlock Text="Tóm tắt kết quả định dạng và các thành phần đã được hoàn thiện trong tài liệu." FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,3,0,0" />
+      </StackPanel>
+    </Border>
+    <Border Grid.Row="1" Margin="16,12,16,10" Background="#FFFFFF" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6">
+      <TextBox Name="txtReport" Background="#00FFFFFF" BorderThickness="0" Padding="12" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+    </Border>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="16,12">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="14" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Name="btnKeep" Grid.Column="0" Content="GIỮ ĐỊNH DẠNG (LƯU)" Style="{StaticResource FluentPrimaryButton}" Height="36" Click="BtnKeep_Click" />
+        <Button Name="btnUndo" Grid.Column="2" Content="HOÀN TÁC (UNDO)" Style="{StaticResource FluentSecondaryButton}" Height="36" Click="BtnUndo_Click" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

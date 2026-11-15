@@ -1,0 +1,58 @@
+{
+  "ADMINISTRATIVE": {
+    "mode": "accept_verified_variants",
+    "description": "Chấp nhận cả hai biến thể chính tả nếu đã được xác nhận trong thực tiễn văn thư hành chính (NĐ 30)."
+  },
+  "LEGAL_NORMATIVE": {
+    "mode": "consistency_check",
+    "description": "Yêu cầu tính thống nhất từ ngữ trong toàn văn bản theo Điều 60 Khoản 6 Nghị định 78/2025/NĐ-CP."
+  },
+  "EDUCATION_ORTHOGRAPHY": {
+    "mode": "prefer_qd1989",
+    "description": "Ưu tiên biến thể chính tả theo Quyết định 1989/QĐ-BGDĐT Điều 9.",
+    "pairs": {
+      "kỹ thuật": {
+        "preferred": "kĩ thuật",
+        "alternatives": [
+          "kỹ thuật"
+        ]
+      },
+      "hy vọng": {
+        "preferred": "hi vọng",
+        "alternatives": [
+          "hy vọng"
+        ]
+      },
+      "kỷ niệm": {
+        "preferred": "kỉ niệm",
+        "alternatives": [
+          "kỷ niệm"
+        ]
+      },
+      "lý luận": {
+        "preferred": "lí luận",
+        "alternatives": [
+          "lý luận"
+        ]
+      },
+      "mỹ thuật": {
+        "preferred": "mĩ thuật",
+        "alternatives": [
+          "mỹ thuật"
+        ]
+      },
+      "tỷ lệ": {
+        "preferred": "tỉ lệ",
+        "alternatives": [
+          "tỷ lệ"
+        ]
+      },
+      "bác sỹ": {
+        "preferred": "bác sĩ",
+        "alternatives": [
+          "bác sỹ"
+        ]
+      }
+    }
+  }
+}

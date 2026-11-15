@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "PUNCT_NO_SPACE_BEFORE",
+      "punctuation": [
+        ",",
+        ".",
+        ";",
+        ":",
+        "!",
+        "?"
+      ],
+      "rule": "Không đặt dấu cách trước dấu câu",
+      "example_error": "văn bản , tài liệu",
+      "example_correct": "văn bản, tài liệu"
+    },
+    {
+      "id": "PUNCT_SPACE_AFTER",
+      "punctuation": [
+        ",",
+        ".",
+        ";",
+        ":",
+        "!",
+        "?"
+      ],
+      "rule": "Phải có một dấu cách sau dấu câu (trừ khi nằm ở cuối dòng hoặc trong số/mã)",
+      "example_error": "văn bản,tài liệu",
+      "example_correct": "văn bản, tài liệu"
+    },
+    {
+      "id": "PUNCT_OPEN_QUOTE_PARENTHESIS",
+      "punctuation": [
+        "(",
+        "“",
+        "[",
+        "«"
+      ],
+      "rule": "Không đặt dấu cách ngay sau dấu mở ngoặc hoặc mở nháy kép",
+      "example_error": "( văn bản )",
+      "example_correct": "(văn bản)"
+    },
+    {
+      "id": "PUNCT_CLOSE_QUOTE_PARENTHESIS",
+      "punctuation": [
+        ")",
+        "”",
+        "]",
+        "»"
+      ],
+      "rule": "Không đặt dấu cách ngay trước dấu đóng ngoặc hoặc đóng nháy kép",
+      "example_error": "“văn bản ”",
+      "example_correct": "“văn bản”"
+    }
+  ]
+}

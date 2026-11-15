@@ -1,0 +1,438 @@
+{
+  "đươc": {
+    "suggestions": [
+      "được"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "quyêt": {
+    "suggestions": [
+      "quyết"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "ngị": {
+    "suggestions": [
+      "nghị"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "triễn": {
+    "suggestions": [
+      "triển"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "hoản": {
+    "suggestions": [
+      "hoãn"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "duyêt": {
+    "suggestions": [
+      "duyệt"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "hànhchính": {
+    "suggestions": [
+      "hành chính"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "thưc": {
+    "suggestions": [
+      "thực",
+      "thức"
+    ],
+    "confidence": 0.95,
+    "category": "spelling",
+    "autofix": false
+  },
+  "quảnli": {
+    "suggestions": [
+      "quản lý",
+      "quản lí"
+    ],
+    "confidence": 0.95,
+    "category": "spelling",
+    "autofix": false
+  },
+  "thôngtin": {
+    "suggestions": [
+      "thông tin"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "vănban": {
+    "suggestions": [
+      "văn bản"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "nghieejp": {
+    "suggestions": [
+      "nghiệp"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "bieets": {
+    "suggestions": [
+      "biết"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "khonog": {
+    "suggestions": [
+      "không"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "trinhf": {
+    "suggestions": [
+      "trình"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "quyetj": {
+    "suggestions": [
+      "quyết"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "nghji": {
+    "suggestions": [
+      "nghị"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "toor": {
+    "suggestions": [
+      "tổ"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "chuws": {
+    "suggestions": [
+      "chức",
+      "chứng"
+    ],
+    "confidence": 0.95,
+    "category": "spelling",
+    "autofix": false
+  },
+  "dieeuf": {
+    "suggestions": [
+      "điều"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "khoanr": {
+    "suggestions": [
+      "khoản"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "luatj": {
+    "suggestions": [
+      "luật"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "phaps": {
+    "suggestions": [
+      "pháp"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "lenhj": {
+    "suggestions": [
+      "lệnh"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "kieemr": {
+    "suggestions": [
+      "kiểm"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "soats": {
+    "suggestions": [
+      "soát"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "duowjc": {
+    "suggestions": [
+      "được"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "nhuwng": {
+    "suggestions": [
+      "nhưng"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "bieen": {
+    "suggestions": [
+      "biên"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "banr": {
+    "suggestions": [
+      "bản"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "nhieemj": {
+    "suggestions": [
+      "nhiệm"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "vus": {
+    "suggestions": [
+      "vụ"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "chuwcs": {
+    "suggestions": [
+      "chức"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "vieecj": {
+    "suggestions": [
+      "việc"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "coong": {
+    "suggestions": [
+      "công"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "vaanx": {
+    "suggestions": [
+      "vẫn"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "cuar": {
+    "suggestions": [
+      "của"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "trongg": {
+    "suggestions": [
+      "trong"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "phongg": {
+    "suggestions": [
+      "phòng"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "chuarn": {
+    "suggestions": [
+      "chuẩn"
+    ],
+    "confidence": 1.0,
+    "category": "spelling",
+    "autofix": false
+  },
+  "gía": {
+    "suggestions": [
+      "giá"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "gìa": {
+    "suggestions": [
+      "già"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "gỉa": {
+    "suggestions": [
+      "giả"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "gĩa": {
+    "suggestions": [
+      "giã"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "gịa": {
+    "suggestions": [
+      "giạ"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qúa": {
+    "suggestions": [
+      "quá"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qùa": {
+    "suggestions": [
+      "quà"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qủa": {
+    "suggestions": [
+      "quả"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qúy": {
+    "suggestions": [
+      "quý"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qùy": {
+    "suggestions": [
+      "quỳ"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qủy": {
+    "suggestions": [
+      "quỷ"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qũy": {
+    "suggestions": [
+      "quỹ"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qụy": {
+    "suggestions": [
+      "quỵ"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  },
+  "qúi": {
+    "suggestions": [
+      "quí",
+      "quý"
+    ],
+    "confidence": 1.0,
+    "category": "tone_placement",
+    "autofix": false
+  }
+}

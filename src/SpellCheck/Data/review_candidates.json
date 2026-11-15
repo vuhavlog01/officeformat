@@ -1,0 +1,1252 @@
+[
+  {
+    "token": "ngh",
+    "frequency": 39,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "nghề",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "fax",
+    "frequency": 11,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "duy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khỏi",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nháp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "đưa",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nổi",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "xuân",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "file",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "times",
+    "frequency": 11,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "new",
+    "frequency": 12,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "roman",
+    "frequency": 11,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "unicode",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tcvn",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "lines",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tuq",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "portable",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "network",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "graphics",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "png",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "iso",
+    "frequency": 5,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "giám",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tuyệt",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tuy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "document",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "format",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "pdf",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "dpi",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "gióng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "trạch",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "hãn",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "vla",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "lích",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nin",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "phri",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "đrích",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "nên",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khu",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nhưỡng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "xcơ",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "men",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "bơn",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nhũng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "un",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "who",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "wto",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "undp",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "unesco",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "asean",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tùng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khánh",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tuyển",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "xii",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ubtvqh",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hợi",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "mốc",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "viii",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cột",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khối",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "hộp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cặp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nguy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "lặp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "xml",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "doc",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "docx",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "llệu",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "chu",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "stt",
+    "frequency": 9,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "bnv",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ubnd",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tccb",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "nvđp",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "mail",
+    "frequency": 6,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "website",
+    "frequency": 6,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "qyđ",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ctr",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ttr",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "bgn",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "btt",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "guq",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ggt",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "gnp",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "sy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "trs",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "filecode",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "organld",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "string",
+    "frequency": 33,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "filecatalog",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "number",
+    "frequency": 13,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "filenotation",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "docordinal",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "typename",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "codenumber",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "codenotation",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "issueddate",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "date",
+    "frequency": 7,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "organname",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "subject",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "language",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "pageamount",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "description",
+    "frequency": 3,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "signerlnfo",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "position",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "fullname",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "organid",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "priority",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "issuedamount",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "duedate",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "arrivaldate",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "arrivalnumber",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "toplaces",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "traceheaderlist",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "longtext",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "title",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "maintenance",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "rights",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "creator",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "startdate",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "enddate",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "doctotal",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "pagetotal",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ích",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tuân",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "kiệm",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "bào",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "đời",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khó",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khăn",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "gần",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cổ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tuổi",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "nòng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cốt",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "xuyên",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ngạch",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "đàm",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cống",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "hút",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "hđnd",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "vpcp",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "btcn",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "pcn",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ttg",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tgđ",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ttđt",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "kgvx",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "chánh",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "bgdđt",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "bana",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "chỗ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cản",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "trinh",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cửu",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "lơng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "bih",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "alêô",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "blôk",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "sêrêpôk",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "chiểu",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cấn",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ama",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "thuột",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cúc",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "gươm",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "đèo",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "đốp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "krông",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ana",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "lạp",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "latin",
+    "frequency": 6,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "victor",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hugo",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "albert",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "einstein",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "thomas",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "edison",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "paris",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "york",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "petõfi",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "petofi",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "aleksandr",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "pushkin",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "moscow",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "tokyo",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "fuzhou",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "zhejiang",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "nile",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "cleopatra",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "budapest",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hungary",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "magyarország",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "danube",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "donau",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "đức",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "dunaj",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "slovakia",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "duna",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "dunav",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "croatia",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "serbia",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "bulgaria",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "dunărea",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "romania",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "dunai",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "ukraina",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "lomonosov",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "adb",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "jica",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "koica",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hàn",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khuếch",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ngưng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cuprum",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "copper",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "cu",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "copperhydroxide",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "coppersulfat",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "copperoxide",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hydrogen",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hyđrô",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hiđrô",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "đrô",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hydrocarbon",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "chloride",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "hydrochloric",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "acid",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "concerto",
+    "frequency": 2,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "xéc",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "italia",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "concertino",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "grosso",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  },
+  {
+    "token": "nhạc",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "thuỷ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "khoẻ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ia",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ua",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "ưa",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "iê",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "yê",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "uô",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "uơ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "thuyền",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "vy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "vỹ",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "thy",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "cũng",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "tách",
+    "frequency": 1,
+    "reason": "Single occurrence in corpus - syllable valid but requires verification"
+  },
+  {
+    "token": "gdtrh",
+    "frequency": 1,
+    "reason": "Invalid syllable structure - possible typo, foreign term or OCR error"
+  }
+]

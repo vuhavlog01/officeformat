@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Templates.AddUserTemplateDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Thêm Biểu Mẫu Mới - OfficeFormat" SizeToContent="Height" Width="600" MinHeight="490" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" FontFamily="Segoe UI, Tahoma, Arial" Background="#FDF8F4" xmlns:templates="clr-namespace:VFormat.UI.Templates;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{DynamicResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{DynamicResource BrushCardBackground}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,14">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <Path Data="{StaticResource IconStar}" Fill="{DynamicResource BrushPrimary}" Width="15" Height="15" Stretch="Uniform" Margin="0,0,8,0" VerticalAlignment="Center" />
+          <TextBlock Text="THÊM BIỂU MẪU VÀO 'BIỂU MẪU CỦA TÔI'" FontWeight="Bold" FontSize="13.5" Foreground="{DynamicResource BrushPrimary}" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="Nhập file Word mẫu vào thư viện cá nhân để tái sử dụng nhanh chóng và an toàn." FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" Margin="24,3,0,0" />
+      </StackPanel>
+    </Border>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Focusable="False">
+      <Border Padding="24,16">
+        <StackPanel>
+          <TextBlock Text="Đường dẫn tệp mẫu Word (*.docx, *.doc, *.dotx):" FontWeight="SemiBold" FontSize="12.5" Foreground="{DynamicResource BrushTextPrimary}" Margin="0,0,0,6" />
+          <Grid Margin="0,0,0,14">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="10" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Name="txtFilePath" Grid.Column="0" Height="32" VerticalContentAlignment="Center" Padding="8,0" Style="{DynamicResource FluentTextBox}" IsReadOnly="True" />
+            <Button Grid.Column="2" Content="📁 Chọn tệp..." Height="32" Padding="14,0" Style="{DynamicResource FluentSecondaryButton}" Click="BtnBrowse_Click" />
+          </Grid>
+          <TextBlock Text="Tên biểu mẫu hiển thị (Được gợi ý tự động):" FontWeight="SemiBold" FontSize="12.5" Foreground="{DynamicResource BrushTextPrimary}" Margin="0,0,0,6" />
+          <TextBox Name="txtTemplateName" Height="32" VerticalContentAlignment="Center" Padding="8,0" Style="{DynamicResource FluentTextBox}" Margin="0,0,0,14" />
+          <TextBlock Text="Ghi chú / Mô tả (Tùy chọn):" FontSize="12" Foreground="{DynamicResource BrushTextSecondary}" Margin="0,0,0,6" />
+          <TextBox Name="txtDescription" Height="32" VerticalContentAlignment="Center" Padding="8,0" Style="{DynamicResource FluentTextBox}" Margin="0,0,0,14" />
+          <Border Background="{DynamicResource BrushPrimaryLight}" CornerRadius="6" Padding="12,10" Margin="0,2,0,0">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Text="💡" FontSize="13" Margin="0,0,8,0" VerticalAlignment="Top" />
+              <TextBlock Grid.Column="1" Text="Khi mở, Add-in sẽ tạo tài liệu mới từ mẫu này. File mẫu gốc được bảo vệ tuyệt đối và không bị ghi đè khi bạn sửa và lưu." FontSize="11.5" Foreground="{DynamicResource BrushPrimary}" TextWrapping="Wrap" />
+            </Grid>
+          </Border>
+        </StackPanel>
+      </Border>
+    </ScrollViewer>
+    <Border Grid.Row="2" Background="{DynamicResource BrushCardBackground}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="20,14">
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Button Content="Hủy bỏ" Width="95" Height="34" Margin="0,0,12,0" Style="{DynamicResource FluentSecondaryButton}" IsCancel="True" Click="BtnCancel_Click" />
+        <Button Content="💾 Lưu vào Thư viện" Width="160" Height="34" Style="{DynamicResource FluentPrimaryButton}" IsDefault="True" Click="BtnSave_Click" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>

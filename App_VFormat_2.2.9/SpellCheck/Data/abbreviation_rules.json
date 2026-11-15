@@ -1,0 +1,46 @@
+[
+  {
+    "id": "LEGAL_ABBR_FIRST_USE",
+    "profile": [
+      "LEGAL_NORMATIVE"
+    ],
+    "category": "abbreviation",
+    "severity": "warning",
+    "description": "Từ ngữ viết tắt chỉ được sử dụng trong trường hợp cần thiết và phải ghi đầy đủ từ ngữ đó tại lần xuất hiện đầu tiên trong văn bản.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 78/2025/NĐ-CP",
+      "article": "Điều 60",
+      "clause": "4"
+    }
+  },
+  {
+    "id": "LEGAL_ABBR_FORBIDDEN_ZONE",
+    "profile": [
+      "LEGAL_NORMATIVE"
+    ],
+    "category": "abbreviation",
+    "severity": "warning",
+    "description": "Không sử dụng cụm từ viết tắt trong tên văn bản, phần, chương, mục, tiểu mục, điều.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 78/2025/NĐ-CP",
+      "article": "Điều 60",
+      "clause": "4"
+    }
+  },
+  {
+    "id": "ADMIN_DOC_TYPE_ABBR",
+    "profile": [
+      "ADMINISTRATIVE"
+    ],
+    "category": "abbreviation",
+    "severity": "info",
+    "description": "Chữ viết tắt tên loại văn bản hành chính thực hiện theo bảng chữ viết tắt quy định tại Phụ lục III Nghị định số 30/2020/NĐ-CP.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục III"
+    }
+  }
+]

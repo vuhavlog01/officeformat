@@ -1,0 +1,18 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+Output/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio cache
+.vs/
+.vscode/
+
+## Temporary files
+*.tmp
+*.log
+Thumbs.db
+Desktop.ini

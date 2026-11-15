@@ -1,0 +1,434 @@
+{
+  "agencies_admin": [
+    {
+      "id": "admin_bo",
+      "alias": "Cấp Bộ (Bộ Nội vụ)",
+      "parent_agency": "",
+      "agency_name": "BỘ NỘI VỤ",
+      "location": "Hà Nội",
+      "code_prefix": "BNV"
+    },
+    {
+      "id": "admin_cuc",
+      "alias": "Cục trực thuộc Bộ (Cục VTLT)",
+      "parent_agency": "BỘ NỘI VỤ",
+      "agency_name": "CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC",
+      "location": "Hà Nội",
+      "code_prefix": "VTLT"
+    },
+    {
+      "id": "admin_1",
+      "alias": "Sở Khoa học và Công nghệ",
+      "parent_agency": "UBND TỈNH...",
+      "agency_name": "SỞ KHOA HỌC VÀ CÔNG NGHỆ",
+      "location": "...",
+      "code_prefix": "SKHCN"
+    },
+    {
+      "id": "admin_2",
+      "alias": "UBND Xã/Phường",
+      "parent_agency": "UBND TỈNH...",
+      "agency_name": "UBND PHƯỜNG...",
+      "location": "...",
+      "code_prefix": "UBND"
+    },
+    {
+      "id": "admin_3",
+      "alias": "UBND Đặc khu",
+      "parent_agency": "UBND TỈNH...",
+      "agency_name": "UBND ĐẶC KHU...",
+      "location": "...",
+      "code_prefix": "UBND"
+    },
+    {
+      "id": "admin_4",
+      "alias": "Văn phòng UBND tỉnh",
+      "parent_agency": "UBND TỈNH...",
+      "agency_name": "VĂN PHÒNG ỦY BAN NHÂN DÂN",
+      "location": "...",
+      "code_prefix": "VP"
+    }
+  ],
+  "agencies_party": [
+    {
+      "id": "party_1",
+      "alias": "Đảng ủy Các cơ quan Đảng tỉnh",
+      "parent_party": "TỈNH ỦY...",
+      "party_name": "ĐẢNG ỦY CÁC CƠ QUAN ĐẢNG TỈNH",
+      "location": "...",
+      "code_prefix": "NQ/DU"
+    },
+    {
+      "id": "party_2",
+      "alias": "Ban Thường vụ Tỉnh ủy",
+      "parent_party": "TỈNH ỦY...",
+      "party_name": "BAN THƯỜNG VỤ",
+      "location": "...",
+      "code_prefix": "NQ/TU"
+    },
+    {
+      "id": "party_3",
+      "alias": "Đảng ủy Xã/Phường",
+      "parent_party": "TỈNH ỦY...",
+      "party_name": "ĐẢNG ỦY XÃ/PHƯỜNG...",
+      "location": "...",
+      "code_prefix": "NQ/DU"
+    },
+    {
+      "id": "party_4",
+      "alias": "Chi bộ Cơ sở",
+      "parent_party": "ĐẢNG ỦY XÃ/PHƯỜNG...",
+      "party_name": "CHI BỘ...",
+      "location": "...",
+      "code_prefix": "NQ/CB"
+    }
+  ],
+  "recipients_list": [
+    {
+      "id": "rec_bo",
+      "title": "Mẫu Nơi nhận Cấp Bộ / Ngang Bộ",
+      "content": "- Như Điều ...;\n- Thủ tướng, các Phó Thủ tướng Chính phủ;\n- Văn phòng Trung ương Đảng và các Ban của Đảng;\n- Văn phòng Quốc hội, Văn phòng Chủ tịch nước;\n- Các Bộ, cơ quan ngang Bộ, cơ quan thuộc CP;\n- HĐND, UBND các tỉnh, thành phố trực thuộc TW;\n- Lưu: VT, PC."
+    },
+    {
+      "id": "rec_1",
+      "title": "Mẫu Nơi nhận Công văn thông dụng",
+      "content": "- Như kính gửi;\n- Giám đốc, các Phó Giám đốc;\n- Các phòng, ban, đơn vị trực thuộc;\n- UBND các xã, phường;\n- Lưu: VT, TH."
+    },
+    {
+      "id": "rec_2",
+      "title": "Mẫu Nơi nhận Quyết định ban hành",
+      "content": "- Như Điều 3;\n- Thường trực Tỉnh ủy, HĐND tỉnh, UBND tỉnh;\n- Các Sở, ban, ngành tỉnh;\n- UBND các xã, phường;\n- Lưu: VT, TCCB."
+    },
+    {
+      "id": "rec_3",
+      "title": "Mẫu Nơi nhận Chi bộ Đảng",
+      "content": "- Đảng ủy cấp trên (để b/c);\n- Các đồng chí đảng viên trong Chi bộ;\n- Lưu: Chi bộ."
+    },
+    {
+      "id": "rec_mil_1",
+      "title": "Mẫu Nơi nhận Đơn vị Quân đội (TT 68)",
+      "content": "- Như Điều ...;\n- Thủ trưởng Bộ Quốc phòng (để b/c);\n- Bộ Tổng Tham mưu, Tổng cục Chính trị (để b/c);\n- Các cơ quan, đơn vị trực thuộc;\n- Lưu: VT, ...;"
+    }
+  ],
+  "signers_list": [
+    {
+      "id": "sig_bo_truong",
+      "alias": "Bộ trưởng - Nguyễn Văn A",
+      "title": "BỘ TRƯỞNG",
+      "position": "BỘ TRƯỞNG",
+      "fullname": "Nguyễn Văn A",
+      "signer_type": "Thủ trưởng cấp Bộ (BỘ TRƯỞNG)"
+    },
+    {
+      "id": "sig_thu_truong",
+      "alias": "KT. Bộ trưởng - Thứ trưởng",
+      "title": "KT. BỘ TRƯỞNG\nTHỨ TRƯỞNG",
+      "position": "THỨ TRƯỞNG",
+      "fullname": "Trần Văn B",
+      "signer_type": "Ký thay Bộ trưởng (KT. BỘ TRƯỞNG - THỨ TRƯỞNG)"
+    },
+    {
+      "id": "sig_cuc_truong",
+      "alias": "Cục trưởng - Lê Văn C",
+      "title": "CỤC TRƯỞNG",
+      "position": "CỤC TRƯỞNG",
+      "fullname": "Lê Văn C",
+      "signer_type": "Thủ trưởng cơ quan thuộc Bộ (CỤC TRƯỞNG / TỔNG CỤC TRƯỞNG)"
+    },
+    {
+      "id": "sig_1",
+      "alias": "Giám đốc Sở - Nguyễn Văn A",
+      "title": "GIÁM ĐỐC",
+      "position": "GIÁM ĐỐC",
+      "fullname": "Nguyễn Văn A",
+      "signer_type": "Thủ trưởng trực tiếp (GIÁM ĐỐC / HIỆU TRƯỞNG / CHỦ TỊCH)"
+    },
+    {
+      "id": "sig_2",
+      "alias": "Chủ tịch UBND - Trần Văn B",
+      "title": "TM. ỦY BAN NHÂN DÂN\nCHỦ TỊCH",
+      "position": "CHỦ TỊCH",
+      "fullname": "Trần Văn B",
+      "signer_type": "Ký thay mặt UBND (TM. ỦY BAN NHÂN DÂN - CHỦ TỊCH)"
+    },
+    {
+      "id": "sig_3",
+      "alias": "Bí thư Tỉnh ủy - Lê Văn C",
+      "title": "T/M BAN CHẤP HÀNH\nBÍ THƯ",
+      "position": "BÍ THƯ",
+      "fullname": "Lê Văn C",
+      "signer_type": "Ký thay mặt Cấp ủy (T/M BAN CHẤP HÀNH - BÍ THƯ)"
+    },
+    {
+      "id": "sig_party_btv",
+      "alias": "Phó Bí thư - T/M Ban Thường vụ (HD 05)",
+      "title": "T/M BAN THƯỜNG VỤ\nPHÓ BÍ THƯ",
+      "position": "PHÓ BÍ THƯ",
+      "fullname": "Nguyễn Văn A",
+      "signer_type": "Ký thay mặt Ban Thường vụ (T/M BAN THƯỜNG VỤ - PHÓ BÍ THƯ)"
+    },
+    {
+      "id": "sig_party_kt_vp",
+      "alias": "Phó Chánh VP - K/T Chánh Văn phòng (HD 05)",
+      "title": "K/T CHÁNH VĂN PHÒNG\nPHÓ CHÁNH VĂN PHÒNG",
+      "position": "PHÓ CHÁNH VĂN PHÒNG",
+      "fullname": "Lê Khánh Toàn",
+      "signer_type": "Ký thay Chánh Văn phòng Đảng (K/T CHÁNH VĂN PHÒNG - PHÓ CHÁNH VĂN PHÒNG)"
+    },
+    {
+      "id": "sig_party_tl_btv",
+      "alias": "Chánh Văn phòng - T/L Ban Thường vụ (HD 05)",
+      "title": "T/L BAN THƯỜNG VỤ\nCHÁNH VĂN PHÒNG",
+      "position": "CHÁNH VĂN PHÒNG",
+      "fullname": "Trần Văn B",
+      "signer_type": "Ký thừa lệnh Ban Thường vụ (T/L BAN THƯỜNG VỤ - CHÁNH VĂN PHÒNG)"
+    },
+    {
+      "id": "sig_4",
+      "alias": "Bí thư Chi bộ - Phạm Văn D",
+      "title": "T/M CHI BỘ\nBÍ THƯ",
+      "position": "BÍ THƯ CHI BỘ",
+      "fullname": "Phạm Văn D",
+      "signer_type": "Ký thay mặt Chi bộ (T/M CHI BỘ - BÍ THƯ)"
+    },
+    {
+      "id": "sig_5",
+      "alias": "Chánh Văn phòng - Hoàng Văn E",
+      "title": "TL. CHỦ TỊCH\nCHÁNH VĂN PHÒNG",
+      "position": "CHÁNH VĂN PHÒNG",
+      "fullname": "Hoàng Văn E",
+      "signer_type": "Ký thừa lệnh (TL. CHỦ TỊCH / GIÁM ĐỐC - CHÁNH VĂN PHÒNG)"
+    },
+    {
+      "id": "sig_mil_bo_truong",
+      "alias": "Bộ trưởng BQP - Đại tướng Phan Văn Giang",
+      "title": "BỘ TRƯỞNG",
+      "position": "BỘ TRƯỞNG",
+      "fullname": "Đại tướng Phan Văn Giang",
+      "signer_type": "Thủ trưởng Bộ Quốc phòng (BỘ TRƯỞNG)"
+    },
+    {
+      "id": "sig_mil_tu_lenh",
+      "alias": "Tư lệnh Quân khu - Trung tướng",
+      "title": "TƯ LỆNH",
+      "position": "TƯ LỆNH",
+      "fullname": "Trung tướng Nguyễn Văn A",
+      "signer_type": "Tư lệnh Quân khu / Quân chủng"
+    },
+    {
+      "id": "sig_mil_chi_huy_truong",
+      "alias": "Chỉ huy trưởng - Đại tá",
+      "title": "CHỈ HUY TRƯỞNG",
+      "position": "CHỈ HUY TRƯỞNG",
+      "fullname": "Đại tá Trần Văn B",
+      "signer_type": "Chỉ huy trưởng Bộ CHQS / Lữ đoàn / Trung đoàn"
+    }
+  ],
+  "typography_presets": {
+    "ND30_2020": {
+      "quoc_hieu": 13.0,
+      "tieu_ngu": 14.0,
+      "co_quan_cap_tren": 13.0,
+      "co_quan_ban_hanh": 13.0,
+      "so_ky_hieu": 13.0,
+      "dia_danh_ngay": 14.0,
+      "ten_loai": 14.0,
+      "trich_yeu_van_ban": 14.0,
+      "trich_yeu_cong_van": 12.0,
+      "can_cu": 14.0,
+      "noi_dung": 14.0,
+      "dieu": 14.0,
+      "khoan": 14.0,
+      "diem": 14.0,
+      "quyen_han_chuc_vu": 14.0,
+      "ho_ten_nguoi_ky": 14.0,
+      "kinh_gui": 14.0,
+      "noi_nhan_tieu_de": 12.0,
+      "noi_nhan_danh_sach": 11.0,
+      "so_trang": 14.0
+    },
+    "HD05_VPTW": {
+      "tieu_de_dang": 15.0,
+      "co_quan_cap_tren": 14.0,
+      "co_quan_ban_hanh": 14.0,
+      "so_ky_hieu": 14.0,
+      "dia_danh_ngay": 14.0,
+      "ten_loai": 15.0,
+      "trich_yeu_van_ban": 14.0,
+      "trich_yeu_cong_van": 12.0,
+      "can_cu": 14.0,
+      "noi_dung": 14.0,
+      "quyen_han_chuc_vu": 14.0,
+      "ho_ten_nguoi_ky": 14.0,
+      "noi_nhan_tieu_de": 14.0,
+      "noi_nhan_danh_sach": 12.0,
+      "so_trang": 14.0
+    },
+    "TT68_BQP": {
+      "quoc_hieu": 13.0,
+      "tieu_ngu": 13.0,
+      "co_quan_cap_tren": 13.0,
+      "co_quan_ban_hanh": 13.0,
+      "so_ky_hieu": 13.0,
+      "dia_danh_ngay": 13.0,
+      "ten_loai": 14.0,
+      "trich_yeu_van_ban": 14.0,
+      "trich_yeu_cong_van": 12.0,
+      "can_cu": 14.0,
+      "noi_dung": 14.0,
+      "quyen_han_chuc_vu": 14.0,
+      "cap_bac_ho_ten": 14.0,
+      "noi_nhan_tieu_de": 12.0,
+      "noi_nhan_danh_sach": 11.0,
+      "so_trang": 14.0
+    }
+  },
+  "agencies_military": [
+    {
+      "id": "mil_bo",
+      "alias": "Cấp Bộ (Bộ Quốc phòng)",
+      "parent_agency": "",
+      "agency_name": "BỘ QUỐC PHÒNG",
+      "location": "Hà Nội",
+      "code_prefix": "BQP"
+    },
+    {
+      "id": "mil_bttm",
+      "alias": "Bộ Tổng Tham mưu",
+      "parent_agency": "BỘ QUỐC PHÒNG",
+      "agency_name": "BỘ TỔNG THAM MƯU",
+      "location": "Hà Nội",
+      "code_prefix": "TM"
+    },
+    {
+      "id": "mil_tcct",
+      "alias": "Tổng cục Chính trị",
+      "parent_agency": "BỘ QUỐC PHÒNG",
+      "agency_name": "TỔNG CỤC CHÍNH TRỊ",
+      "location": "Hà Nội",
+      "code_prefix": "CT"
+    },
+    {
+      "id": "mil_qk",
+      "alias": "Quân khu 7",
+      "parent_agency": "BỘ QUỐC PHÒNG",
+      "agency_name": "BỘ TƯ LỆNH QUÂN KHU 7",
+      "location": "TP. Hồ Chí Minh",
+      "code_prefix": "QK"
+    },
+    {
+      "id": "mil_bchqs",
+      "alias": "Bộ CHQS tỉnh",
+      "parent_agency": "QUÂN KHU 7",
+      "agency_name": "BỘ CHỈ HUY QUÂN SỰ TỈNH...",
+      "location": "...",
+      "code_prefix": "CHQS"
+    },
+    {
+      "id": "mil_su_doan",
+      "alias": "Sư đoàn 304",
+      "parent_agency": "QUÂN ĐOÀN 12",
+      "agency_name": "SƯ ĐOÀN 304",
+      "location": "...",
+      "code_prefix": "F304"
+    }
+  ],
+  "page_presets": {
+    "ND30_2020": {
+      "paper_size": "A4",
+      "orientation": "portrait",
+      "margin_top_mm": 20.0,
+      "margin_bottom_mm": 20.0,
+      "margin_left_mm": 30.0,
+      "margin_right_mm": 15.0,
+      "header_distance_mm": 10.0,
+      "footer_distance_mm": 10.0,
+      "mirror_margins": false
+    },
+    "HD05_VPTW": {
+      "paper_size": "A4",
+      "orientation": "portrait",
+      "margin_top_mm": 20.0,
+      "margin_bottom_mm": 20.0,
+      "margin_left_mm": 30.0,
+      "margin_right_mm": 15.0,
+      "duplex_margin_left_mm": 15.0,
+      "duplex_margin_right_mm": 30.0,
+      "header_distance_mm": 10.0,
+      "footer_distance_mm": 10.0,
+      "mirror_margins": true
+    },
+    "TT68_BQP": {
+      "paper_size": "A4",
+      "orientation": "portrait",
+      "margin_top_mm": 20.0,
+      "margin_bottom_mm": 20.0,
+      "margin_left_mm": 30.0,
+      "margin_right_mm": 15.0,
+      "duplex_margin_left_mm": 15.0,
+      "duplex_margin_right_mm": 30.0,
+      "header_distance_mm": 10.0,
+      "footer_distance_mm": 10.0,
+      "mirror_margins": true
+    }
+  },
+  "body_presets": {
+    "ND30_2020": {
+      "font_name": "Times New Roman",
+      "body_size_pt": 14.0,
+      "alignment": "justify",
+      "first_line_indent_mm": 10.0,
+      "spacing_before_pt": 0.0,
+      "spacing_after_pt": 6.0,
+      "line_spacing_rule": "multiple",
+      "line_spacing_value": 1.15
+    },
+    "HD05_VPTW": {
+      "font_name": "Times New Roman",
+      "body_size_pt": 14.0,
+      "alignment": "justify",
+      "first_line_indent_mm": 10.0,
+      "spacing_before_pt": 0.0,
+      "spacing_after_pt": 6.0,
+      "line_spacing_rule": "exactly",
+      "line_spacing_value": 20.0
+    },
+    "TT68_BQP": {
+      "font_name": "Times New Roman",
+      "body_size_pt": 14.0,
+      "alignment": "justify",
+      "first_line_indent_mm": 10.0,
+      "spacing_before_pt": 0.0,
+      "spacing_after_pt": 6.0,
+      "line_spacing_rule": "multiple",
+      "line_spacing_value": 1.15
+    }
+  },
+  "table_presets": {
+    "header_font_size_pt": 13.0,
+    "header_bold": true,
+    "body_font_size_pt": 13.0,
+    "cell_padding_top_mm": 1.5,
+    "cell_padding_bottom_mm": 1.5,
+    "cell_padding_left_mm": 2.0,
+    "cell_padding_right_mm": 2.0,
+    "auto_fit": true,
+    "repeat_header": true,
+    "cant_split": true
+  },
+  "advanced_presets": {
+    "page_number": {
+      "font_size_pt": 14.0,
+      "position": "top_center",
+      "distance_from_top_mm": 10.0,
+      "hide_first_page": true,
+      "numbering_format": "arabic"
+    },
+    "underline_lengths": {
+      "tieu_ngu": "full_width",
+      "co_quan": "one_third_to_half",
+      "trich_yeu": "one_third_to_half",
+      "trich_yeu_dang": "five_dashes"
+    }
+  }
+}

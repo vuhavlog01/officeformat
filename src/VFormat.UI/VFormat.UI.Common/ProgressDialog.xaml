@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.ProgressDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Title="OfficeFormat" Width="430" SizeToContent="Height" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="#00FFFFFF" Topmost="True" ShowInTaskbar="False" FontFamily="Segoe UI, Tahoma, Arial" xmlns:common="clr-namespace:VFormat.UI.Common;assembly=VFormat.UI" MouseDown="Window_MouseDown">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <SolidColorBrush x:Key="BrushPrimary" Color="#27150E" />
+      <SolidColorBrush x:Key="BrushTextSecondary" Color="#6B4C3E" />
+      <SolidColorBrush x:Key="BrushTextMuted" Color="#9E7E6F" />
+      <LinearGradientBrush x:Key="BrushPrimaryGradient" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#FF7A45" Offset="0.0" />
+        <GradientStop Color="#E04F26" Offset="0.6" />
+        <GradientStop Color="#F59E0B" Offset="1.0" />
+      </LinearGradientBrush>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <FrameworkElement.Triggers>
+    <EventTrigger RoutedEvent="Window.Loaded">
+      <BeginStoryboard>
+        <Storyboard RepeatBehavior="Forever">
+          <DoubleAnimation Storyboard.TargetName="spinnerRotate" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:1.0" />
+          <DoubleAnimation Storyboard.TargetName="shimmerTranslate" Storyboard.TargetProperty="X" From="-100" To="380" Duration="0:0:1.5" />
+          <DoubleAnimation Storyboard.TargetName="pulseDot" Storyboard.TargetProperty="Opacity" From="1.0" To="0.3" AutoReverse="True" Duration="0:0:0.75" />
+        </Storyboard>
+      </BeginStoryboard>
+    </EventTrigger>
+  </FrameworkElement.Triggers>
+  <Border Background="#FDF8F4" BorderBrush="#E2C8B5" BorderThickness="1.5" CornerRadius="12" Padding="22,18" SnapsToDevicePixels="True">
+    <UIElement.Effect>
+      <DropShadowEffect BlurRadius="22" Direction="270" ShadowDepth="5" Opacity="0.22" Color="#000000" />
+    </UIElement.Effect>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,8">
+        <Viewbox Width="18" Height="18" Margin="0,0,9,0" VerticalAlignment="Center">
+          <Canvas Width="24" Height="24">
+            <Ellipse Width="20" Height="20" Canvas.Left="2" Canvas.Top="2" Stroke="#EFE0D3" StrokeThickness="3" />
+            <Path Data="M12,2 A10,10 0 0 1 22,12" Stroke="#E04F26" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+              <UIElement.RenderTransform>
+                <RotateTransform x:Name="spinnerRotate" CenterX="12" CenterY="12" />
+              </UIElement.RenderTransform>
+            </Path>
+          </Canvas>
+        </Viewbox>
+        <TextBlock Name="lblTitle" Text="OFFICEFORMAT - CHUẨN HÓA TỰ ĐỘNG" FontSize="13.5" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" />
+      </StackPanel>
+      <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
+        <Ellipse Name="pulseDot" Width="7" Height="7" Fill="#E04F26" VerticalAlignment="Center" Margin="2,0,8,0" />
+        <TextBlock Name="lblStatus" Text="Đang khởi tạo cấu hình..." FontSize="12" Foreground="{StaticResource BrushTextSecondary}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" MaxWidth="360" />
+      </StackPanel>
+      <Border Grid.Row="2" Height="14" Background="#FAF0E7" BorderBrush="#E2C8B5" BorderThickness="1" CornerRadius="7" ClipToBounds="True" SnapsToDevicePixels="True">
+        <Grid ClipToBounds="True">
+          <Grid Name="gridProgressTrack" Height="12" Margin="1,0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Name="colFill" Width="0*" />
+              <ColumnDefinition Name="colEmpty" Width="100*" />
+            </Grid.ColumnDefinitions>
+            <Border Name="barFill" Grid.Column="0" CornerRadius="5" Visibility="Collapsed" Background="{StaticResource BrushPrimaryGradient}" />
+          </Grid>
+          <Rectangle Width="90" Height="14" HorizontalAlignment="Left" IsHitTestVisible="False">
+            <Shape.Fill>
+              <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="#00FFFFFF" Offset="0.0" />
+                <GradientStop Color="#70FFFFFF" Offset="0.5" />
+                <GradientStop Color="#00FFFFFF" Offset="1.0" />
+              </LinearGradientBrush>
+            </Shape.Fill>
+            <UIElement.RenderTransform>
+              <TranslateTransform x:Name="shimmerTranslate" X="-100" />
+            </UIElement.RenderTransform>
+          </Rectangle>
+        </Grid>
+      </Border>
+      <Grid Row="3" Margin="0,7,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="lblHint" Grid.Column="0" Text="Đang xử lý nội dung văn bản..." FontSize="10" Foreground="#9E7E6F" FontStyle="Italic" TextTrimming="CharacterEllipsis" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBlock Name="lblPercent" Grid.Column="1" Text="Tiến trình: 0%" FontSize="11" FontWeight="Bold" Foreground="#E04F26" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Button Name="btnCancel" Grid.Column="2" Content="Dừng" Visibility="Collapsed" Margin="12,0,0,0" Padding="14,3" FontSize="11" FontWeight="SemiBold" Foreground="#B91C1C" Background="#FEF2F2" BorderBrush="#FCA5A5" BorderThickness="1" Cursor="Hand" ToolTip="Dừng tác vụ sau bước đang chạy. Bấm Ctrl+Z một lần để hoàn tác phần đã thay đổi." Click="BtnCancel_Click" />
+      </Grid>
+    </Grid>
+  </Border>
+</Window>

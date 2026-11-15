@@ -159,6 +159,12 @@ namespace VFormat.Core.Pdf
                     StandardErrorEncoding = Encoding.UTF8
                 };
 
+                // Thiết lập biến môi trường để Python ép buộc mã hóa UTF-8 trên Windows console
+                // Khắc phục triệt để lỗi: UnicodeEncodeError: 'charmap' codec can't encode character '\u2714'
+                psi.EnvironmentVariables["PYTHONIOENCODING"] = "utf-8";
+                psi.EnvironmentVariables["PYTHONUTF8"] = "1";
+                psi.EnvironmentVariables["PYTHONLEGACYWINDOWSSTDIO"] = "0";
+
                 using (var process = new Process { StartInfo = psi })
                 {
                     process.OutputDataReceived += (s, e) =>

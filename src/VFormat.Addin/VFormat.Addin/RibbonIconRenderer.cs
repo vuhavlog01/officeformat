@@ -132,6 +132,8 @@ internal static class RibbonIconRenderer
 			return new IconSpec(FA_HV_Brand, IconTheme.HeroCoral);
 		case "btnContactAuthor":
 			return new IconSpec(FA_Phone, IconTheme.HeroAmber);
+		case "btnLatPdf":
+			return new IconSpec(FA_FilePdf, IconTheme.HeroCoral);
 
 		// Group: Chuẩn hóa & Quy chuẩn
 		case "btnDetectDoc":

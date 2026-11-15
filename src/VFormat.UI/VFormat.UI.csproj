@@ -24,6 +24,8 @@
     <Page Remove="VFormat.UI.Common\ReportDialog.xaml" />
     <Page Remove="VFormat.UI.Common\PrintDuplexDialog.xaml" />
     <Page Remove="VFormat.UI.Common\PdfConverterDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\LatPdfDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\PdfPageOrganizerDialog.xaml" />
     <Page Remove="VFormat.UI.Common\QrCodeDialog.xaml" />
     <Page Remove="VFormat.UI.License\LicenseDialog.xaml" />
     <Page Remove="VFormat.UI.Personalization\PersonalizationDialog.xaml" />
@@ -45,6 +47,8 @@
     <Page Include="VFormat.UI.Common\ReportDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/reportdialog.xaml" />
     <Page Include="VFormat.UI.Common\PrintDuplexDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/printduplexdialog.xaml" />
     <Page Include="VFormat.UI.Common\PdfConverterDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/pdfconverterdialog.xaml" />
+    <Page Include="VFormat.UI.Common\LatPdfDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/latpdfdialog.xaml" />
+    <Page Include="VFormat.UI.Common\PdfPageOrganizerDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/pdfpageorganizerdialog.xaml" />
     <Page Include="VFormat.UI.Common\QrCodeDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/qrcodedialog.xaml" />
     <Page Include="VFormat.UI.License\LicenseDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="license/licensedialog.xaml" />
     <Page Include="VFormat.UI.Personalization\PersonalizationDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="personalization/personalizationdialog.xaml" />

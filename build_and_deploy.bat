@@ -28,6 +28,7 @@ copy /y src\VFormat.WordEngine\bin\Release\net48\VFormat.WordEngine.dll App_VFor
 copy /y src\VFormat.License\bin\Release\net48\VFormat.License.dll App_VFormat_2.2.9\ >nul
 copy /y src\VFormat.UI\bin\Release\net48\VFormat.UI.dll App_VFormat_2.2.9\ >nul
 copy /y src\VFormat.Addin\bin\Release\net48\VFormat.Addin.dll App_VFormat_2.2.9\ >nul
+copy /y src\VFormat.Addin\bin\Release\net48\PdfSharp*.dll App_VFormat_2.2.9\ >nul
 copy /y src\VFormat.Addin\VFormat.Addin.Ribbon.customUI14.xml App_VFormat_2.2.9\ >nul
 
 echo.

@@ -2145,6 +2145,25 @@ public class Addin : IDTExtensibility2, IRibbonExtensibility, ICustomTaskPaneCon
 		}
 	}
 
+	public void Ribbon_OpenLatPdf(IRibbonControl control)
+	{
+		try
+		{
+			EnsureWpfApplication();
+			var dlg = new LatPdfDialog();
+			IntPtr handle = Process.GetCurrentProcess().MainWindowHandle;
+			if (handle != IntPtr.Zero)
+			{
+				new WindowInteropHelper(dlg).Owner = handle;
+			}
+			dlg.ShowDialog();
+		}
+		catch (Exception ex)
+		{
+			ShowModernError("Lỗi khi mở công cụ Lật & Sắp xếp PDF: " + ex.Message, "OFFICEFORMAT");
+		}
+	}
+
 	public void Ribbon_ConvertPdfToWord(IRibbonControl control)
 	{
 		if (EnsureLicenseActive())

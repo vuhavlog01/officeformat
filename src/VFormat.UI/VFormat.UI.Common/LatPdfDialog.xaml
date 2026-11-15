@@ -1,0 +1,224 @@
+<Window x:Class="VFormat.UI.Common.LatPdfDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lật &amp; Sắp Xếp Trang PDF - OfficeFormat"
+        Height="670" Width="780"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip"
+        MinHeight="580" MinWidth="680"
+        FontFamily="Segoe UI">
+
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid Margin="18">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <!-- Header Card -->
+      <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" CornerRadius="8" Padding="14,12" Margin="0,0,0,12" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+
+          <!-- Icon Badge -->
+          <Border Grid.Column="0" Width="44" Height="44" CornerRadius="8" Background="{StaticResource BrushPrimaryGradient}" VerticalAlignment="Center" Margin="0,0,14,0">
+            <Path Data="M 12 8 L 24 8 L 32 16 L 32 36 L 12 36 Z M 16 28 C 16 22 28 22 28 28 M 28 24 L 32 28 L 28 32"
+                  Stroke="White" StrokeThickness="2.2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+                  HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="26" Stretch="Uniform" />
+          </Border>
+
+          <!-- Title and Subtitle -->
+          <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Text="LẬT &amp; SẮP XẾP TRANG PDF" FontSize="16" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" />
+              <Border Background="{StaticResource BrushPrimaryLight}" CornerRadius="4" Padding="6,1" Margin="8,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="OfficeFormat 1.0" FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource BrushPrimary}" />
+              </Border>
+            </StackPanel>
+            <TextBlock Text="Tự động đảo ngược thứ tự trang, xoay thẳng theo chiều chữ, xóa trang trắng scan và sắp xếp trực quan"
+                       FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,3,0,0" TextWrapping="Wrap" />
+          </StackPanel>
+
+          <!-- Status Engine Badge -->
+          <Border Grid.Column="2" x:Name="borderEngineStatus" Background="#E8F5E9" CornerRadius="6" Padding="8,4" VerticalAlignment="Center">
+            <TextBlock x:Name="txtEngineStatus" Text="⚡ LatPdf AI Engine Sẵn Sàng" FontSize="10.5" FontWeight="SemiBold" Foreground="#2E7D32" />
+          </Border>
+        </Grid>
+      </Border>
+
+      <!-- Main Body (Scrollable) -->
+      <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,12">
+        <StackPanel>
+
+          <!-- Card 1: Danh sách tệp PDF -->
+          <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10">
+            <StackPanel>
+              <Grid Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                  <TextBlock Text="DANH SÁCH TỆP PDF CẦN XỬ LÝ:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" />
+                  <TextBlock x:Name="txtFileCount" Text=" (0 tệp)" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource BrushPrimary}" Margin="4,0,0,0" />
+                </StackPanel>
+
+                <!-- Action buttons -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                  <Button Content="+ Thêm tệp PDF..." Style="{StaticResource FluentSecondaryButton}" Height="26" Padding="8,2" Margin="0,0,4,0" Click="BtnAddFiles_Click" />
+                  <Button Content="+ Thêm thư mục..." Style="{StaticResource FluentSecondaryButton}" Height="26" Padding="8,2" Margin="0,0,4,0" Click="BtnAddFolder_Click" />
+                  <Button Content="Xóa chọn" Style="{StaticResource FluentSecondaryButton}" Height="26" Padding="8,2" Margin="0,0,4,0" Click="BtnRemove_Click" />
+                  <Button Content="Xóa hết" Style="{StaticResource FluentSecondaryButton}" Height="26" Padding="8,2" Click="BtnClear_Click" />
+                </StackPanel>
+              </Grid>
+
+              <!-- List of PDF files -->
+              <ListView x:Name="lvFiles" Height="140" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1"
+                        Background="White" FontSize="11.5" AllowDrop="True" Drop="LvFiles_Drop" DragOver="LvFiles_DragOver"
+                        SelectionMode="Extended">
+                <ListView.View>
+                  <GridView>
+                    <GridViewColumn Header="STT" Width="40" DisplayMemberBinding="{Binding Index}" />
+                    <GridViewColumn Header="Tên tệp PDF" Width="260" DisplayMemberBinding="{Binding FileName}" />
+                    <GridViewColumn Header="Số trang" Width="70" DisplayMemberBinding="{Binding PageCountText}" />
+                    <GridViewColumn Header="Dung lượng" Width="85" DisplayMemberBinding="{Binding SizeText}" />
+                    <GridViewColumn Header="Trạng thái" Width="140" DisplayMemberBinding="{Binding Status}" />
+                  </GridView>
+                </ListView.View>
+              </ListView>
+
+              <Grid Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="💡 Mẹo: Bạn có thể kéo thả trực tiếp một hoặc nhiều file PDF / thư mục vào khung trên."
+                           FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" VerticalAlignment="Center" />
+                <Button Grid.Column="1" x:Name="btnOpenOrganizer" Content="🔍 Trình sắp xếp trang trực quan..."
+                        Style="{StaticResource FluentSecondaryButton}" Height="24" Padding="8,1" Click="BtnPageOrganizer_Click" />
+              </Grid>
+            </StackPanel>
+          </Border>
+
+          <!-- Card 2: Tùy chọn xử lý -->
+          <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10">
+            <StackPanel>
+              <TextBlock Text="TÙY CHỌN XỬ LÝ THÔNG MINH:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,8" />
+
+              <CheckBox x:Name="chkReverse" IsChecked="True" Margin="0,0,0,8">
+                <StackPanel>
+                  <TextBlock Text="Đảo ngược thứ tự trang (Trang N ➔ 1: trang cuối lên đầu)" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Tối ưu cho tài liệu scan 2 mặt hoặc máy scan nạp giấy từ dưới lên" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" />
+                </StackPanel>
+              </CheckBox>
+
+              <CheckBox x:Name="chkAutoOrient" IsChecked="True" Margin="0,0,0,8">
+                <StackPanel>
+                  <TextBlock Text="Tự động nhận diện hướng chữ và xoay thẳng (0° / 90° / 180° / 270°)" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Dùng trí tuệ nhân tạo (ONNX) nhận diện từng trang bị ngược / nghiêng để xoay đứng" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" />
+                </StackPanel>
+              </CheckBox>
+
+              <CheckBox x:Name="chkRemoveBlank" IsChecked="True" Margin="0,0,0,4">
+                <StackPanel>
+                  <TextBlock Text="Tự động phát hiện và xóa trang trắng (Scan 2 mặt bị trống mặt sau)" FontWeight="SemiBold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Phân tích mực in thông minh, tự động lọc bóng viền scan và hạt bụi, không xóa nhầm chữ nhỏ" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" />
+                </StackPanel>
+              </CheckBox>
+            </StackPanel>
+          </Border>
+
+          <!-- Card 3: Nơi lưu tệp kết quả -->
+          <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10">
+            <StackPanel>
+              <TextBlock Text="NƠI LƯU TỆP KẾT QUẢ:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,8" />
+
+              <RadioButton x:Name="radSameDir" IsChecked="True" GroupName="grpOut" Margin="0,0,0,6">
+                <StackPanel Orientation="Horizontal">
+                  <TextBlock Text="Lưu cùng thư mục file gốc, gắn thêm hậu tố: " FontSize="11.5" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBox x:Name="txtSuffix" Text="_lat" Width="70" Height="22" Padding="4,1" Margin="4,0,0,0" FontSize="11" VerticalContentAlignment="Center" />
+                </StackPanel>
+              </RadioButton>
+
+              <RadioButton x:Name="radCustomDir" GroupName="grpOut" Margin="0,0,0,6">
+                <Grid Width="640">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <TextBlock Grid.Column="0" Text="Lưu vào thư mục riêng: " FontSize="11.5" Foreground="{StaticResource BrushTextPrimary}" VerticalAlignment="Center" />
+                  <TextBox Grid.Column="1" x:Name="txtCustomDir" Height="22" Margin="4,0,4,0" FontSize="11" VerticalContentAlignment="Center" IsReadOnly="True" />
+                  <Button Grid.Column="2" Content="Chọn thư mục..." Style="{StaticResource FluentSecondaryButton}" Height="22" Padding="6,1" Click="BtnBrowseCustomDir_Click" />
+                </Grid>
+              </RadioButton>
+
+              <RadioButton x:Name="radInplace" GroupName="grpOut" Margin="0,0,0,2">
+                <TextBlock Text="Ghi đè trực tiếp lên tệp gốc (Thay thế hoàn toàn file nguồn)" FontSize="11.5" Foreground="{StaticResource BrushDangerText}" />
+              </RadioButton>
+            </StackPanel>
+          </Border>
+
+          <!-- Card 4: Nhật ký & Tiến trình -->
+          <Border Style="{StaticResource FluentCard}">
+            <StackPanel>
+              <Grid Margin="0,0,0,6">
+                <TextBlock Text="TIẾN TRÌNH &amp; NHẬT KÝ THỰC THI:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" VerticalAlignment="Center" />
+                <TextBlock x:Name="txtProgressPercent" Text="0%" HorizontalAlignment="Right" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource BrushPrimary}" />
+              </Grid>
+
+              <ProgressBar x:Name="pbProgress" Height="8" Minimum="0" Maximum="100" Value="0"
+                           Foreground="{StaticResource BrushPrimary}" Background="{StaticResource BrushSubtle}" Margin="0,0,0,8" />
+
+              <TextBox x:Name="txtLog" Height="85" Background="#1E293B" Foreground="#F8FAFC"
+                       FontFamily="Consolas, Segoe UI" FontSize="10.5" IsReadOnly="True"
+                       VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Padding="6"
+                       Text="Sẵn sàng xử lý. Hãy thêm tệp PDF và nhấn 'Bắt đầu Lật &amp; Xử lý PDF'..." />
+            </StackPanel>
+          </Border>
+
+        </StackPanel>
+      </ScrollViewer>
+
+      <!-- Footer Buttons -->
+      <Grid Grid.Row="2" Margin="0,4,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Text="Phát triển bởi Hà Xuân Vũ | SĐT/Zalo: 0865333079"
+                   FontSize="11" Foreground="{StaticResource BrushTextMuted}" VerticalAlignment="Center" />
+
+        <Button Grid.Column="1" x:Name="btnOpenOutDir" Content="📁 Mở thư mục kết quả"
+                Style="{StaticResource FluentSecondaryButton}" Height="34" Padding="12,4" Margin="0,0,8,0"
+                Click="BtnOpenOutDir_Click" IsEnabled="False" />
+
+        <Button Grid.Column="2" x:Name="btnRun" Content="🚀 Bắt đầu Lật &amp; Xử lý PDF"
+                Style="{StaticResource FluentPrimaryButton}" Height="34" Padding="16,4" Margin="0,0,8,0"
+                Click="BtnRun_Click" />
+
+        <Button Grid.Column="3" Content="Đóng" Style="{StaticResource FluentSecondaryButton}"
+                Height="34" Padding="14,4" Click="BtnClose_Click" />
+      </Grid>
+
+    </Grid>
+  </Grid>
+</Window>

@@ -727,6 +727,17 @@
 				</group>
 -->
 
+				<!-- NHÓM: TIỆN ÍCH PDF (LATPDF) -->
+				<group id="grpPdfTools" label="Tiện ích PDF">
+					<button id="btnLatPdf"
+						label="Lật &amp;&amp; Sắp xếp&#10;Trang PDF"
+						size="large"
+						getImage="Ribbon_GetIcon"
+						onAction="Ribbon_OpenLatPdf"
+						screentip="Lật &amp; Sắp xếp trang PDF (OfficeFormat)"
+						supertip="Đảo ngược thứ tự trang (N➔1), tự động xoay đứng theo hướng chữ (AI RapidOCR), xóa trang trắng scan và sắp xếp trang trực quan." />
+				</group>
+
 				<!-- NHÓM 6: BIỂU MẪU & CÁ NHÂN HÓA -->
 				<group id="grpTemplatesInfo" label="Cài đặt &amp;&amp; Hỗ trợ">
                                                                                 <!-- [PHÁT TRIỂN Ở VERSION SAU] Thư viện Biểu mẫu

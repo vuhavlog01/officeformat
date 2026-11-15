@@ -54,21 +54,7 @@ namespace VFormat.UI.Common
         {
             InitializeComponent();
             lvFiles.ItemsSource = _files;
-
-            // Kiểm tra trạng thái AI Engine
-            bool aiReady = LatPdfCliRunner.IsLatPdfAvailable();
-            if (aiReady)
-            {
-                txtEngineStatus.Text = "⚡ LatPdf AI Engine Sẵn Sàng";
-                txtEngineStatus.Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(46, 125, 50));
-            }
-            else
-            {
-                txtEngineStatus.Text = "ℹ Động cơ Native C# (PDFsharp)";
-                txtEngineStatus.Foreground = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(224, 79, 38));
-            }
-
-            AppendLog("Hệ thống khởi tạo thành công. Vui lòng thêm tệp PDF để bắt đầu.");
+            AppendLog("Động cơ thuần C# OfficeFormat đã sẵn sàng. Hãy thêm tệp PDF để bắt đầu.");
         }
 
         private void AppendLog(string message)
@@ -112,7 +98,7 @@ namespace VFormat.UI.Common
                     };
                     _files.Add(item);
 
-                    // Đọc số trang nền
+                    // Đọc nhanh số trang PDF
                     Task.Run(() =>
                     {
                         int pc = PdfFlipEngine.GetPageCount(p);
@@ -252,8 +238,14 @@ namespace VFormat.UI.Common
             }
 
             bool reverse = chkReverse.IsChecked == true;
-            bool autoOrient = chkAutoOrient.IsChecked == true;
-            bool removeBlank = chkRemoveBlank.IsChecked == true;
+            int rotAngle = 0;
+            switch (cboRotation.SelectedIndex)
+            {
+                case 1: rotAngle = 90; break;
+                case 2: rotAngle = 180; break;
+                case 3: rotAngle = 270; break;
+                default: rotAngle = 0; break;
+            }
 
             bool inplace = radInplace.IsChecked == true;
             string outDir = null;
@@ -288,7 +280,7 @@ namespace VFormat.UI.Common
             pbProgress.Value = 0;
             txtProgressPercent.Text = "0%";
 
-            AppendLog($"Bắt đầu tiến trình xử lý {_files.Count} tệp PDF...");
+            AppendLog($"Bắt đầu xử lý {_files.Count} tệp PDF bằng động cơ thuần C# siêu tốc...");
 
             int total = _files.Count;
             int successCount = 0;
@@ -304,40 +296,22 @@ namespace VFormat.UI.Common
 
                 try
                 {
-                    PdfProcessResult res;
-                    if (autoOrient || removeBlank)
-                    {
-                        // Sử dụng LatPdf AI Runner
-                        res = await LatPdfCliRunner.RunAsync(
+                    var res = await Task.Run(() =>
+                        PdfFlipEngine.ProcessPdfNative(
                             fileItem.FilePath,
                             outDir: outDir,
                             suffix: suffix,
                             inplace: inplace,
                             overwrite: true,
                             reverseOrder: reverse,
-                            autoOrient: autoOrient,
-                            removeBlank: removeBlank,
-                            logCallback: msg => AppendLog($"   {msg}"));
-                    }
-                    else
-                    {
-                        // Đảo trang thuần C# Native tốc độ cao
-                        res = await Task.Run(() =>
-                            PdfFlipEngine.ProcessPdfNative(
-                                fileItem.FilePath,
-                                outDir: outDir,
-                                suffix: suffix,
-                                inplace: inplace,
-                                overwrite: true,
-                                reverseOrder: reverse));
-                    }
+                            globalRotation: rotAngle));
 
                     if (res.Success)
                     {
                         fileItem.Status = "✓ Thành công";
                         successCount++;
                         _lastOutputDir = Path.GetDirectoryName(res.OutputPath);
-                        AppendLog($"   ✓ Thành công! Lưu tại: {res.OutputPath} ({res.FinalPageCount} trang)");
+                        AppendLog($"   ✓ Thành công! Lưu tại: {res.OutputPath} ({res.FinalPageCount} trang) [{res.ElapsedTime.TotalMilliseconds:F0} ms]");
                     }
                     else
                     {

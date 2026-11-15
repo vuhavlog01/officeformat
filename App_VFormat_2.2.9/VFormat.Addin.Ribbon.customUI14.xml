@@ -727,7 +727,7 @@
 				</group>
 -->
 
-				<!-- NHÓM: TIỆN ÍCH PDF (LATPDF) -->
+				<!-- NHÓM: TIỆN ÍCH PDF -->
 				<group id="grpPdfTools" label="Tiện ích PDF">
 					<button id="btnLatPdf"
 						label="Lật &amp;&amp; Sắp xếp&#10;Trang PDF"
@@ -735,7 +735,7 @@
 						getImage="Ribbon_GetIcon"
 						onAction="Ribbon_OpenLatPdf"
 						screentip="Lật &amp; Sắp xếp trang PDF (OfficeFormat)"
-						supertip="Đảo ngược thứ tự trang (N➔1), tự động xoay đứng theo hướng chữ (AI RapidOCR), xóa trang trắng scan và sắp xếp trang trực quan." />
+						supertip="Đảo ngược thứ tự trang (N➔1), xoay góc trang và sắp xếp trang trực quan bằng động cơ thuần C# siêu tốc." />
 				</group>
 
 				<!-- NHÓM 6: BIỂU MẪU & CÁ NHÂN HÓA -->

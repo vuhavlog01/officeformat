@@ -121,6 +121,7 @@ namespace VFormat.Core.Pdf
             bool inplace = false,
             bool overwrite = false,
             bool reverseOrder = true,
+            int globalRotation = 0,
             List<int> pageOrder = null,
             Dictionary<int, int> manualRotations = null,
             Action<int, int> onPageProgress = null)
@@ -204,7 +205,14 @@ namespace VFormat.Core.Pdf
 
                             var page = inputDoc.Pages[origIdx];
 
-                            // Áp dụng góc xoay bổ sung nếu có
+                            // Áp dụng góc xoay chung nếu có
+                            if (globalRotation % 360 != 0)
+                            {
+                                page.Rotate = (page.Rotate + globalRotation) % 360;
+                                rotCount++;
+                            }
+
+                            // Áp dụng góc xoay bổ sung từng trang nếu có
                             if (manualRotations != null && manualRotations.TryGetValue(origIdx, out int addAngle))
                             {
                                 int curAngle = page.Rotate;

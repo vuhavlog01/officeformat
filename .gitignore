@@ -1,3 +1,37 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.env
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.temp.docx
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
+
 ## Build results
 [Bb]in/
 [Oo]bj/
@@ -10,9 +44,3 @@ Output/
 ## Visual Studio cache
 .vs/
 .vscode/
-
-## Temporary files
-*.tmp
-*.log
-Thumbs.db
-Desktop.ini

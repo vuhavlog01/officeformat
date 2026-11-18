@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: officeformat-lich-tuan
+    runtime: docker
+    region: singapore
+    plan: free

@@ -1,0 +1,185 @@
+{
+  "agency_upper": "ĐẢNG BỘ THÀNH PHỐ ĐÀ NẴNG",
+  "agency_name": "ĐẢNG UỶ XÃ QUẾ SƠN",
+  "doc_date_text": "Quế Sơn, ngày 01 tháng 11 năm 2026",
+  "doc_title": "lịch công tác của Ban Thường vụ Đảng ủy từ ngày 02/11/2026 đến ngày 08/11/2026",
+  "days": [
+    {
+      "day_name": "Thứ Hai",
+      "date_str": "02/11",
+      "morning": [
+        {
+          "leader": "BTV",
+          "content": "- 07h30: Chào cờ đầu tháng 11 năm 2026.",
+          "location": "Trước sân xã Quế Sơn",
+          "staff": "LĐ, CBCC, VC, NLĐ",
+          "is_red": false
+        },
+        {
+          "leader": "TT.ĐU, C.Hằng",
+          "content": "- 08h00: Họp Thường trực Đảng ủy.",
+          "location": "Phòng họp số 1",
+          "staff": "A.Tâm",
+          "is_red": false
+        },
+        {
+          "leader": "A.Tùng",
+          "content": "- 08h00: Dự Hội nghị tập huấn “Nhận thức chung về Tiêu chuẩn TCVN ISO 56000:2023 về Quản lý đổi mới”.",
+          "location": "số 495 Phan Chu Trinh, phường Tam Kỳ",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "BTV",
+          "content": "- 14h00: Hội nghị quán triệt các văn bản của Trung ương, Thành ủy.",
+          "location": "Hội trường xã Quế Sơn",
+          "staff": "",
+          "is_red": false
+        },
+        {
+          "leader": "A.Vũ",
+          "content": "- 14h00: Ban đô thị của HĐND thành phố họp đoàn giám sát chuyên đề.",
+          "location": "số 32 Bạch Đằng, P.Hải Châu",
+          "staff": "A.Lực",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Ba",
+      "date_str": "03/11",
+      "morning": [
+        {
+          "leader": "A.Vũ, C.Vinh",
+          "content": "- 08h00: Họp chi bộ Văn phòng Đảng ủy.",
+          "location": "Phòng họp số 4",
+          "staff": "Đảng viên",
+          "is_red": false
+        },
+        {
+          "leader": "A.Công",
+          "content": "- 08h00: Họp chi bộ Ủy ban Kiểm tra.",
+          "location": "Phòng Chủ nhiệm UBKT",
+          "staff": "Đảng viên",
+          "is_red": false
+        },
+        {
+          "leader": "C Hằng",
+          "content": "- 8h00: Giám sát công tác bảo vệ môi trường, thu gom, xử lý rác thải",
+          "location": "Trung tâm CƯDVSNC",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "TT.ĐU",
+          "content": "- 14h00: Họp Thường trực Đảng ủy nghe UBND xã báo cáo đánh giá việc thực hiện các Thông báo kết luận và các nội dung chỉ đạo của đồng chí Trưởng ban Chỉ đạo tại các cuộc họp.",
+          "location": "Phòng họp số 2",
+          "staff": "C.Nguyệt",
+          "is_red": false
+        },
+        {
+          "leader": "A.Tùng",
+          "content": "- 14h00: Làm việc với các hộ dân thôn Trung Thượng.",
+          "location": "Phòng họp số 1",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Tư",
+      "date_str": "04/11",
+      "morning": [
+        {
+          "leader": "A.Vũ",
+          "content": "- 08h00: Tổ đại biểu bầu cử số 12 của HĐND thành phố về tiếp xúc cử tri kỳ họp thường lệ năm 2026, khóa XI, nhiệm kỳ 2026-2031.",
+          "location": "Số 545 Hùng Vương, xã Nam Phước",
+          "staff": "A.Lực",
+          "is_red": false
+        },
+        {
+          "leader": "A.Trung",
+          "content": "- 08h00: Làm việc với  anh Trần Phước Cường.",
+          "location": "Phòng họp số 1",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "TT.ĐU, A.Tùng",
+          "content": "- 14h00: Họp Thường trực BCĐ các Chương trình MTQG.",
+          "location": "Phòng họp số 2",
+          "staff": "C.Nguyệt",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Năm",
+      "date_str": "05/11",
+      "morning": [
+        {
+          "leader": "A.Vũ",
+          "content": "- 08h00: Tổ đại biểu bầu cử số 12 của HĐND thành phố về tiếp xúc cử tri kỳ họp thường lệ năm 2026, khóa XI, nhiệm kỳ 2026-2031.",
+          "location": "Hội trường xã Quế Sơn",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "TT.ĐU",
+          "content": "- 14h00: TT Đảng uỷ hội nghị giao ban với Bí thư chi bộ các thôn.",
+          "location": "Phòng họp số 2",
+          "staff": "A.Lưu, A.Phương",
+          "is_red": false
+        }
+      ]
+    },
+    {
+      "day_name": "Thứ Sáu",
+      "date_str": "06/11",
+      "morning": [
+        {
+          "leader": "BTV",
+          "content": "- 08h00: Dự Lễ trao Huy hiệu Đảng đợt 07/11/2026 và trao giải cuộc thi.",
+          "location": "Hội trường xã Quế Sơn",
+          "staff": "",
+          "is_red": false
+        }
+      ],
+      "afternoon": [
+        {
+          "leader": "A.Tùng",
+          "content": "- 14h00: Tham dự Tập huấn kiến thức, kỹ năng xúc tiến thương mại, quảng bá, kết nối tiêu thụ sản phẩm Đà Nẵng và ứng dụng trí tuệ nhân tạo (AI), thương mại điện tử trong phát triển thị trường năm 2026",
+          "location": "Hội trường xã Quế Sơn",
+          "staff": "",
+          "is_red": false
+        }
+      ]
+    }
+  ],
+  "driver_duty_note": "* Thứ Bảy, Chủ nhật, ngày 31/10 – 01/11/2026. A.Lực trực lái xe Đảng ủy.",
+  "invitation_note": "* Lịch công tác thay cho giấy mời họp Thường trực, Ban Thường vụ Đảng ủy.",
+  "change_note": "",
+  "next_week_title": "",
+  "next_week_items": [],
+  "recipients": [
+    "- Ủy viên BTV Đảng ủy;",
+    "- Thường trực HĐND, UBND xã;",
+    "- Các cơ quan CTTM, GV Đảng ủy;",
+    "- Lưu Văn phòng Đảng ủy."
+  ],
+  "signer_authority": "T/L BAN THƯỜNG VỤ",
+  "signer_title": "CHÁNH VĂN PHÒNG",
+  "signer_name": "Nguyễn Phước Tâm",
+  "include_signature": true,
+  "name": "lịch công tác của Ban Thường vụ Đảng ủy từ ngày 02/11/2026 đến ngày 08/11/2026",
+  "saved_at": "2026-10-31 14:23:59",
+  "id": "word_20261031_142359"
+}

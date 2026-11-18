@@ -312,7 +312,7 @@ public static class TT68Rules
 			IsTitleCase = true
 		};
 		componentStyles[SemanticRole.SignRankName] = new ComponentStyle(SemanticRole.SignRankName, 14f, bold: true, italic: false, AlignmentType.Center);
-		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: false, italic: false, AlignmentType.Center);
+		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: false, italic: false, AlignmentType.Left);
 		componentStyles[SemanticRole.RecipientHeader] = new ComponentStyle(SemanticRole.RecipientHeader, 12f, bold: true, italic: true);
 		componentStyles[SemanticRole.RecipientItem] = new ComponentStyle(SemanticRole.RecipientItem, 11f);
 		componentStyles[SemanticRole.UrgencyIndicator] = new ComponentStyle(SemanticRole.UrgencyIndicator, 13f, bold: true, italic: false, AlignmentType.Center)

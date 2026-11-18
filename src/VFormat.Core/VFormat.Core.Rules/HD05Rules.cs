@@ -125,7 +125,7 @@ public static class HD05Rules
 		{
 			IsTitleCase = true
 		};
-		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: false, italic: true, AlignmentType.Center);
+		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: false, italic: true, AlignmentType.Left);
 		componentStyles[SemanticRole.RecipientHeader] = new ComponentStyle(SemanticRole.RecipientHeader, 14f, bold: false, italic: false, AlignmentType.Left, UnderlineRuleType.SolidFullWidth);
 		componentStyles[SemanticRole.RecipientItem] = new ComponentStyle(SemanticRole.RecipientItem, 12f);
 		componentStyles[SemanticRole.UrgencyIndicator] = new ComponentStyle(SemanticRole.UrgencyIndicator, 14f, bold: true, italic: false, AlignmentType.Center)

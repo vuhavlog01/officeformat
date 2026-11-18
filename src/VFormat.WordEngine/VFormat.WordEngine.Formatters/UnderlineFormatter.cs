@@ -291,6 +291,39 @@ public static class UnderlineFormatter
 		}
 	}
 
+	private static void SetComEnumProperty(object target, string propertyName, int intValue)
+	{
+		if (target == null)
+		{
+			return;
+		}
+		try
+		{
+			PropertyInfo property = target.GetType().GetProperty(propertyName);
+			if (property != null && property.CanWrite)
+			{
+				if (property.PropertyType.IsEnum)
+				{
+					object value = Enum.ToObject(property.PropertyType, intValue);
+					property.SetValue(target, value, null);
+					return;
+				}
+				property.SetValue(target, Convert.ChangeType(intValue, property.PropertyType), null);
+				return;
+			}
+		}
+		catch
+		{
+		}
+		try
+		{
+			target.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, target, new object[1] { intValue });
+		}
+		catch
+		{
+		}
+	}
+
 	private static void DisableShapeEffects(Shape shape)
 	{
 		if (shape == null)
@@ -299,28 +332,40 @@ public static class UnderlineFormatter
 		}
 		try
 		{
-			((dynamic)shape).Shadow.Visible = 0;
+			SetComEnumProperty(shape.Shadow, "Visible", 0); // msoFalse
+			SetComEnumProperty(shape.Shadow, "Type", 0);    // msoShadowNone
+			shape.Shadow.Blur = 0f;
+			shape.Shadow.OffsetX = 0f;
+			shape.Shadow.OffsetY = 0f;
+			shape.Shadow.Transparency = 1f;
 		}
 		catch
 		{
 		}
 		try
 		{
-			((dynamic)shape).Reflection.Type = 0;
+			SetComEnumProperty(shape.Reflection, "Type", 0); // msoReflectionTypeNone
 		}
 		catch
 		{
 		}
 		try
 		{
-			((dynamic)shape).Glow.Radius = 0;
+			shape.Glow.Radius = 0f;
 		}
 		catch
 		{
 		}
 		try
 		{
-			((dynamic)shape).SoftEdge.Type = 0;
+			SetComEnumProperty(shape.SoftEdge, "Type", 0); // msoSoftEdgeTypeNone
+		}
+		catch
+		{
+		}
+		try
+		{
+			SetComEnumProperty(shape.ThreeD, "Visible", 0); // msoFalse
 		}
 		catch
 		{
@@ -351,6 +396,18 @@ public static class UnderlineFormatter
 					if (text == "VFormat_Motto_Line" || text == "VFormat_Party_Line")
 					{
 						shape.Delete();
+						continue;
+					}
+					if (tbl != null && shape.Anchor != null)
+					{
+						int anchorStart = shape.Anchor.Start;
+						if (anchorStart >= tbl.Range.Start && anchorStart <= tbl.Range.End)
+						{
+							if (shape.Height <= 5f || text.StartsWith("Line", StringComparison.OrdinalIgnoreCase) || text.StartsWith("Straight Connector", StringComparison.OrdinalIgnoreCase))
+							{
+								shape.Delete();
+							}
+						}
 					}
 				}
 				catch
@@ -370,6 +427,14 @@ public static class UnderlineFormatter
 			if (RulePackTraits.UsesOrganizationHeader(rulePack))
 			{
 				Cell cell = tbl.Cell(1, 2);
+				try
+				{
+					cell.Borders.Enable = 0;
+					cell.Borders.Shadow = false;
+				}
+				catch
+				{
+				}
 				Paragraph paragraph = null;
 				for (int i = 1; i <= cell.Range.Paragraphs.Count; i++)
 				{
@@ -388,6 +453,15 @@ public static class UnderlineFormatter
 				}
 				paragraph.Range.Font.Underline = WdUnderline.wdUnderlineNone;
 				paragraph.Range.Underline = WdUnderline.wdUnderlineNone;
+				try
+				{
+					paragraph.Borders.Enable = 0;
+					paragraph.Borders.Shadow = false;
+					paragraph.Borders[WdBorderType.wdBorderBottom].LineStyle = WdLineStyle.wdLineStyleNone;
+				}
+				catch
+				{
+				}
 				string text3 = (paragraph.Range.Text ?? "").Replace("\r", "").Replace("\n", "").Replace("\a", "")
 					.Trim();
 				if (string.IsNullOrEmpty(text3))
@@ -427,6 +501,14 @@ public static class UnderlineFormatter
 				return;
 			}
 			Cell cell2 = tbl.Cell(1, 2);
+			try
+			{
+				cell2.Borders.Enable = 0;
+				cell2.Borders.Shadow = false;
+			}
+			catch
+			{
+			}
 			Paragraph paragraph3 = null;
 			for (int k = 1; k <= cell2.Range.Paragraphs.Count; k++)
 			{
@@ -445,6 +527,15 @@ public static class UnderlineFormatter
 			}
 			paragraph3.Range.Font.Underline = WdUnderline.wdUnderlineNone;
 			paragraph3.Range.Underline = WdUnderline.wdUnderlineNone;
+			try
+			{
+				paragraph3.Borders.Enable = 0;
+				paragraph3.Borders.Shadow = false;
+				paragraph3.Borders[WdBorderType.wdBorderBottom].LineStyle = WdLineStyle.wdLineStyleNone;
+			}
+			catch
+			{
+			}
 			string text6 = (paragraph3.Range.Text ?? "").Replace("\r", "").Replace("\n", "").Replace("\a", "")
 				.Trim();
 			if (!string.IsNullOrEmpty(text6))
@@ -478,6 +569,15 @@ public static class UnderlineFormatter
 		{
 			pMotto.Range.Font.Underline = WdUnderline.wdUnderlineNone;
 			pMotto.Range.Underline = WdUnderline.wdUnderlineNone;
+			try
+			{
+				pMotto.Borders.Enable = 0;
+				pMotto.Borders.Shadow = false;
+				pMotto.Borders[WdBorderType.wdBorderBottom].LineStyle = WdLineStyle.wdLineStyleNone;
+			}
+			catch
+			{
+			}
 			for (int num = doc.Shapes.Count; num >= 1; num--)
 			{
 				try

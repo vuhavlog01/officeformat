@@ -4,7 +4,9 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.Office.Interop.Word;
 using VFormat.Core.Common;
+using VFormat.Core.Enums;
 using VFormat.Core.Models;
+using VFormat.Core.Rules;
 using VFormat.WordEngine.Interop;
 
 namespace VFormat.WordEngine.Formatters;
@@ -41,6 +43,11 @@ public static class TableFormatter
 				try
 				{
 					comObj2 = comObj[i];
+					if (IsDirectRecipientTable(comObj2))
+					{
+						FormatDirectRecipientTable(comObj2);
+						continue;
+					}
 					FormatSingleTable(comObj2, preset);
 				}
 				catch (OperationCanceledException)
@@ -77,6 +84,11 @@ public static class TableFormatter
 		}
 		try
 		{
+			if (IsDirectRecipientTable(table))
+			{
+				FormatDirectRecipientTable(table);
+				return;
+			}
 			if (IsMetadataTable(table))
 			{
 				return;
@@ -461,7 +473,163 @@ public static class TableFormatter
 			.Trim();
 	}
 
-	private static bool IsMetadataTable(Table table)
+	public static bool IsDirectRecipientTable(Table table)
+	{
+		if (table == null)
+		{
+			return false;
+		}
+		try
+		{
+			string text = table.Range.Text;
+			if (string.IsNullOrEmpty(text))
+			{
+				return false;
+			}
+			string upper = text.ToUpperInvariant();
+			return upper.Contains("KÍNH GỬI") || upper.Contains("KINH GUI") || upper.Contains("KÍNH TRÌNH") || upper.Contains("KINH TRINH") || RegexPatterns.DirectRecipient.IsMatch(text);
+		}
+		catch
+		{
+			return false;
+		}
+	}
+
+	public static void FormatDirectRecipientTable(Table table, ProfileModel profile = null)
+	{
+		if (table == null)
+		{
+			return;
+		}
+		try
+		{
+			table.Borders.Enable = 0;
+			try
+			{
+				table.Borders.Shadow = false;
+			}
+			catch
+			{
+			}
+			foreach (WdBorderType bt in AllBorderTypes)
+			{
+				try
+				{
+					table.Borders[bt].LineStyle = WdLineStyle.wdLineStyleNone;
+				}
+				catch
+				{
+				}
+			}
+			table.Rows.Alignment = WdRowAlignment.wdAlignRowLeft;
+			table.Rows.AllowBreakAcrossPages = 0;
+			table.TopPadding = 1f;
+			table.BottomPadding = 1f;
+			table.LeftPadding = 0f;
+			table.RightPadding = 0f;
+
+			float fontSize = profile?.GetComponentStyle(SemanticRole.DirectRecipient)?.SizePt ?? 14f;
+			RulePackType rulePack = profile?.RulePack ?? RulePackType.ND30_2020;
+
+			foreach (Row row in table.Rows)
+			{
+				int cellCount = row.Cells.Count;
+				for (int c = 1; c <= cellCount; c++)
+				{
+					Cell cell = row.Cells[c];
+					try
+					{
+						cell.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalTop;
+						cell.Borders.Enable = 0;
+						try
+						{
+							cell.Borders.Shadow = false;
+						}
+						catch
+						{
+						}
+						foreach (WdBorderType bt in AllBorderTypes)
+						{
+							try
+							{
+								cell.Borders[bt].LineStyle = WdLineStyle.wdLineStyleNone;
+							}
+							catch
+							{
+							}
+						}
+
+						string cellText = CleanCellText(cell.Range.Text);
+						string cellUpper = cellText.ToUpperInvariant();
+						bool isLabelCell = (c == 1 && (cellUpper.Contains("KÍNH GỬI") || cellUpper.Contains("KINH GUI") || cellUpper.Contains("KÍNH TRÌNH") || cellUpper.Contains("KINH TRINH")));
+
+						foreach (Paragraph p in cell.Range.Paragraphs)
+						{
+							try
+							{
+								StripLeadingTabs(p);
+								p.Range.Font.Name = "Times New Roman";
+								p.Range.Font.Size = fontSize;
+								p.Range.Font.Underline = WdUnderline.wdUnderlineNone;
+								try
+								{
+									p.Borders.Enable = 0;
+									p.Borders.Shadow = false;
+								}
+								catch
+								{
+								}
+
+								ParagraphFormat pf = p.Range.ParagraphFormat;
+								pf.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+								pf.FirstLineIndent = 0f;
+								pf.LeftIndent = 0f;
+								pf.RightIndent = 0f;
+								pf.SpaceBefore = 1f;
+								pf.SpaceAfter = 2f;
+								pf.LineSpacingRule = WdLineSpacing.wdLineSpaceSingle;
+
+								if (isLabelCell)
+								{
+									if (rulePack == RulePackType.HD05_VPTW)
+									{
+										p.Range.Font.Bold = 0;
+										p.Range.Font.Italic = -1;
+									}
+									else if (RulePackTraits.IsYouthUnion(rulePack))
+									{
+										p.Range.Font.Bold = -1;
+										p.Range.Font.Italic = 0;
+									}
+									else
+									{
+										p.Range.Font.Bold = -1;
+										p.Range.Font.Italic = 0;
+									}
+								}
+								else
+								{
+									p.Range.Font.Bold = 0;
+									p.Range.Font.Italic = 0;
+								}
+							}
+							catch
+							{
+							}
+						}
+					}
+					catch
+					{
+					}
+				}
+			}
+		}
+		catch
+		{
+		}
+	}
+
+	public static bool IsMetadataTable(Table table)
 	{
 		try
 		{
@@ -470,7 +638,7 @@ public static class TableFormatter
 			{
 				return false;
 			}
-			if (RegexPatterns.NationalHeader.IsMatch(text) || RegexPatterns.Motto.IsMatch(text) || RegexPatterns.PartyHeader.IsMatch(text) || RegexPatterns.YouthUnionHeader.IsMatch(text) || RegexPatterns.RecipientHeader.IsMatch(text) || Regex.IsMatch(text, "(^|[\\r\\n\\v\\a])\\s*Nơi\\s+nhận\\s*:?", RegexOptions.IgnoreCase))
+			if (RegexPatterns.NationalHeader.IsMatch(text) || RegexPatterns.Motto.IsMatch(text) || RegexPatterns.PartyHeader.IsMatch(text) || RegexPatterns.YouthUnionHeader.IsMatch(text) || RegexPatterns.RecipientHeader.IsMatch(text) || Regex.IsMatch(text, "(^|[\\r\\n\\v\\a])\\s*Nơi\\s+nhận\\s*:?", RegexOptions.IgnoreCase) || IsDirectRecipientTable(table))
 			{
 				return true;
 			}

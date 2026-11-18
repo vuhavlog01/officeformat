@@ -220,7 +220,7 @@ public static class HD29Rules
 		{
 			IsTitleCase = true
 		};
-		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: true, italic: false, AlignmentType.Center);
+		componentStyles[SemanticRole.DirectRecipient] = new ComponentStyle(SemanticRole.DirectRecipient, 14f, bold: true, italic: false, AlignmentType.Left);
 		componentStyles[SemanticRole.RecipientHeader] = new ComponentStyle(SemanticRole.RecipientHeader, 13f, bold: true);
 		componentStyles[SemanticRole.RecipientItem] = new ComponentStyle(SemanticRole.RecipientItem, 11f);
 		componentStyles[SemanticRole.SecurityIndicator] = new ComponentStyle(SemanticRole.SecurityIndicator, 13f, bold: true, italic: false, AlignmentType.Center)

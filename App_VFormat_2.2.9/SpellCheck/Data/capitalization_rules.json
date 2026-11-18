@@ -1,0 +1,85 @@
+[
+  {
+    "id": "CAP_SENTENCE_START",
+    "profile": [
+      "ADMINISTRATIVE",
+      "LEGAL_NORMATIVE",
+      "EDUCATION_ORTHOGRAPHY"
+    ],
+    "category": "capitalization",
+    "severity": "warning",
+    "description": "Chữ cái đầu câu hoặc đầu đoạn văn phải viết hoa.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục II",
+      "section": "Mục I.1"
+    }
+  },
+  {
+    "id": "CAP_PROPER_NAME_VI",
+    "profile": [
+      "ADMINISTRATIVE",
+      "LEGAL_NORMATIVE",
+      "EDUCATION_ORTHOGRAPHY"
+    ],
+    "category": "capitalization",
+    "severity": "warning",
+    "description": "Tên người, tên địa lí Việt Nam viết hoa chữ cái đầu của các âm tiết tạo thành tên riêng.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục II",
+      "section": "Mục II.1 và Mục III.1"
+    }
+  },
+  {
+    "id": "CAP_SPECIAL_NOUNS",
+    "profile": [
+      "ADMINISTRATIVE",
+      "LEGAL_NORMATIVE",
+      "EDUCATION_ORTHOGRAPHY"
+    ],
+    "category": "capitalization",
+    "severity": "warning",
+    "description": "Danh từ đặc biệt trong văn bản hành chính (Nhân dân, Nhà nước, Đảng, Bác) viết hoa chữ cái đầu.",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục II",
+      "section": "Mục V.1 và Mục V.4"
+    }
+  },
+  {
+    "id": "CAP_LEGAL_STRUCT_REF",
+    "profile": [
+      "ADMINISTRATIVE",
+      "LEGAL_NORMATIVE"
+    ],
+    "category": "capitalization",
+    "severity": "warning",
+    "description": "Viện dẫn phần, chương, mục, tiểu mục, điều của một văn bản cụ thể thì viết hoa chữ cái đầu của Phần, Chương, Mục, Tiểu mục, Điều (khoản và điểm viết thường).",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục II",
+      "section": "Mục V.7"
+    }
+  },
+  {
+    "id": "CAP_POST_COLON_QUOTE",
+    "profile": [
+      "ADMINISTRATIVE",
+      "LEGAL_NORMATIVE"
+    ],
+    "category": "capitalization",
+    "severity": "warning",
+    "description": "Viết hoa chữ cái đầu của âm tiết thứ nhất sau dấu hai chấm và dấu ngoặc kép mở (: “...).",
+    "autofix": false,
+    "source": {
+      "document": "Nghị định 30/2020/NĐ-CP",
+      "appendix": "Phụ lục II",
+      "section": "Mục I.2"
+    }
+  }
+]

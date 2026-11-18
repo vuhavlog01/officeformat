@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.SpellCheck.SpellCheckWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Kiểm Soát Chính Tả Tiếng Việt - OfficeFormat" Height="680" Width="980" MinHeight="540" MinWidth="850" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI, Tahoma, Arial" Background="#FDF8F4" xmlns:spellcheck="clr-namespace:VFormat.UI.SpellCheck;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+      <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{DynamicResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{DynamicResource BrushCardBackground}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,12">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="10" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+          <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Path Data="{StaticResource IconSpellCheck}" Fill="{DynamicResource BrushPrimary}" Width="16" Height="16" Stretch="Uniform" Margin="0,0,8,0" VerticalAlignment="Center" />
+            <TextBlock Name="txtHeaderTitle" Text="KIỂM TRA CHÍNH TẢ &amp; VĂN PHONG TIẾNG VIỆT" FontWeight="Bold" FontSize="14" Foreground="{DynamicResource BrushPrimary}" VerticalAlignment="Center" />
+          </StackPanel>
+          <TextBlock Name="txtHeaderSubtitle" Text="Động cơ 100% Offline theo Nghị định 30/2020, Nghị định 78/2025 và Quyết định 1989/BGDĐT. Bảo toàn định dạng Word." FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" Margin="26,3,12,0" TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel Name="pnlProfileSelector" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="Quy chuẩn:" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource BrushTextPrimary}" VerticalAlignment="Center" Margin="0,0,8,0" />
+          <ComboBox Name="cboProfile" Width="235" Height="32" Style="{DynamicResource FluentComboBox}" SelectionChanged="CboProfile_SelectionChanged">
+            <ComboBoxItem Content="Bộ Quốc phòng (TT 68/2023)" Tag="Military" />
+            <ComboBoxItem Content="Hành chính (NĐ 30/2020)" Tag="Administrative" />
+            <ComboBoxItem Content="Văn bản Đảng (HD 05-HD/TW)" Tag="Party" />
+            <ComboBoxItem Content="Văn bản QPPL (NĐ 78/2025)" Tag="LegalNormative" />
+            <ComboBoxItem Content="Chính tả Giáo dục (QĐ 1989)" Tag="EducationOrthography" />
+          </ComboBox>
+        </StackPanel>
+        <Button Name="btnRescan" Grid.Column="3" Content="🔄 Quét lại" Height="32" Padding="14,0" Style="{DynamicResource FluentSecondaryButton}" VerticalAlignment="Center" Click="BtnRescan_Click" />
+      </Grid>
+    </Border>
+    <Border Grid.Row="1" Background="{DynamicResource BrushSubtle}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,8">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="Thống kê vấn đề:" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource BrushTextSecondary}" VerticalAlignment="Center" Margin="0,0,12,0" />
+          <RadioButton Name="radFilterAll" Content="Tất cả (0)" IsChecked="True" GroupName="grpFilter" Style="{DynamicResource FluentRadioButton}" VerticalAlignment="Center" Margin="0,0,12,0" Checked="Filter_Checked" />
+          <Border Background="#FEE2E2" CornerRadius="4" Padding="6,2" Margin="0,0,10,0" VerticalAlignment="Center">
+            <RadioButton Name="radFilterSpelling" Content="Chính tả: 0" GroupName="grpFilter" Foreground="#DC2626" FontWeight="SemiBold" Style="{DynamicResource FluentRadioButton}" Checked="Filter_Checked" />
+          </Border>
+          <Border Background="#FEF3C7" CornerRadius="4" Padding="6,2" Margin="0,0,10,0" VerticalAlignment="Center">
+            <RadioButton Name="radFilterCap" Content="Viết hoa: 0" GroupName="grpFilter" Foreground="#D97706" FontWeight="SemiBold" Style="{DynamicResource FluentRadioButton}" Checked="Filter_Checked" />
+          </Border>
+          <Border Background="#E0E7FF" CornerRadius="4" Padding="6,2" Margin="0,0,10,0" VerticalAlignment="Center">
+            <RadioButton Name="radFilterAbbr" Content="Viết tắt: 0" GroupName="grpFilter" Foreground="#4F46E5" FontWeight="SemiBold" Style="{DynamicResource FluentRadioButton}" Checked="Filter_Checked" />
+          </Border>
+          <Border Background="#DCFCE7" CornerRadius="4" Padding="6,2" Margin="0,0,10,0" VerticalAlignment="Center">
+            <RadioButton Name="radFilterVariant" Content="Từ ngữ: 0" GroupName="grpFilter" Foreground="#16A34A" FontWeight="SemiBold" Style="{DynamicResource FluentRadioButton}" Checked="Filter_Checked" />
+          </Border>
+        </StackPanel>
+        <TextBlock Grid.Column="1" Text="💡 Chọn một mục lỗi để Word tự cuộn đến vị trí" FontSize="11" Foreground="{DynamicResource BrushTextMuted}" VerticalAlignment="Center" />
+      </Grid>
+    </Border>
+    <Grid Row="2" Margin="20,14">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1.3*" />
+        <ColumnDefinition Width="16" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Border Grid.Column="0" Style="{DynamicResource FluentCard}" Padding="0">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <Border Grid.Row="0" Background="{DynamicResource BrushSubtle}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="14,10">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Grid.Column="0" Text="Đoạn / Vị trí" FontWeight="SemiBold" FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" />
+              <TextBlock Name="txtColOriginalHeader" Grid.Column="1" Text="Từ trong văn bản" Margin="0,0,8,0" FontWeight="SemiBold" FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" />
+              <TextBlock Grid.Column="2" Text="Ngữ cảnh câu" FontWeight="SemiBold" FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" />
+            </Grid>
+          </Border>
+          <ListBox Name="lstIssues" Grid.Row="1" BorderThickness="0" Background="#00FFFFFF" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="LstIssues_SelectionChanged">
+            <ItemsControl.ItemContainerStyle>
+              <Style TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Padding" Value="10,8" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+                <Setter Property="BorderBrush" Value="{DynamicResource BrushSeparator}" />
+                <Setter Property="FrameworkElement.Cursor" Value="Hand" />
+                <Setter Property="Template">
+                  <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                      <Border Name="itemBorder" Background="{TemplateBinding Control.Background}" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" Padding="{TemplateBinding Control.Padding}">
+                        <ContentPresenter />
+                      </Border>
+                      <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                          <Setter TargetName="itemBorder" Value="{DynamicResource BrushSubtle}" Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                          <Setter TargetName="itemBorder" Property="Border.Background" Value="#FFF1E6" />
+                          <Setter TargetName="itemBorder" Value="{DynamicResource BrushPrimary}" Property="Border.BorderBrush" />
+                        </Trigger>
+                      </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                  </Setter.Value>
+                </Setter>
+              </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  <TextBlock Grid.Column="0" FontSize="11.5" Foreground="{DynamicResource BrushTextMuted}" VerticalAlignment="Center" Text="{Binding LocationDisplay}" />
+                  <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock FontWeight="Bold" FontSize="13" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" Text="{Binding OriginalDisplay}" Foreground="{Binding TagColor}" />
+                    <TextBlock FontSize="10" Foreground="{DynamicResource BrushTextMuted}" Text="{Binding TagLabel}" />
+                  </StackPanel>
+                  <TextBlock Grid.Column="2" FontSize="12" Foreground="{DynamicResource BrushTextPrimary}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding Issue.ContextSnippet}" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ListBox>
+          <StackPanel Name="pnlNoIssues" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <TextBlock Text="🎉" FontSize="36" HorizontalAlignment="Center" Margin="0,0,0,8" />
+            <TextBlock Name="txtNoIssuesTitle" Text="Tuyệt vời! Không phát hiện lỗi chính tả nào." FontWeight="Bold" FontSize="14" Foreground="{DynamicResource BrushSuccessText}" HorizontalAlignment="Center" />
+            <TextBlock Name="txtNoIssuesSubtitle" Text="Văn bản đã tuân thủ chuẩn từ vựng, viết hoa và thể thức quy định." FontSize="12" Foreground="{DynamicResource BrushTextSecondary}" HorizontalAlignment="Center" Margin="0,4,0,0" />
+          </StackPanel>
+        </Grid>
+      </Border>
+      <Border Grid.Column="2" Style="{DynamicResource FluentCard}" Padding="16">
+        <Grid Name="pnlDetail">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,10">
+            <StackPanel Margin="0,0,4,0">
+              <TextBlock Text="CHI TIẾT VẤN ĐỀ" FontWeight="Bold" FontSize="12" Foreground="{DynamicResource BrushPrimary}" Margin="0,0,0,10" />
+              <Border Background="{DynamicResource BrushSubtle}" CornerRadius="6" Padding="12" Margin="0,0,0,10">
+                <StackPanel>
+                  <Grid>
+                    <TextBlock Text="Từ phát hiện:" FontSize="11" Foreground="{DynamicResource BrushTextMuted}" />
+                    <TextBlock Name="lblIssueTypeBadge" Text="Lỗi chính tả" FontSize="11" FontWeight="SemiBold" Foreground="#DC2626" HorizontalAlignment="Right" />
+                  </Grid>
+                  <TextBlock Name="txtOriginalWord" Text="đươc" FontWeight="Bold" FontSize="18" Foreground="#DC2626" Margin="0,4,0,6" />
+                  <TextBlock Name="txtIssueDescription" Text="Có thể bạn muốn viết: 'được'" FontSize="12" Foreground="{DynamicResource BrushTextPrimary}" TextWrapping="Wrap" />
+                  <TextBlock Name="txtIssueSource" Text="Nguồn: Từ điển chính thức &amp; quy tắc Telex" FontSize="10.5" Foreground="{DynamicResource BrushTextMuted}" Margin="0,4,0,0" TextWrapping="Wrap" />
+                </StackPanel>
+              </Border>
+              <Border Name="pnlUsageGuide" Background="#F0FDF4" BorderBrush="#BBF7D0" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,10" Visibility="Collapsed">
+                <StackPanel>
+                  <Grid Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                      <TextBlock Text="📖" FontSize="13" Margin="0,0,6,0" VerticalAlignment="Center" />
+                      <TextBlock Text="HƯỚNG DẪN NGỮ CẢNH &amp; CÁCH DÙNG CHUẨN" FontWeight="Bold" FontSize="11.5" Foreground="#166534" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <Border Background="#DCFCE7" CornerRadius="4" Padding="6,2" HorizontalAlignment="Right">
+                      <TextBlock Text="Quy chuẩn tiếng Việt" FontSize="10" FontWeight="SemiBold" Foreground="#15803D" />
+                    </Border>
+                  </Grid>
+                  <Border Name="boxWhenToUse" Background="#FFFFFF" BorderBrush="#86EFAC" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,0,0,6">
+                    <StackPanel>
+                      <TextBlock Text="✓ TRƯỜNG HỢP NÊN DÙNG:" FontWeight="Bold" FontSize="10.5" Foreground="#15803D" Margin="0,0,0,3" />
+                      <TextBlock Name="txtWhenToUse" Text="Hướng dẫn khi nào nên dùng từ này..." FontSize="11.5" Foreground="#14532D" TextWrapping="Wrap" LineHeight="17" />
+                    </StackPanel>
+                  </Border>
+                  <Border Name="boxWhenNotToUse" Background="#FEF2F2" BorderBrush="#FECACA" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,0,0,6">
+                    <StackPanel>
+                      <TextBlock Text="✗ TRƯỜNG HỢP TRÁNH DÙNG / HAY NHẦM:" FontWeight="Bold" FontSize="10.5" Foreground="#DC2626" Margin="0,0,0,3" />
+                      <TextBlock Name="txtWhenNotToUse" Text="Tránh dùng trong các ngữ cảnh..." FontSize="11.5" Foreground="#7F1D1D" TextWrapping="Wrap" LineHeight="17" />
+                    </StackPanel>
+                  </Border>
+                  <Border Name="boxUsageGuide" Background="#F0F9FF" BorderBrush="#BAE6FD" BorderThickness="1" CornerRadius="4" Padding="8" Margin="0,0,0,6">
+                    <StackPanel>
+                      <TextBlock Text="💡 Ý NGHĨA &amp; CĂN CỨ TỪ ĐIỂN / PHÁP LÝ:" FontWeight="Bold" FontSize="10.5" Foreground="#0284C7" Margin="0,0,0,3" />
+                      <TextBlock Name="txtUsageGuide" Text="Ý nghĩa từ nguyên và căn cứ pháp lý..." FontSize="11" Foreground="#0369A1" TextWrapping="Wrap" LineHeight="16" />
+                    </StackPanel>
+                  </Border>
+                  <Border Name="boxExamples" Background="#FDF8F4" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="4" Padding="8">
+                    <StackPanel>
+                      <TextBlock Text="📌 VÍ DỤ MINH HỌA:" FontWeight="Bold" FontSize="10.5" Foreground="#475569" Margin="0,0,0,3" />
+                      <TextBlock Name="txtExamples" Text="Ví dụ câu chuẩn và câu sai..." FontSize="11" Foreground="#334155" TextWrapping="Wrap" LineHeight="16" FontStyle="Italic" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+              <TextBlock Text="Phương án sửa gợi ý:" FontWeight="SemiBold" FontSize="12" Foreground="{DynamicResource BrushTextPrimary}" Margin="0,0,0,6" />
+              <ListBox Name="lstSuggestions" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="1" Background="{DynamicResource BrushCardBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="120" MinHeight="48" Margin="0,0,0,10" SelectionChanged="LstSuggestions_SelectionChanged">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate>
+                    <Grid Margin="4,2">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontWeight="Bold" FontSize="13" Foreground="{DynamicResource BrushPrimary}" Text="{Binding DisplayText}" />
+                        <TextBlock FontSize="10.5" Foreground="{DynamicResource BrushTextMuted}" Text="{Binding Reason}" />
+                      </StackPanel>
+                      <Border Grid.Column="1" Background="#FFF1E6" CornerRadius="4" Padding="6,2" VerticalAlignment="Center">
+                        <TextBlock FontSize="10" FontWeight="SemiBold" Foreground="#E04F26" Text="{Binding ScoreDisplay}" />
+                      </Border>
+                    </Grid>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ListBox>
+              <StackPanel Margin="0,0,0,6">
+                <TextBlock Text="Hoặc tự nhập nội dung thay thế:" FontSize="11" Foreground="{DynamicResource BrushTextMuted}" Margin="0,0,0,4" />
+                <TextBox Name="txtCustomReplacement" Height="30" Padding="6,0" VerticalContentAlignment="Center" Style="{DynamicResource FluentTextBox}" />
+              </StackPanel>
+            </StackPanel>
+          </ScrollViewer>
+          <StackPanel Grid.Row="1">
+            <Grid Margin="0,0,0,8">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Button Name="btnReplace" Grid.Column="0" Content="Xem trước và thay từ này" Height="36" Padding="12,0" Style="{DynamicResource FluentPrimaryButton}" Click="BtnReplace_Click" />
+              <Button Name="btnReplaceAll" Grid.Column="2" Content="Xem trước và thay tất cả" Height="36" Padding="12,0" Style="{DynamicResource FluentSecondaryButton}" Click="BtnReplaceAll_Click" />
+            </Grid>
+            <Grid Margin="0,0,0,8">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Button Name="btnIgnore" Grid.Column="0" Content="Bỏ qua" Height="32" Padding="12,0" Style="{DynamicResource FluentSecondaryButton}" Click="BtnIgnore_Click" />
+              <Button Name="btnIgnoreAll" Grid.Column="2" Content="Bỏ qua tất cả" Height="32" Padding="12,0" Style="{DynamicResource FluentSecondaryButton}" Click="BtnIgnoreAll_Click" />
+            </Grid>
+            <Button Name="btnAddDictionary" Content="➕ Thêm vào từ điển cơ quan" Height="32" Padding="10,0" Style="{DynamicResource FluentActionButton}" Click="BtnAddDictionary_Click" />
+          </StackPanel>
+        </Grid>
+      </Border>
+    </Grid>
+    <Border Grid.Row="3" Background="{DynamicResource BrushCardBackground}" BorderBrush="{DynamicResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="20,10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="110" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="lblFooterStatus" Text="Sẵn sàng kiểm tra văn bản." FontSize="11.5" Foreground="{DynamicResource BrushTextSecondary}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Margin="0,0,8,0" />
+        <ProgressBar Name="barScanProgress" Grid.Column="1" Height="8" Margin="0,0,10,0" VerticalAlignment="Center" Visibility="Collapsed" />
+        <Button Name="btnCancelScan" Grid.Column="2" Content="Hủy quét" MinWidth="90" Height="32" Padding="14,0" Margin="0,0,8,0" Visibility="Collapsed" Style="{DynamicResource FluentSecondaryButton}" Click="BtnCancelScan_Click" />
+        <Button Grid.Column="3" Content="Đóng" MinWidth="90" Height="32" Padding="14,0" Style="{DynamicResource FluentSecondaryButton}" Click="BtnClose_Click" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

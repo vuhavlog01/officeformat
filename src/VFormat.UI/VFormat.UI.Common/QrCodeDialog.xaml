@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.QrCodeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OfficeFormat - TẠO MÃ QR TÀI LIỆU &amp; VIETQR"
+        Width="680" Height="680"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        FontFamily="Segoe UI, Tahoma, Arial">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <!-- Header -->
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,12">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <TextBlock Text="📱 " FontSize="16" VerticalAlignment="Center" />
+          <TextBlock Text="TẠO MÃ QR TÀI LIỆU, VĂN BẢN &amp; VIETQR" FontWeight="Bold" FontSize="13.5" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="Tạo mã QR tra cứu văn bản hành chính, QR từ vùng chọn, và QR ngân hàng VietQR chuẩn NAPAS." FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="26,3,0,0" />
+      </StackPanel>
+    </Border>
+
+    <!-- Body with 2 columns: Inputs (Left) and Live Preview (Right) -->
+    <Grid Grid.Row="1" Margin="16,10">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="380" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <!-- Left Column: Tabs -->
+      <TabControl x:Name="tabQrType" SelectionChanged="TabQrType_SelectionChanged" Background="Transparent" BorderThickness="0">
+        <!-- Tab 1: QR Văn bản hành chính -->
+        <TabItem Header="📄 QR Văn bản">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,8,6,0">
+            <StackPanel>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,8">
+                <StackPanel>
+                  <TextBlock Text="THÔNG TIN VĂN BẢN (TỰ ĐỘNG QUÉT):" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+                  
+                  <TextBlock Text="Cơ quan ban hành:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2" />
+                  <TextBox x:Name="txtDocAgency" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+
+                  <TextBlock Text="Số / Ký hiệu văn bản:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtDocNumber" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+
+                  <TextBlock Text="Ngày ban hành:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtDocDate" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+
+                  <TextBlock Text="Trích yếu nội dung:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtDocExcerpt" Style="{StaticResource FluentTextBox}" Height="45" TextWrapping="Wrap" AcceptsReturn="True" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+
+                  <TextBlock Text="Người ký / Chức vụ:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtDocSigner" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+
+                  <TextBlock Text="Link tra cứu trực tuyến (tùy chọn):" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtDocUrl" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="DocInputs_TextChanged" />
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+
+        <!-- Tab 2: QR Tùy biến / Vùng chọn -->
+        <TabItem Header="✏️ Vùng chọn / Text">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,8,6,0">
+            <StackPanel>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,8">
+                <StackPanel>
+                  <TextBlock Text="NỘI DUNG MÃ QR (TEXT HOẶC LINK):" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+                  <TextBox x:Name="txtCustomText" Style="{StaticResource FluentTextBox}" Height="140" TextWrapping="Wrap" AcceptsReturn="True" Padding="6,4" TextChanged="TxtCustomText_TextChanged" />
+                  <TextBlock Text="💡 Nếu bạn bôi đen một đoạn văn bản trong Word trước khi mở hộp thoại, đoạn đó sẽ được tự động điền vào đây." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,6,0,0" TextWrapping="Wrap" />
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+
+        <!-- Tab 3: VietQR Ngân hàng -->
+        <TabItem Header="💳 VietQR Ngân hàng">
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,8,6,0">
+            <StackPanel>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,8">
+                <StackPanel>
+                  <TextBlock Text="THÔNG TIN TÀI KHOẢN NGÂN HÀNG:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+
+                  <TextBlock Text="Chọn Ngân hàng thụ hưởng:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2" />
+                  <ComboBox x:Name="cboBank" Height="28" FontSize="11.5" SelectionChanged="VietQrInputs_Changed" />
+
+                  <TextBlock Text="Số tài khoản:" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtAccountNo" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="VietQrInputs_Changed" />
+
+                  <TextBlock Text="Tên chủ tài khoản (viết hoa không dấu):" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtAccountName" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="VietQrInputs_Changed" />
+
+                  <TextBlock Text="Số tiền (VNĐ - để trống nếu tùy biến):" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtAmount" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="VietQrInputs_Changed" />
+
+                  <TextBlock Text="Nội dung chuyển khoản (Memo):" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,4,0,2" />
+                  <TextBox x:Name="txtMemo" Style="{StaticResource FluentTextBox}" Height="26" Padding="4,2" TextChanged="VietQrInputs_Changed" />
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+      </TabControl>
+
+      <!-- Right Column: Live Preview & Placement Settings -->
+      <Border Grid.Column="1" Style="{StaticResource FluentCard}" Margin="8,0,0,0">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="XEM TRƯỚC MÃ QR:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" HorizontalAlignment="Center" />
+            
+            <!-- QR Image Box -->
+            <Border BorderBrush="{StaticResource BrushSeparator}" BorderThickness="1" Background="White" Padding="8" Width="180" Height="180" HorizontalAlignment="Center">
+              <Image x:Name="imgQrPreview" Stretch="Uniform" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+            </Border>
+
+            <!-- Tùy chọn vị trí chèn -->
+            <TextBlock Text="VỊ TRÍ CHÈN VÀO WORD:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,10,0,4" />
+            <RadioButton x:Name="rbInsertCursor" GroupName="InsertLoc" Content="Tại vị trí con trỏ chuột" IsChecked="True" FontSize="11" Margin="0,2" />
+            <RadioButton x:Name="rbInsertTopRight" GroupName="InsertLoc" Content="Góc phải trên trang 1 (Chuẩn điện tử)" FontSize="11" Margin="0,2" />
+            <RadioButton x:Name="rbInsertEnd" GroupName="InsertLoc" Content="Cuối văn bản (Sau nơi nhận)" FontSize="11" Margin="0,2" />
+
+            <!-- Kích thước -->
+            <TextBlock Text="KÍCH THƯỚC MÃ QR:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,8,0,4" />
+            <StackPanel Orientation="Horizontal">
+              <RadioButton x:Name="rbSizeSmall" GroupName="QrSize" Content="Nhỏ (2cm)" FontSize="11" Margin="0,0,8,0" />
+              <RadioButton x:Name="rbSizeMed" GroupName="QrSize" Content="Vừa (2.5cm)" IsChecked="True" FontSize="11" Margin="0,0,8,0" />
+              <RadioButton x:Name="rbSizeLarge" GroupName="QrSize" Content="Lớn (3.5cm)" FontSize="11" />
+            </StackPanel>
+
+            <!-- Định dạng chèn -->
+            <TextBlock Text="ĐỊNH DẠNG CHÈN:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,8,0,4" />
+            <RadioButton x:Name="rbFormatImage" GroupName="QrFormat" Content="Ảnh PNG sắc nét (Khuyên dùng)" IsChecked="True" FontSize="11" Margin="0,2" />
+            <RadioButton x:Name="rbFormatNative" GroupName="QrFormat" Content="Mã trường Word (DISPLAYBARCODE)" FontSize="11" Margin="0,2" />
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </Grid>
+
+    <!-- Footer buttons -->
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="16,10">
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Button x:Name="btnSaveImage" Content="💾 Lưu ảnh QR..." MinWidth="130" Height="35" Margin="0,0,8,0" Style="{StaticResource FluentSecondaryButton}" Click="BtnSaveImage_Click" />
+        <Button x:Name="btnInsert" Content="✓ Chèn vào Word" MinWidth="140" Height="35" Margin="0,0,8,0" Style="{StaticResource FluentPrimaryButton}" Click="BtnInsert_Click" />
+        <Button x:Name="btnClose" Content="Đóng" MinWidth="80" Height="35" Style="{StaticResource FluentSecondaryButton}" Click="BtnClose_Click" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>

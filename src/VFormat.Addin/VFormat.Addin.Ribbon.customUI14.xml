@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_OnLoad">
+        <ribbon>
+                <tabs>
+                        <tab id="tabVFormat" label="OfficeFormat" insertAfterMso="TabHelp">
+
+                                <!-- NHÓM 4: CHÈN NHANH THÀNH PHẦN (CÁ NHÂN HÓA) -->
+                                <!-- [PHÁT TRIỂN Ở VERSION SAU] Chèn nhanh Thành phần
+<group id="grpQuickInsert" label="Chèn nhanh Thành phần">
+                                        <menu id="mnuQuickInsert" label="Chèn nhanh&#10;Thành phần"
+                                                size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                screentip="Chèn nhanh thành phần tại vị trí con trỏ chuột"
+                                                supertip="Chèn ngay các khối Quốc hiệu, Tiêu ngữ, Tên loại văn bản, Nơi nhận, Phụ lục, Bản sao và các mẫu Chữ ký chuẩn xác vào đúng vị trí con trỏ chuột.">
+
+                                                <menu id="mnuSubHeaders"
+                                                        label="1. Khung Quốc hiệu / Cơ quan / Phụ lục"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="btnInsQuocHieuAuto"
+                                                                label="⚡ Chèn Tiêu đề Cơ quan (Tự động theo Quy chuẩn &amp;&amp; Cấp bậc)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertQuocHieuAuto" />
+
+                                                        <menu id="mnuSubAdminAgencies"
+                                                                label="🏛️ Cơ quan Hành chính đã lưu (NĐ 30)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsAdmin1"
+                                                                        label="1. Cấp Bộ (Bộ Nội vụ)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency1" />
+                                                                <button id="btnInsAdmin2"
+                                                                        label="2. Cục trực thuộc Bộ (Cục VTLT)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency2" />
+                                                                <button id="btnInsAdmin3"
+                                                                        label="3. Sở Khoa học và Công nghệ"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency3" />
+                                                                <button id="btnInsAdmin4"
+                                                                        label="4. UBND Xã/Phường"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency4" />
+                                                                <button id="btnInsAdmin5"
+                                                                        label="5. UBND Đặc khu"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency5" />
+                                                                <button id="btnInsAdmin6"
+                                                                        label="6. Văn phòng UBND tỉnh"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertAdminAgency6" />
+                                                        </menu>
+
+                                                        <menu id="mnuSubPartyAgencies"
+                                                                label="⭐ Cơ quan Đảng đã lưu (HD 05)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsParty1"
+                                                                        label="1. Đảng ủy Các cơ quan Đảng tỉnh"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertPartyAgency1" />
+                                                                <button id="btnInsParty2"
+                                                                        label="2. Ban Thường vụ Tỉnh ủy"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertPartyAgency2" />
+                                                                <button id="btnInsParty3"
+                                                                        label="3. Đảng ủy Xã/Phường"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertPartyAgency3" />
+                                                                <button id="btnInsParty4"
+                                                                        label="4. Chi bộ Cơ sở"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertPartyAgency4" />
+                                                        </menu>
+
+                                                        <menu id="mnuSubMilitaryAgencies"
+                                                                label="🎖️ Đơn vị Quân đội đã lưu (TT 68)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsMil1"
+                                                                        label="1. Cấp Bộ (Bộ Quốc phòng)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency1" />
+                                                                <button id="btnInsMil2"
+                                                                        label="2. Bộ Tổng Tham mưu"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency2" />
+                                                                <button id="btnInsMil3"
+                                                                        label="3. Tổng cục Chính trị"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency3" />
+                                                                <button id="btnInsMil4"
+                                                                        label="4. Quân khu 7"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency4" />
+                                                                <button id="btnInsMil5"
+                                                                        label="5. Bộ CHQS tỉnh"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency5" />
+                                                                <button id="btnInsMil6"
+                                                                        label="6. Sư đoàn 304"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertMilitaryAgency6" />
+                                                        </menu>
+
+                                                        <menu id="mnuSubYouthAgencies"
+                                                                label="🌟 Cơ quan Đoàn TNCS Hồ Chí Minh đã lưu (HD 29)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsYouth1"
+                                                                        label="1. BCH Trung ương Đoàn"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency1" />
+                                                                <button id="btnInsYouth2"
+                                                                        label="2. BCH Đoàn tỉnh / thành phố"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency2" />
+                                                                <button id="btnInsYouth3"
+                                                                        label="3. Ban tham mưu Tỉnh đoàn"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency3" />
+                                                                <button id="btnInsYouth4"
+                                                                        label="4. BCH Đoàn phường / đặc khu"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency4" />
+                                                                <button id="btnInsYouth5"
+                                                                        label="5. BCH Đoàn xã (trực thuộc Tỉnh đoàn)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency5" />
+                                                                <button id="btnInsYouth6"
+                                                                        label="6. BCH Liên chi đoàn"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency6" />
+                                                                <button id="btnInsYouth7"
+                                                                        label="7. Chi đoàn"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency7" />
+                                                                <button id="btnInsYouth8"
+                                                                        label="8. Đại hội Đoàn (đại biểu)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthAgency8" />
+                                                        </menu>
+
+                                                        <button id="btnInsQuocHieuND30"
+                                                                label="Mẫu Quốc hiệu &amp;&amp; Cơ quan chuẩn chung (NĐ 30)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertQuocHieuND30" />
+                                                        <button id="btnInsDangHeader"
+                                                                label="Mẫu ĐẢNG CỘNG SẢN VIỆT NAM &amp;&amp; Cơ quan Đảng (HD 05)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDangHeader" />
+                                                        <button id="btnInsDoanHeader"
+                                                                label="Mẫu ĐOÀN TNCS HỒ CHÍ MINH &amp;&amp; Cơ quan Đoàn (HD 29)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoanHeader" />
+                                                        <button id="btnInsMilitaryHeader"
+                                                                label="Mẫu Quốc hiệu &amp;&amp; Cơ quan Quân đội chuẩn (TT 68)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertMilitaryHeader" />
+                                                        <button id="btnInsPhuLucHeader"
+                                                                label="Khung Tiêu đề Phụ lục văn bản (Mẫu 2.1 NĐ 30)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertPhuLucHeader" />
+                                                        <button id="btnInsBanSaoHeader"
+                                                                label="Khung Bản sao văn bản - Sao y / Sao lục / Trích sao (Mẫu 3.1 NĐ 30)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertBanSaoHeader" />
+                                                        <button id="btnInsPersonalMottoHeader"
+                                                                label="Mẫu Tiêu ngữ Đơn từ / Cá nhân (Căn giữa - Không có cơ quan)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertPersonalMottoHeader" />
+                                                </menu>
+
+                                                <menu id="mnuSubTitles"
+                                                        label="2. Tên loại văn bản &amp;&amp; Trích yếu"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="btnInsTitleCongVan"
+                                                                label="Trích yếu Công văn (Kính gửi / Kính trình...)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleCongVan" />
+                                                        <button id="btnInsTitleQuyetDinh"
+                                                                label="Tiêu đề QUYẾT ĐỊNH (Trực tiếp) &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleQuyetDinh" />
+                                                        <button id="btnInsTitleQuyetDinhQuyChe"
+                                                                label="Tiêu đề QUYẾT ĐỊNH (Ban hành Quy chế/Đề án)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleQuyetDinhQuyChe" />
+                                                        <button id="btnInsTitleNghiQuyet"
+                                                                label="Tiêu đề NGHỊ QUYẾT &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleNghiQuyet" />
+                                                        <button id="btnInsTitleToTrinh"
+                                                                label="Tiêu đề TỜ TRÌNH &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleToTrinh" />
+                                                        <button id="btnInsTitleKeHoach"
+                                                                label="Tiêu đề KẾ HOẠCH &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleKeHoach" />
+                                                        <button id="btnInsTitleBaoCao"
+                                                                label="Tiêu đề BÁO CÁO &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleBaoCao" />
+                                                        <button id="btnInsTitleThongBao"
+                                                                label="Tiêu đề THÔNG BÁO &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleThongBao" />
+                                                        <button id="btnInsTitleBienBan"
+                                                                label="Tiêu đề BIÊN BẢN &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleBienBan" />
+                                                        <button id="btnInsTitleCongDien"
+                                                                label="Tiêu đề CÔNG ĐIỆN &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleCongDien" />
+                                                        <button id="btnInsTitleGiayMoi"
+                                                                label="Tiêu đề GIẤY MỜI &amp;&amp; Trích yếu"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleGiayMoi" />
+                                                        <button id="btnInsTitleGiayGioiThieu"
+                                                                label="Tiêu đề GIẤY GIỚI THIỆU"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleGiayGioiThieu" />
+                                                        <button id="btnInsTitleGiayNghiPhep"
+                                                                label="Tiêu đề GIẤY NGHỈ PHÉP"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTitleGiayNghiPhep" />
+                                                </menu>
+
+                                                <menu id="mnuSubSignatures"
+                                                        label="3. Nơi nhận &amp;&amp; Chữ ký (Nhiều loại)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="btnInsSigAuto"
+                                                                label="⚡ Chèn Chữ ký &amp;&amp; Nơi nhận (Tự động theo Quy chuẩn &amp;&amp; Cấp bậc)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigAuto" />
+
+                                                        <menu id="mnuSubSavedSigners"
+                                                                label="✍️ Danh sách Chữ ký Lãnh đạo đã lưu"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsSigSaved1"
+                                                                        label="1. Bộ trưởng - Nguyễn Văn A"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved1" />
+                                                                <button id="btnInsSigSaved2"
+                                                                        label="2. KT. Bộ trưởng - Thứ trưởng"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved2" />
+                                                                <button id="btnInsSigSaved3"
+                                                                        label="3. Cục trưởng - Lê Văn C"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved3" />
+                                                                <button id="btnInsSigSaved4"
+                                                                        label="4. Giám đốc Sở - Nguyễn Văn A"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved4" />
+                                                                <button id="btnInsSigSaved5"
+                                                                        label="5. Chủ tịch UBND - Trần Văn B"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved5" />
+                                                                <button id="btnInsSigSaved6"
+                                                                        label="6. Bí thư Tỉnh ủy - Lê Văn C"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved6" />
+                                                                <button id="btnInsSigSaved7"
+                                                                        label="7. Phó Bí thư - T/M Ban Thường vụ (HD 05)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved7" />
+                                                                <button id="btnInsSigSaved8"
+                                                                        label="8. Phó Chánh VP - K/T Chánh Văn phòng (HD 05)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved8" />
+                                                                <button id="btnInsSigSaved9"
+                                                                        label="9. Chánh Văn phòng - T/L Ban Thường vụ (HD 05)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved9" />
+                                                                <button id="btnInsSigSaved10"
+                                                                        label="10. Bí thư Chi bộ - Phạm Văn D"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved10" />
+                                                                <button id="btnInsSigSaved11"
+                                                                        label="11. Chánh Văn phòng - Hoàng Văn E"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertSigSaved11" />
+                                                        </menu>
+
+                                                        <menu id="mnuSubSavedRecipients"
+                                                                label="📋 Danh sách Mẫu Nơi nhận đã lưu"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsRecSaved1"
+                                                                        label="1. Mẫu Nơi nhận Cấp Bộ / Ngang Bộ"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertRecSaved1" />
+                                                                <button id="btnInsRecSaved2"
+                                                                        label="2. Mẫu Nơi nhận Công văn thông dụng"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertRecSaved2" />
+                                                                <button id="btnInsRecSaved3"
+                                                                        label="3. Mẫu Nơi nhận Quyết định ban hành"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertRecSaved3" />
+                                                                <button id="btnInsRecSaved4"
+                                                                        label="4. Mẫu Nơi nhận Chi bộ Đảng"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertRecSaved4" />
+                                                                <button id="btnInsRecSaved5"
+                                                                        label="5. Mẫu Nơi nhận Đơn vị Quân đội (TT 68)"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertRecSaved5" />
+                                                        </menu>
+
+                                                        <menu id="mnuSubYouthSigners"
+                                                                label="🌟 Chữ ký &amp;&amp; Nơi nhận văn bản Đoàn (HD 29)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="btnInsYouthSig1"
+                                                                        label="1. TM. Ban Thường vụ - Bí thư"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig1" />
+                                                                <button id="btnInsYouthSig2"
+                                                                        label="2. TM. Ban Thường vụ - Phó Bí thư thường trực"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig2" />
+                                                                <button id="btnInsYouthSig3"
+                                                                        label="3. TM. Ban Chấp hành Đoàn cơ sở - Bí thư"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig3" />
+                                                                <button id="btnInsYouthSig4"
+                                                                        label="4. TM. Ban Chấp hành Chi đoàn - Bí thư"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig4" />
+                                                                <button id="btnInsYouthSig5"
+                                                                        label="5. TL. Ban Thường vụ - Chánh Văn phòng"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig5" />
+                                                                <button id="btnInsYouthSig6"
+                                                                        label="6. KT. Trưởng ban - Phó Trưởng ban"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig6" />
+                                                                <button id="btnInsYouthSig7"
+                                                                        label="7. TM. Đoàn Chủ tịch Đại hội"
+                                                                        getImage="Ribbon_GetIcon"
+                                                                        onAction="Ribbon_InsertYouthSig7" />
+                                                        </menu>
+
+                                                        <button id="btnInsSigChiBo"
+                                                                label="🌿 Ký thay mặt Chi bộ (T/M CHI BỘ - BÍ THƯ)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigChiBo" />
+                                                        <button id="btnInsSigChiBoPho"
+                                                                label="🌿 Ký thay mặt Chi bộ (T/M CHI BỘ - PHÓ BÍ THƯ)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigChiBoPho" />
+                                                        <button id="btnInsSigDangUyXa"
+                                                                label="⭐ Ký thay mặt Đảng ủy Xã/Phường (TM. BAN CHẤP HÀNH - BÍ THƯ)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigDangUyXa" />
+                                                        <button id="btnInsSigBTV"
+                                                                label="⭐ Ký thay mặt Ban Thường vụ Đảng (TM. BAN THƯỜNG VỤ - PHÓ BÍ THƯ)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigBTV" />
+                                                        <button id="btnInsSigBCH"
+                                                                label="⭐ Ký thay mặt Cấp ủy Đảng (TM. BAN CHẤP HÀNH - BÍ THƯ)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigBCH" />
+                                                        <button id="btnInsSigUBNDXa"
+                                                                label="🏘️ Ký thay mặt UBND Xã/Phường (TM. ỦY BAN NHÂN DÂN - CHỦ TỊCH)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigUBNDXa" />
+                                                        <button id="btnInsSigUBND"
+                                                                label="🏛️ Ký thay mặt UBND Tỉnh/TP (TM. ỦY BAN NHÂN DÂN - CHỦ TỊCH)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigUBND" />
+                                                        <button id="btnInsSigThuTruong"
+                                                                label="🏛️ Thủ trưởng đơn vị / Sở ký (GIÁM ĐỐC / HIỆU TRƯỞNG)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigThuTruong" />
+                                                        <button id="btnInsSigKT"
+                                                                label="✍️ Ký thay (KT. CHỦ TỊCH - PHÓ CHỦ TỊCH / KT. GIÁM ĐỐC - PHÓ GIÁM ĐỐC)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigKT" />
+                                                        <button id="btnInsSigTL"
+                                                                label="✍️ Ký thừa lệnh (TL. CHỦ TỊCH / GIÁM ĐỐC - CHÁNH VĂN PHÒNG)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigTL" />
+                                                        <button id="btnInsSigTUQ"
+                                                                label="✍️ Ký thừa ủy quyền (TUQ. CHỦ TỊCH - TRƯỞNG PHÒNG)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigTUQ" />
+                                                        <button id="btnInsSigQuyen"
+                                                                label="✍️ Ký quyền (Q. CHỦ TỊCH / Q. GIÁM ĐỐC)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertSigQuyen" />
+                                                </menu>
+
+                                                <menu id="mnuSubSpecialMarks"
+                                                        label="4. Độ khẩn / Độ mật / Chân trang (Ô 10, 11, 13)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="btnInsDoKhanHoaToc"
+                                                                label="Dấu chỉ độ khẩn: HỎA TỐC"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoKhanHoaToc" />
+                                                        <button id="btnInsDoKhanThuongKhan"
+                                                                label="Dấu chỉ độ khẩn: THƯỢNG KHẨN"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoKhanThuongKhan" />
+                                                        <button id="btnInsDoKhanKhan"
+                                                                label="Dấu chỉ độ khẩn: KHẨN"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoKhanKhan" />
+                                                        <button id="btnInsDoMatMat"
+                                                                label="Dấu chỉ độ mật: MẬT"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoMatMat" />
+                                                        <button id="btnInsDoMatToiMat"
+                                                                label="Dấu chỉ độ mật: TỐI MẬT"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoMatToiMat" />
+                                                        <button id="btnInsDoMatTuyetMat"
+                                                                label="Dấu chỉ độ mật: TUYỆT MẬT"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertDoMatTuyetMat" />
+                                                        <button id="btnInsPhamViLuuHanh"
+                                                                label="Chỉ dẫn: LƯU HÀNH NỘI BỘ"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertPhamViLuuHanh" />
+                                                        <button id="btnInsPhamViXemXongTraLai"
+                                                                label="Chỉ dẫn: XEM XONG TRẢ LẠI"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertPhamViXemXongTraLai" />
+                                                        <button id="btnInsFooterAgencyInfo"
+                                                                label="Thông tin Chân trang cơ quan (Địa chỉ, ĐT, Fax, Web)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertFooterAgencyInfo" />
+                                                </menu>
+
+                                                <button id="btnOpenPersonalizeInMenu"
+                                                        label="⚙️ Cài đặt &amp;&amp; Quản lý Dữ liệu đã lưu..."
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_OpenPersonalize" />
+                                        </menu>
+                                </group>
+-->
+
+                                <!-- NHÓM 5: CÔNG CỤ -->
+                                <group id="grpTools" label="Công cụ">
+                                        <menu id="mnuTools" label="Công cụ&#10;Văn bản" size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                screentip="Bộ công cụ xử lý văn bản tiếng Việt &amp;&amp; Tiện ích"
+                                                supertip="Xử lý khoảng trắng, bỏ dấu tiếng Việt cho đoạn bôi đen hoặc chuẩn hóa dấu thanh toàn văn bản.">
+                                                <button id="btnFormatTables"
+                                                        label="Chuẩn hóa toàn bộ Bảng biểu (Tables)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_FormatTables"
+                                                        screentip="Chuẩn hóa Bảng biểu theo NĐ 30"
+                                                        supertip="Tự động triệt tiêu thụt đầu dòng ô, căn giữa tiêu đề, căn đều nội dung, lặp tiêu đề qua trang và co giãn bảng vừa lề trang in." />
+                                                <button id="btnCleanSpaces"
+                                                        label="Xóa khoảng trắng lỗi &amp;&amp; dấu cách thừa"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_CleanSpaces"
+                                                        screentip="Xóa khoảng trắng lỗi"
+                                                        supertip="Tự động xóa các khoảng trắng thừa giữa các từ và trước các dấu câu." />
+                                                <button id="btnRemoveToneSelection"
+                                                        label="Chuyển sang tiếng Việt không dấu (Đoạn bôi đen)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_RemoveToneSelection"
+                                                        screentip="Bỏ dấu tiếng Việt đoạn bôi đen"
+                                                        supertip="Bôi đen đoạn văn bản cần thao tác và bấm nút này để chuyển toàn bộ đoạn thành tiếng Việt không dấu." />
+                                                <button id="btnFixToneMarks"
+                                                        label="Sửa dấu thanh kiểu mới (hoà, toà ➔ hòa, tòa)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_FixToneMarks"
+                                                        screentip="Sửa dấu thanh kiểu mới (Chuẩn NĐ 30 &amp;&amp; Bộ GD-ĐT)"
+                                                        supertip="Chuẩn hóa toàn bộ dấu thanh trong văn bản sang kiểu mới theo Nghị định 30 &amp;&amp; Bộ GD-ĐT (hòa, tòa, thủy, ủy, hoàn toàn, quản lý, Quý...)." />
+                                                <button id="btnFixToneMarksOld"
+                                                        label="Chuyển dấu thanh kiểu cũ (hòa, tòa ➔ hoà, toà)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_FixToneMarksOld"
+                                                        screentip="Chuyển dấu thanh kiểu cũ (Truyền thống)"
+                                                        supertip="Chuyển toàn bộ dấu thanh trong văn bản sang kiểu truyền thống (hoà, toà, thuỷ, uỷ, hoàn toàn, quản lý, Quý...)." />
+                                                <button id="btnNumberToVndWords"
+                                                        label="Chuyển số tiền sang chữ (VND)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_NumberToVndWords"
+                                                        screentip="Chuyển số tiền sang chữ (VND)"
+                                                        supertip="Bôi đen số tiền (ví dụ 2345 hoặc 2.345.000 đồng) rồi bấm nút để thay bằng chữ: Hai nghìn ba trăm bốn mươi lăm đồng." />
+                                                <menuSeparator id="sepToolsTaskPane" />
+                                                <toggleButton id="btnToggleTaskPane"
+                                                        label="Mở / Đóng Bảng điều khiển phụ (TaskPane)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="OnToggleTaskPaneClicked"
+                                                        getPressed="GetTaskPanePressed"
+                                                        screentip="Mở / Đóng Bảng Điều Khiển OfficeFormat (WPF)"
+                                                        supertip="Bật hoặc tắt thanh công cụ tùy biến chi tiết bên phải màn hình Word." />
+                                        </menu>
+                                </group>
+
+                                <!-- NHÓM 1: CHUẨN HÓA & QUY CHUẨN -->
+                                <group id="grpDetectAudit" label="Chuẩn hóa &amp;&amp; Quy chuẩn">
+                                        <button id="btnAutoStandardize"
+                                                label="Chuẩn hóa&#10;Tự động" size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                onAction="Ribbon_AutoStandardize"
+                                                screentip="Chuẩn hóa Thể thức Tự động 1-Click"
+                                                supertip="Tự động nhận diện quy chuẩn (Đảng HD 05, Quân đội TT 68 hoặc Hành chính NĐ 30), thiết lập khổ giấy A4, căn lề, phông chữ, cỡ chữ, căn giữa tên loại văn bản, in đậm các đề mục (Điều, Khoản, Điểm, Phần, Chương, Mục), tự chèn thành phần thiếu và hoàn tất định dạng. Khi bôi đen văn bản, chỉ chuẩn hóa vùng được chọn; khi không bôi đen, chuẩn hóa toàn bộ văn bản." />
+                                        <button id="btnSpellCheck"
+                                                label="Kiểm tra&#10;Chính tả" size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                onAction="Ribbon_OpenSpellCheck"
+                                                screentip="Kiểm tra Chính tả Tiếng Việt 100% Offline"
+                                                supertip="Kiểm soát lỗi chính tả, dấu thanh, viết hoa, viết tắt và biến thể theo Nghị định 30, Nghị định 78 và Quyết định 1989. Hoàn toàn nội bộ, bảo toàn định dạng Word." />
+                                        <box id="boxRegulation" boxStyle="vertical">
+                                                <dropDown id="ddRegulation" label="Quy chuẩn:"
+                                                        sizeString="Hành chính (NĐ 30)"
+                                                        getSelectedItemIndex="Ribbon_GetDefaultRegulation"
+                                                        onAction="Ribbon_SelectRegulation"
+                                                        screentip="Quy chuẩn áp dụng"
+                                                        supertip="Chọn quy chuẩn: Hành chính (NĐ 30), VB Đảng (HD 05), Bộ Quốc phòng (TT 68) hoặc VB Đoàn TNCS Hồ Chí Minh (HD 29).">
+                                                        <item id="regND30"
+                                                                label="Hành chính (NĐ 30)" />
+                                                        <item id="regDANG" label="VB Đảng (HD 05)" />
+                                                        <item id="regTT68"
+                                                                label="Bộ Quốc phòng (TT 68)" />
+                                                        <item id="regDOAN" label="VB Đoàn (HD 29)" />
+                                                        <item id="regVBHN" label="Hợp nhất (NĐ 250)" />
+                                                        <item id="regKHBD" label="Giáo án (CV 5512)" />
+                                                </dropDown>
+                                                <button id="btnDetectDoc" label="Nhận diện lại thể thức"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_DetectDocument"
+                                                        screentip="Nhận diện Quy chuẩn &amp;&amp; Thể loại Văn bản"
+                                                        supertip="Tự động phân tích văn bản để xác định Quy chuẩn áp dụng (Nghị định 30, HD 05, TT 68, HD 29 Đoàn...)." />
+                                        </box>
+                                        <box id="boxAuditUtils" boxStyle="vertical">
+                                                <box id="boxAuditAndDelete" boxStyle="horizontal">
+                                                  <button id="btnAuditDoc" label="Rà soát Thể thức"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_AuditDocument"
+                                                        screentip="Rà soát Thể thức Văn bản"
+                                                        supertip="Kiểm tra chi tiết khổ giấy, 4 lề, phông chữ, cỡ chữ và các thành phần thể thức theo đúng quy chuẩn đang chọn, xuất báo cáo đánh giá chi tiết." />
+                                                  <menu id="menuAuditComments" label="X" showImage="false"
+                                                        screentip="Xóa nhận xét"
+                                                        supertip="Chọn xóa nhận xét rà soát OfficeFormat hoặc xóa tất cả nhận xét trong tài liệu.">
+                                                    <button id="btnDeleteAuditComments" label="Xóa nhận xét rà soát OfficeFormat"
+                                                            getImage="Ribbon_GetIcon" onAction="Ribbon_DeleteAuditComments"
+                                                            screentip="Xóa các nhận xét do OfficeFormat tạo"
+                                                            supertip="Xóa cùng lúc những nhận xét có nhãn [OFFICEFORMAT] do rà soát thể thức tạo ra. Các nhận xét khác được giữ. Có thể nhấn Ctrl+Z để hoàn tác." />
+                                                    <button id="btnDeleteAllComments" label="Xóa tất cả nhận xét"
+                                                            getImage="Ribbon_GetIcon" onAction="Ribbon_DeleteAllComments"
+                                                            screentip="Xóa mọi nhận xét trong tài liệu"
+                                                            supertip="Xóa tất cả nhận xét, gồm cả nhận xét do người dùng thêm, sau khi xác nhận. Có thể nhấn Ctrl+Z để hoàn tác." />
+                                                  </menu>
+                                                </box>
+                                                <button id="btnUnicodeConvert" label="Chuyển mã Unicode"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ConvertOldFontsToUnicode"
+                                                        screentip="Chuyển đổi phông chữ sang chuẩn Unicode"
+                                                        supertip="Chuyển đổi toàn bộ phông chữ trong văn bản, bảng biểu, đầu trang, chân trang sang phông chữ chuẩn Times New Roman." />
+                                                <button id="btnUndoStandardize"
+                                                        label="Hoàn tác thao tác cuối"
+                                                        getImage="Ribbon_GetIcon" onAction="Ribbon_UndoStandardize"
+                                                        screentip="Hoàn tác thao tác cuối trong Word"
+                                                        supertip="Giống Ctrl+Z: hoàn tác thao tác vừa thực hiện. Nếu đã gõ hoặc sửa tiếp sau chuẩn hóa, nút này hoàn tác lần sửa gần nhất." />
+                                        </box>
+                                </group>
+
+                                <!-- NHÓM 2: CHUẨN HÓA THỦ CÔNG -->
+                                <group id="grpManualStandardize" label="Chuẩn hóa Thủ công">
+                                        <menu id="mnuManualStandardize"
+                                                label="Chuẩn hóa&#10;Thủ công"
+                                                size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                screentip="Chuẩn hóa Thủ công từng thành phần &amp;&amp; Kiểm tra khoảng trắng, dấu câu"
+                                                supertip="Chọn chuẩn hóa từng phần của văn bản (Tiêu đề đầu trang, Tên loại &amp;&amp; Trích yếu, Đề mục &amp;&amp; Nội dung, Chữ ký &amp;&amp; Nơi nhận) hoặc mở công cụ Kiểm tra khoảng trắng, dấu nháy &amp;&amp; dấu gạch ngang.">
+                                                <button id="btnManualHeader"
+                                                        label="1. Tiêu đề Đầu trang (Quốc hiệu &amp;&amp; Cơ quan)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ManualFormatHeader"
+                                                        screentip="Chuẩn hóa Khung Tiêu đề &amp;&amp; Quốc hiệu"
+                                                        supertip="Chuẩn hóa hoặc tự động bổ sung khối Quốc hiệu/Tiêu ngữ (hoặc Tiêu đề Đảng), Tên cơ quan, Số &amp;&amp; Ký hiệu và Ngày tháng theo đúng quy chuẩn đang chọn (HD 05 hoặc NĐ 30)." />
+                                                <button id="btnManualTitle"
+                                                        label="2. Tên loại &amp;&amp; Trích yếu văn bản"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ManualFormatTitle"
+                                                        screentip="Căn giữa Tên loại VB &amp;&amp; Trích yếu"
+                                                        supertip="Tự động nhận diện Tên loại văn bản (Quyết định, Nghị quyết, Tờ trình, Kế hoạch, Báo cáo...), căn giữa, in đậm và định dạng dòng trích yếu." />
+                                                <button id="btnManualBody"
+                                                        label="3. Đề mục (I., 1., 1.1) &amp;&amp; Nội dung thân bài"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ManualFormatBody"
+                                                        screentip="Chuẩn hóa Đề mục (I., 1., 1.1) &amp;&amp; Thân bài (Ruler 1cm)"
+                                                        supertip="Căn đều 2 lề, dòng đầu tiên của các đầu mục (I., 1., 1.1) và đoạn văn bắt đầu tại vị trí 1 (1cm) trên thước ngang (Ruler), các dòng tiếp theo của đoạn sát lề trái (vị trí 0 trên thước); tự động in đậm/in nghiêng đúng cấp đề mục." />
+                                                <button id="btnManualSignature"
+                                                        label="4. Chữ ký &amp;&amp; Nơi nhận"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ManualFormatSignature"
+                                                        screentip="Chuẩn hóa Khung Chữ ký &amp;&amp; Nơi nhận"
+                                                        supertip="Chuẩn hóa hoặc bổ sung khung Nơi nhận bên trái, chức vụ &amp;&amp; chữ ký người ký bên phải theo đúng thẩm quyền và thể thức quy định." />
+                                                <menuSeparator id="sepManualSpacing" />
+                                                <button id="btnManualHeadings"
+                                                        label="Chuẩn hóa đầu mục (I., 1., 1.1) &amp;&amp; Thụt lề đoạn (Ruler 1cm)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_ManualFormatBody"
+                                                        screentip="Chuẩn hóa Đầu mục (I., 1., 1.1) &amp;&amp; Thụt lề Đoạn văn (vị trí 1 trên Ruler)"
+                                                        supertip="Chuẩn hóa toàn bộ các đầu mục (I., 1., 1.1) và các đoạn văn thân bài: dòng đầu bắt đầu ở vị trí 1 (1cm) trên thước (Ruler), các dòng còn lại sau đoạn hiển thị sát lề 0 trên thước và căn đều 2 bên." />
+                                                <button id="btnManualSpacingCheck"
+                                                        label="Kiểm tra khoảng trắng, dấu nháy (&quot; ➔ “) &amp;&amp; dấu gạch (– ➔ -)"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_OpenSpacingCheck"
+                                                        screentip="Kiểm tra Khoảng trắng, Dấu nháy &amp;&amp; Dấu gạch ngang"
+                                                        supertip="Quét toàn bộ văn bản để phát hiện khoảng trắng kép, dấu cách thừa, dấu nháy thẳng (&quot; ➔ “) và dấu gạch ngang dài (– ➔ -); hiển thị phương án gợi ý để nhấn sửa từng lỗi." />
+                                        </menu>
+                                </group>
+
+                                <!-- NHÓM 3: BỐ CỤC TRANG -->
+                                <group id="grpPageLayout" label="Bố cục Trang">
+                                        <box id="boxPageSetupAndLayout" boxStyle="vertical">
+                                                <dropDown id="ddPrintLayout" label="Bố cục: "
+                                                        sizeString="Gửi file (1 mặt)"
+                                                        getSelectedItemIndex="Ribbon_GetDefaultPrintLayout"
+                                                        onAction="Ribbon_SelectPrintLayout"
+                                                        screentip="Bố cục in &amp;&amp; căn lề"
+                                                        supertip="Chọn chế độ: Gửi file điện tử (1 mặt - Lề đơn phẳng chuẩn) hoặc In 2 mặt đối xứng (Mirror Margins lề gáy mặt trước - mặt sau theo HĐ 05/TT 68).">
+                                                        <item id="plSingle" label="Gửi file (1 mặt)" />
+                                                        <item id="plDuplex" label="In 2 mặt (Đối xứng)" />
+                                                </dropDown>
+                                                <button id="btnPageSetupA4" label="Căn Lề Trang A4"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_PageSetup"
+                                                        screentip="Căn lề chuẩn trang A4 (Chuẩn hóa in)"
+                                                        supertip="Thiết lập khổ giấy A4 và căn chỉnh lề Trên, Dưới, Trái, Phải theo Quy chuẩn và Bố cục in đang chọn." />
+                                                <button id="btnOpenPageMarginDlg" label="Tùy chỉnh lề..."
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_OpenPageMarginDialog"
+                                                        screentip="Tùy chỉnh thông số căn lề chi tiết"
+                                                        supertip="Mở hộp thoại cài đặt chi tiết từng mm lề Trên, Dưới, Trái, Phải, Đầu trang, Chân trang và In 2 mặt." />
+                                        </box>
+                                        <box id="boxSectionBreaks" boxStyle="vertical">
+                                                <button id="btnLandscapePage"
+                                                        label="Chèn trang ngang" size="normal"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_InsertLandscapePage"
+                                                        screentip="Chèn trang ngang"
+                                                        supertip="Ngắt phân vùng và chuyển trang mới sang khổ nằm ngang (297x210mm)." />
+                                                <button id="btnPortraitPage"
+                                                        label="Chèn trang dọc  " size="normal"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_InsertPortraitPage"
+                                                        screentip="Chèn trang dọc"
+                                                        supertip="Ngắt phân vùng và chuyển trang mới sang khổ đứng chuẩn (210x297mm)." />
+                                                <button id="btnDeleteBlankPages"
+                                                        label="Xóa trang trắng " size="normal"
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_DeleteBlankPages"
+                                                        screentip="Xóa trang trắng thừa"
+                                                        supertip="Tự động tìm và xóa các trang trắng, ngắt trang và dòng trống thừa vô nghĩa ở cuối tài liệu." />
+                                        </box>
+                                        <button id="btnPageNum" label="Đánh số&#10;Trang"
+                                                size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                onAction="Ribbon_InsertPageNumbers"
+                                                screentip="Tự động đánh số trang theo quy chuẩn"
+                                                supertip="Đánh số trang chuẩn xác theo quy chuẩn: Căn giữa lề trên (13-14pt Times New Roman), tự động ẩn số trang ở trang đầu tiên." />
+                                        <menu id="mnuPrintOptions" label="In ấn&#10;Trang"
+						size="large"
+						getImage="Ribbon_GetIcon"
+						screentip="In ấn chuyên dụng (In trang lẻ, trang chẵn, in 2 mặt)"
+						supertip="Hỗ trợ in nhanh toàn bộ trang lẻ, toàn bộ trang chẵn và quy trình in 2 mặt hoàn chỉnh cho máy in 1 mặt.">
+						<button id="btnPrintOddPages"
+							label="In nhanh các trang lẻ (1, 3, 5...)"
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_PrintOddPages" />
+						<button id="btnPrintEvenPages"
+							label="In nhanh các trang chẵn (2, 4, 6...)"
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_PrintEvenPages" />
+						<menuSeparator id="sepPrintDuplex" />
+						<button id="btnPrintDuplexDialog"
+							label="Hộp thoại In 2 mặt &amp;&amp; Tùy chọn in..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_OpenPrintDialog" />
+					</menu>
+				</group>
+
+				<!-- NHÓM: PDF & MÃ QR -->
+				<!-- [PHÁT TRIỂN Ở VERSION SAU] PDF & Mã QR
+<group id="grpPdfAndQr" label="PDF &amp;&amp; Mã QR">
+					<menu id="mnuPdfTools" label="Chuyển đổi&#10;PDF"
+						size="large"
+						getImage="Ribbon_GetIcon"
+						screentip="Bộ công cụ xử lý &amp;&amp; chuyển đổi PDF sang Word"
+						supertip="Chuyển đổi tệp PDF sang Word giữ nguyên thể thức, lề, bảng biểu và font chữ chuẩn.">
+						<button id="btnConvertPdfToWord"
+							label="Chuyển PDF sang Word (Giữ nguyên thể thức &amp;&amp; Bảng biểu)..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_ConvertPdfToWord" />
+						<button id="btnBatchPdfToWord"
+							label="Chuyển đổi hàng loạt file PDF sang Word..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_BatchPdfToWord" />
+						<menuSeparator id="sepPdfExport" />
+						<button id="btnExportCurrentToPdf"
+							label="Xuất tài liệu hiện tại sang tệp PDF chuẩn"
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_ExportCurrentToPdf" />
+					</menu>
+
+					<menu id="mnuQrTools" label="Tạo mã&#10;QR Code"
+						size="large"
+						getImage="Ribbon_GetIcon"
+						screentip="Tạo mã QR tra cứu văn bản &amp;&amp; VietQR"
+						supertip="Tạo mã QR chứa thông tin trích yếu văn bản, mã QR từ vùng chọn văn bản hoặc mã thanh toán ngân hàng VietQR chuẩn NAPAS.">
+						<button id="btnCreateDocQr"
+							label="Tạo Mã QR Văn bản (Số hiệu, Cơ quan, Trích yếu)..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_CreateDocQr" />
+						<button id="btnCreateSelectionQr"
+							label="Tạo Mã QR từ Vùng chọn (Select Text ➔ QR)"
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_CreateSelectionQr" />
+						<button id="btnCreateVietQr"
+							label="Tạo Mã VietQR (Tài khoản ngân hàng)..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_CreateVietQr" />
+						<menuSeparator id="sepQrManager" />
+						<button id="btnOpenQrManager"
+							label="Hộp thoại Quản lý &amp;&amp; Tạo mã QR Toàn diện..."
+							getImage="Ribbon_GetIcon"
+						onAction="Ribbon_OpenQrManager" />
+					</menu>
+				</group>
+-->
+
+				<!-- NHÓM 6: BIỂU MẪU & CÁ NHÂN HÓA -->
+				<group id="grpTemplatesInfo" label="Cài đặt &amp;&amp; Hỗ trợ">
+                                                                                <!-- [PHÁT TRIỂN Ở VERSION SAU] Thư viện Biểu mẫu
+<menu id="mnuDocTemplates" label="Thư viện&#10;Biểu mẫu"
+                                                size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                screentip="Thư viện biểu mẫu chuẩn Quốc gia"
+                                                supertip="Mở nhanh các biểu mẫu chuẩn Quốc gia và biểu mẫu cá nhân hóa của bạn.">
+                                                <!~~ KHỐI 1: TRUNG TÂM TRA CỨU & KHÁM PHÁ (ACTION CHÍNH) ~~>
+                                                <button id="btnOpenUnifiedTemplateLibrary"
+                                                        label="📚 Khám phá Thư viện Biểu mẫu..."
+                                                        getImage="Ribbon_GetIcon"
+                                                        onAction="Ribbon_OpenTemplateLibrary"
+                                                        screentip="Thư viện Biểu mẫu Chuẩn Thống nhất"
+                                                        supertip="Mở giao diện trực quan duyệt, tìm kiếm thông minh và sử dụng tất cả 108+ biểu mẫu chuẩn Quốc gia theo thiết kế chuẩn duy nhất." />
+                                                <menuSeparator id="sepUnifiedLib" />
+
+                                                <!~~ KHỐI 2: BIỂU MẪU CỦA TÔI (CÁ NHÂN HÓA) ~~>
+                                                <menu id="mnuMyTemplates"
+                                                        label="📁 Biểu mẫu của tôi (Cá nhân)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="btnOpenMyTemplatesMgr"
+                                                                label="⚙️ Quản lý &amp;&amp; Chỉnh sửa biểu mẫu của tôi..."
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_OpenMyTemplatesManager"
+                                                                screentip="Quản lý Biểu mẫu của tôi"
+                                                                supertip="Mở cửa sổ quản lý, thêm mới, xóa và thay thế các biểu mẫu cá nhân hóa." />
+                                                        <button id="btnAddUserTpl"
+                                                                label="➕ Thêm biểu mẫu mới vào Thư viện..."
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_QuickImportUserTemplate"
+                                                                screentip="Thêm biểu mẫu mới"
+                                                                supertip="Nhập tệp Word mẫu của cơ quan bạn vào kho biểu mẫu cá nhân để dùng lại." />
+                                                        <menuSeparator id="sepMyTplInside" />
+                                                        <dynamicMenu id="dynMyTemplates"
+                                                                label="📁 Danh sách Biểu mẫu của tôi"
+                                                                getImage="Ribbon_GetIcon"
+                                                                getContent="GetMyTemplatesMenuContent"
+                                                                screentip="Danh sách biểu mẫu cá nhân"
+                                                                supertip="Mở nhanh các biểu mẫu văn bản cá nhân của bạn để tạo tài liệu mới." />
+                                                </menu>
+                                                <menuSeparator id="sepMyTemplates" />
+
+                                                <!~~ KHỐI 3: HỆ THỐNG BIỂU MẪU QUY CHUẨN QUỐC GIA ~~>
+                                                <!~~ 1. THI ĐUA - KHEN THƯỞNG (Nghị định 152/2025/NĐ-CP) ~~>
+                                                <menu id="mnuSubTDKT"
+                                                        label="🏆 1. Thi đua – Khen thưởng (NĐ 152/2025)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="tplTDKT_All"
+                                                                label="⭐ Mở Thư viện Thi đua – Khen thưởng..."
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_OpenTDKTLibrary" />
+                                                        <menuSeparator id="sepTDKT_Top" />
+                                                        <button id="tplTDKT_01"
+                                                                label="Mẫu 01: Tờ trình đề nghị khen thưởng"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_01" />
+                                                        <button id="tplTDKT_02"
+                                                                label="Mẫu 02: Báo cáo thành tích Cờ thi đua của Chính phủ"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_02" />
+                                                        <button id="tplTDKT_03"
+                                                                label="Mẫu 03: Báo cáo thành tích Chiến sĩ thi đua toàn quốc"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_03" />
+                                                        <button id="tplTDKT_04"
+                                                                label="Mẫu 04: Báo cáo thành tích công trạng tập thể"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_04" />
+                                                        <button id="tplTDKT_05"
+                                                                label="Mẫu 05: Báo cáo thành tích công trạng cá nhân"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_05" />
+                                                        <button id="tplTDKT_06"
+                                                                label="Mẫu 06: Báo cáo tóm tắt thành tích đột xuất"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_06" />
+                                                        <button id="tplTDKT_07"
+                                                                label="Mẫu 07: Báo cáo tóm tắt khen thưởng cống hiến"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_07" />
+                                                        <button id="tplTDKT_08"
+                                                                label="Mẫu 08: Báo cáo thành tích khen thưởng chuyên đề"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_08" />
+                                                        <button id="tplTDKT_09"
+                                                                label="Mẫu 09: Báo cáo thành tích Anh hùng tập thể"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_09" />
+                                                        <button id="tplTDKT_10"
+                                                                label="Mẫu 10: Báo cáo thành tích Anh hùng cá nhân"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_10" />
+                                                        <button id="tplTDKT_11"
+                                                                label="Mẫu 11: Báo cáo thành tích đối ngoại tổ chức"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_11" />
+                                                        <button id="tplTDKT_12"
+                                                                label="Mẫu 12: Báo cáo thành tích đối ngoại cá nhân"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_12" />
+                                                        <button id="tplTDKT_13"
+                                                                label="Mẫu 13: Xác nhận sáng kiến &amp;&amp; KHCN đổi mới sáng tạo"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_InsertTplND152_13" />
+                                                </menu>
+
+                                                <!~~ 2. VĂN BẢN HÀNH CHÍNH (Nghị định 30/2020/NĐ-CP) ~~>
+                                                <menu id="mnuSubHanhChinh"
+                                                        label="🏛️ 2. Văn bản Hành chính (NĐ 30/2020)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <menu id="mnuSubTinh"
+                                                                label="🏛️ Cấp Tỉnh / TP &amp;&amp; Sở Ban Ngành (Mẫu 1.1 - 1.18)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplCV" label="Mẫu Công văn hành chính (Mẫu 1.5)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplCongVan" />
+                                                                <button id="tplQD" label="Mẫu Quyết định trực tiếp (Mẫu 1.2)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplQuyetDinh" />
+                                                                <button id="tplQDQC" label="Mẫu Quyết định ban hành Quy chế (Mẫu 1.3)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplQuyetDinhQuyChe" />
+                                                                <button id="tplNQCB" label="Mẫu Nghị quyết cá biệt (Mẫu 1.1)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplNghiQuyetCaBiet" />
+                                                                <button id="tplChiThi" label="Mẫu Chỉ thị hành chính" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiThi" />
+                                                                <button id="tplHuongDan" label="Mẫu Hướng dẫn chuyên môn" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplHuongDan" />
+                                                                <button id="tplQuyDinh" label="Mẫu Quy định kèm quyết định (Mẫu 1.4)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplQuyDinh" />
+                                                                <button id="tplDeAn" label="Mẫu Đề án phát triển" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDeAn" />
+                                                                <button id="tplTT" label="Mẫu Tờ trình (Mẫu 1.4)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplToTrinh" />
+                                                                <button id="tplKH" label="Mẫu Kế hoạch (Mẫu 1.4)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplKeHoach" />
+                                                                <button id="tplBC" label="Mẫu Báo cáo (Mẫu 1.4)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplBaoCao" />
+                                                                <button id="tplTB" label="Mẫu Thông báo (Mẫu 1.4)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplThongBao" />
+                                                                <button id="tplBB" label="Mẫu Biên bản (Mẫu 1.9)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplBienBan" />
+                                                                <button id="tplCD" label="Mẫu Công điện (Mẫu 1.6)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplCongDien" />
+                                                                <button id="tplGM" label="Mẫu Giấy mời (Mẫu 1.7)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiayMoi" />
+                                                                <button id="tplGGT" label="Mẫu Giấy giới thiệu (Mẫu 1.8)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiayGioiThieu" />
+                                                                <button id="tplGNP" label="Mẫu Giấy nghỉ phép (Mẫu 1.10)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiayNghiPhep" />
+                                                                <button id="tplGUQ" label="Mẫu Giấy ủy quyền" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiayUyQuyen" />
+                                                                <button id="tplPhieuChuyen" label="Mẫu Phiếu chuyển văn bản/đơn" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplPhieuChuyen" />
+                                                                <button id="tplPhuLuc" label="Mẫu Phụ lục văn bản (Mẫu 2.1)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplPhuLuc" />
+                                                                <button id="tplBanSao" label="Mẫu Bản sao văn bản (Mẫu 3.1)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplBanSao" />
+                                                        </menu>
+                                                        <menu id="mnuSubXa"
+                                                                label="🏘️ Cấp Xã / Phường / Cơ sở (Mẫu 2.1 - 2.15)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplXaCV" label="Mẫu Công văn UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaCV" />
+                                                                <button id="tplXaQD" label="Mẫu Quyết định UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaQD" />
+                                                                <button id="tplXaTT" label="Mẫu Tờ trình UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaTT" />
+                                                                <button id="tplXaBC" label="Mẫu Báo cáo UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaBC" />
+                                                                <button id="tplXaKH" label="Mẫu Kế hoạch UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaKH" />
+                                                                <button id="tplXaTB" label="Mẫu Thông báo UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaTB" />
+                                                                <button id="tplXaBB" label="Mẫu Biên bản UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaBB" />
+                                                                <button id="tplXaGM" label="Mẫu Giấy mời UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaGM" />
+                                                                <button id="tplXaGGT" label="Mẫu Giấy giới thiệu UBND Xã/Phường" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplXaGGT" />
+                                                        </menu>
+                                                </menu>
+
+                                                <!~~ 3. LỰC LƯỢNG VŨ TRANG & QUÂN ĐỘI (THÔNG TƯ 68/2024/TT-BQP) ~~>
+                                                <menu id="mnuSubBQP"
+                                                        label="🎖️ 3. Lực lượng Vũ trang &amp;&amp; Quân đội (TT 68/2024)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="tplTT68_01" label="Mẫu 01: Nghị quyết (QPPL)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_01" />
+                                                        <button id="tplTT68_02" label="Mẫu 02: Nghị quyết (Cá biệt)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_02" />
+                                                        <button id="tplTT68_03a" label="Mẫu 03a: Quyết định trực tiếp (QPPL)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_03a" />
+                                                        <button id="tplTT68_03b" label="Mẫu 03b: Quyết định trực tiếp (Cá biệt)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_03b" />
+                                                        <button id="tplTT68_04a" label="Mẫu 04a: Quyết định ban hành Quy chế (QPPL)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_04a" />
+                                                        <button id="tplTT68_04b" label="Mẫu 04b: Quyết định ban hành Quy chế (Cá biệt)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_04b" />
+                                                        <button id="tplTT68_05" label="Mẫu 05: Chỉ thị (QPPL)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_05" />
+                                                        <button id="tplTT68_06" label="Mẫu 06: Chỉ thị (Cá biệt)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_06" />
+                                                        <button id="tplTT68_07" label="Mẫu 07: Quy chế / Quy định" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_07" />
+                                                        <button id="tplTT68_08" label="Mẫu 08: Thông tư của Bộ Quốc phòng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_08" />
+                                                        <button id="tplTT68_09" label="Mẫu 09: Thông tư liên tịch" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_09" />
+                                                        <button id="tplTT68_10" label="Mẫu 10: Kế hoạch quân sự" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_10" />
+                                                        <button id="tplTT68_11" label="Mẫu 11: Công văn hành chính quân đội" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_11" />
+                                                        <button id="tplTT68_12" label="Mẫu 12: Công điện hỏa tốc" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_12" />
+                                                        <button id="tplTT68_13a" label="Mẫu 13a: Giấy mời (Dạng văn bản)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_13a" />
+                                                        <button id="tplTT68_13b" label="Mẫu 13b: Giấy mời (Dạng phiếu)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_13b" />
+                                                        <button id="tplTT68_14" label="Mẫu 14: Giấy giới thiệu quân đội" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_14" />
+                                                        <button id="tplTT68_15a" label="Mẫu 15a: Giấy nghỉ phép quân nhân" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_15a" />
+                                                        <button id="tplTT68_15b" label="Mẫu 15b: Giấy nghỉ phép (Mẫu thông thường)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_15b" />
+                                                        <button id="tplTT68_16" label="Mẫu 16: Phiếu gửi" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_16" />
+                                                        <button id="tplTT68_17" label="Mẫu 17: Phiếu chuyển" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_17" />
+                                                        <button id="tplTT68_18" label="Mẫu 18: Phiếu báo" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_18" />
+                                                        <button id="tplTT68_19" label="Mẫu 19: Thư công" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_19" />
+                                                        <button id="tplTT68_20" label="Mẫu 20: Bản sao văn bản quân đội" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplTT68_20" />
+                                                </menu>
+
+                                                <!~~ 4. VĂN BẢN ĐẢNG (HƯỚNG DẪN 05-HD/VPTW) ~~>
+                                                <menu id="mnuSubDang"
+                                                        label="⭐ 4. Văn bản Đảng (HD 05-HD/VPTW)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <menu id="mnuSubDangTW"
+                                                                label="⭐ Cấp Trung ương &amp;&amp; Tỉnh ủy / Thành ủy"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplDangNQ" label="Mẫu Nghị quyết của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangNQ" />
+                                                                <button id="tplDangQD" label="Mẫu Quyết định của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangQD" />
+                                                                <button id="tplDangCT" label="Mẫu Chỉ thị của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangCT" />
+                                                                <button id="tplDangKL" label="Mẫu Kết luận của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangKL" />
+                                                                <button id="tplDangQDi" label="Mẫu Quy định của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangQDi" />
+                                                                <button id="tplDangCTr" label="Mẫu Chương trình của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangCTr" />
+                                                                <button id="tplDangKH" label="Mẫu Kế hoạch của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangKH" />
+                                                                <button id="tplDangBC" label="Mẫu Báo cáo của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangBC" />
+                                                                <button id="tplDangTB" label="Mẫu Thông báo của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangTB" />
+                                                                <button id="tplDangTTr" label="Mẫu Tờ trình của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangTTr" />
+                                                                <button id="tplDangTT" label="Mẫu Thông tri của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangTT" />
+                                                                <button id="tplDangCV" label="Mẫu Công văn của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangCV" />
+                                                                <button id="tplDangBB" label="Mẫu Biên bản hội nghị Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangBB" />
+                                                                <button id="tplDangGM" label="Mẫu Giấy mời của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangGM" />
+                                                                <button id="tplDangGGT" label="Mẫu Giấy giới thiệu của Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangGGT" />
+                                                                <button id="tplDangPhuLuc" label="Mẫu Phụ lục văn bản Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangPhuLuc" />
+                                                                <button id="tplDangBanSao" label="Mẫu Bản sao văn bản Đảng" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDangBanSao" />
+                                                        </menu>
+                                                        <menu id="mnuSubDangChiBo"
+                                                                label="🌿 Cấp Chi bộ &amp;&amp; Đảng bộ Cơ sở"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplChiBoNQ" label="Mẫu Nghị quyết Chi bộ" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiBoNQ" />
+                                                                <button id="tplChiBoBC" label="Mẫu Báo cáo Chi bộ" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiBoBC" />
+                                                                <button id="tplChiBoKH" label="Mẫu Kế hoạch sinh hoạt Chi bộ" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiBoKH" />
+                                                                <button id="tplChiBoBB" label="Mẫu Biên bản sinh hoạt Chi bộ" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiBoBB" />
+                                                                <button id="tplChiBoCV" label="Mẫu Công văn Chi bộ" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplChiBoCV" />
+                                                        </menu>
+                                                </menu>
+
+                                                <!~~ 5. VĂN BẢN ĐOÀN TNCS HỒ CHÍ MINH (HD 29-HD/TWĐTN-VP) ~~>
+                                                <menu id="mnuSubDoan"
+                                                        label="🌟 5. Văn bản Đoàn TNCS Hồ Chí Minh (HD 29)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <menu id="mnuSubDoanChung"
+                                                                label="🌟 BCH Đoàn các cấp (Trung ương → cơ sở)"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplDoanCV" label="Mẫu Công văn của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Cong_van.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanBC" label="Mẫu Báo cáo của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Bao_cao.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanKH" label="Mẫu Kế hoạch của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Ke_hoach.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanQD" label="Mẫu Quyết định của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Quyet_dinh.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanNQ" label="Mẫu Nghị quyết của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Nghi_quyet.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanCT" label="Mẫu Chỉ thị của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Chi_thi.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanTB" label="Mẫu Thông báo của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Thong_bao.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanTT" label="Mẫu Thông tri của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Thong_tri.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanTTr" label="Mẫu Tờ trình của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_To_trinh.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanCTr" label="Mẫu Chương trình công tác của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Chuong_trinh.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanHD" label="Mẫu Hướng dẫn của Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Huong_dan.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanBB" label="Mẫu Biên bản họp / sinh hoạt Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Bien_ban.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanGGT" label="Mẫu Giấy giới thiệu của Đoàn (A5)" getImage="Ribbon_GetIcon" tag="Mau_Doan_Giay_gioi_thieu.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanBS" label="Mẫu Bản sao văn bản Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Ban_sao.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                        </menu>
+                                                        <menu id="mnuSubDoanDaiHoi"
+                                                                label="🎉 Đại hội Đoàn &amp;&amp; Chi đoàn"
+                                                                getImage="Ribbon_GetIcon">
+                                                                <button id="tplDoanDHNQ" label="Mẫu Nghị quyết Đại hội Đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Dai_hoi_Nghi_quyet.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanDHBB" label="Mẫu Biên bản kiểm phiếu Đại hội" getImage="Ribbon_GetIcon" tag="Mau_Doan_Dai_hoi_Bien_ban_kiem_phieu.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanCDKH" label="Mẫu Kế hoạch Chi đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Chi_doan_Ke_hoach.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                                <button id="tplDoanCDBC" label="Mẫu Báo cáo Chi đoàn" getImage="Ribbon_GetIcon" tag="Mau_Doan_Chi_doan_Bao_cao.docx" onAction="Ribbon_OpenTemplateByTag" />
+                                                        </menu>
+                                                </menu>
+
+                                                <!~~ 6. ĐƠN THƯ, TỜ TRÌNH & VĂN BẢN CÁ NHÂN ~~>
+                                                <menu id="mnuSubPersonal"
+                                                        label="📋 6. Đơn thư &amp;&amp; Văn bản cá nhân (Tiêu ngữ căn giữa)"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="tplDonNghiPhep" label="Mẫu Đơn xin nghỉ phép" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonNghiPhep" />
+                                                        <button id="tplDonDeNghi" label="Mẫu Đơn đề nghị / Đơn xin xác nhận" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonDeNghi" />
+                                                        <button id="tplDonKhieuNai" label="Mẫu Đơn khiếu nại" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonKhieuNai" />
+                                                        <button id="tplDonKienNghi" label="Mẫu Đơn kiến nghị, phản ánh" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonKienNghi" />
+                                                        <button id="tplDonToCao" label="Mẫu Đơn tố cáo" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonToCao" />
+                                                        <button id="tplBanTuongTrinh" label="Mẫu Bản tường trình" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplBanTuongTrinh" />
+                                                        <button id="tplBanCamKet" label="Mẫu Bản cam kết" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplBanCamKet" />
+                                                        <button id="tplGiayUyQuyenCaNhan" label="Mẫu Giấy ủy quyền cá nhân" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiayUyQuyenCaNhan" />
+                                                        <button id="tplDonXinThoiViec" label="Mẫu Đơn xin thôi việc / Chuyển công tác" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonXinThoiViec" />
+                                                        <button id="tplDonTuChung" label="Mẫu Đơn từ chung (Khung chuẩn tiêu ngữ giữa)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplDonTuChung" />
+                                                </menu>
+
+                                                <!~~ 7. CHUYÊN NGÀNH & GIÁO DỤC ~~>
+                                                <menu id="mnuSubOther"
+                                                        label="📚 7. Chuyên ngành &amp;&amp; Giáo dục"
+                                                        getImage="Ribbon_GetIcon">
+                                                        <button id="tplVBHN" label="Mẫu Văn bản Hợp nhất (NĐ 250)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplVBHN" />
+                                                        <button id="tplKHBD" label="Mẫu Kế hoạch bài dạy (CV 5512)" getImage="Ribbon_GetIcon" onAction="Ribbon_InsertTplGiaoAn5512" />
+                                                </menu>
+                                        </menu>
+
+                                        
+-->
+					<button id="btnContactAuthor" label="Hà Xuân Vũ&#10;0865.333.079"
+						size="large"
+						getImage="Ribbon_GetIcon"
+						onAction="Ribbon_ShowContactInfo"
+						screentip="Thông tin Tác giả &amp;&amp; Hỗ trợ: Hà Xuân Vũ (0865.333.079)"
+						supertip="Tác giả: Hà Xuân Vũ&#10;Số điện thoại / Zalo: 0865333079&#10;Hỗ trợ kỹ thuật, hướng dẫn cài đặt và tiếp nhận đóng góp ý kiến nâng cấp OfficeFormat." />
+					<button id="btnPersonalize" label="Cài đặt &amp;&amp;&#10;Cá nhân hóa"
+                                                size="large"
+                                                getImage="Ribbon_GetIcon"
+                                                onAction="Ribbon_OpenPersonalize"
+                                                screentip="Cá nhân hóa Dữ liệu Cơ quan &amp;&amp; Chữ ký"
+                                                supertip="Thiết lập sẵn tên Cơ quan, Cơ quan Đảng, Danh sách Nơi nhận hay dùng và Lãnh đạo ký để chèn nhanh 1-Click vào văn bản." />
+
+                                        <box id="boxAppInfo" boxStyle="vertical">
+                                                <menu id="mnuHeaderDateLayout" label="Kiểu Địa danh Tiêu đề"
+                                                        getImage="Ribbon_GetIcon"
+                                                        screentip="Vị trí Địa danh, ngày tháng trong Tiêu đề Đầu trang"
+                                                        supertip="Chọn kiểu bố cục cho dòng Địa danh, ngày tháng: ô riêng biệt (chuẩn) hoặc chung ô với Quốc hiệu/Đảng kỳ.">
+                                                        <button id="btnHeaderDateSeparate"
+                                                                label="1. Địa danh ở 1 ô riêng (Mẫu chuẩn)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_SelectHeaderDateSeparate"
+                                                                screentip="Kiểu 1: Địa danh ở 1 ô riêng biệt"
+                                                                supertip="Địa danh, ngày tháng nằm ở ô hàng dưới (ngang hàng với Số ký hiệu). Bố cục 2 dòng chuẩn theo Nghị định 30 &amp; Hướng dẫn 05." />
+                                                        <button id="btnHeaderDateTopCell"
+                                                                label="2. Địa danh nằm chung ô trên (ô dưới trống)"
+                                                                getImage="Ribbon_GetIcon"
+                                                                onAction="Ribbon_SelectHeaderDateTopCell"
+                                                                screentip="Kiểu 2: Địa danh nằm chung trong ô trên"
+                                                                supertip="Địa danh, ngày tháng nằm chung bên dưới Quốc hiệu/Tên Đảng trong cùng ô trên bên phải, ô phía dưới để trống." />
+                                                </menu>
+                                                <!-- [PHÁT TRIỂN Ở VERSION SAU] Thông tin bản quyền
+<button id="btnAboutApp" label="Thông tin bản quyền"
+                                                        getImage="Ribbon_GetIcon" onAction="Ribbon_ShowVFormatInfo"
+                                                        screentip="Thông tin bản quyền"
+                                                        supertip="Xem thời hạn bản quyền, nhập/sửa mã kích hoạt License Key, mua bản quyền và thông tin tác giả." />
+-->
+
+                                                <button id="btnCheckUpdate" label="Cập nhật Phiên bản"
+                                                        getImage="Ribbon_GetIcon" onAction="Ribbon_CheckUpdate"
+                                                        screentip="Kiểm tra Cập nhật OfficeFormat"
+                                                        supertip="Kiểm tra trực tuyến phiên bản mới nhất và tự động cập nhật an toàn, không làm mất dữ liệu đã cài đặt." />
+                                        </box>
+                                </group>
+
+                        </tab>
+                </tabs>
+        </ribbon>
+</customUI>

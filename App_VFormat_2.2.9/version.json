@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "OfficeFormat",
+  "release_date": "2026-10-24",
+  "author": "Hà Xuân Vũ",
+  "website": "",
+  "email": "",
+  "download_url": "",
+  "zip_url": "",
+  "update_url": "",
+  "file_name": "OfficeFormat-1.0-Setup.exe",
+  "changelog": "OfficeFormat 1.0: Phiên bản đầu tiên với bộ nhận diện thương hiệu mới, biểu tượng Font Awesome hiện đại và giao diện tông màu cam san hô (Coral-Orange).",
+  "manifest_version": 1,
+  "download_available": false
+}

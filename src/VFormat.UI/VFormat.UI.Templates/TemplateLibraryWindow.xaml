@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Templates.TemplateLibraryWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:version="clr-namespace:VFormat.Core.Common;assembly=VFormat.Core" xmlns:local="clr-namespace:VFormat.UI.Templates" Height="680" Width="440" MinHeight="500" MinWidth="340" MaxWidth="560" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI, Tahoma, Arial" Background="#FDF8F4" Title="{Binding Source={x:Static version:Constants.AppDisplayName}, StringFormat=Thư viện Biểu mẫu Chuẩn - {0}}">
+  <Grid>
+    <local:TemplateLibraryControl x:Name="libraryControl" />
+  </Grid>
+</Window>

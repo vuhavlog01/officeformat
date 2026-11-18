@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.PageNumberDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Title="OfficeFormat - THIẾT LẬP ĐÁNH SỐ TRANG" Width="480" Height="580" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Segoe UI, Tahoma, Arial" xmlns:common="clr-namespace:VFormat.UI.Common;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,12">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+          <Path Data="{StaticResource IconPageNumber}" Fill="{StaticResource BrushPrimary}" Width="15" Height="15" Stretch="Uniform" Margin="0,0,8,0" VerticalAlignment="Center" />
+          <TextBlock Text="THIẾT LẬP ĐÁNH SỐ TRANG VĂN BẢN" FontWeight="Bold" FontSize="14" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="Đánh số trang tự động chuẩn Nghị định 30/2020/NĐ-CP và Hướng dẫn 05-HD/VPTW." FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="23,3,0,0" />
+      </StackPanel>
+    </Border>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="16,10">
+      <StackPanel>
+        <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10">
+          <StackPanel>
+            <RadioButton GroupName="PageNumberModeGroup" Content="Đánh số từ đầu văn bản (Chuẩn chung)" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,6" IsChecked="{Binding IsFromStart, Mode=TwoWay}" />
+            <CheckBox Content="Ẩn số trang ở trang bìa / trang đầu (chuẩn NĐ 30 &amp; HD 05)" FontSize="11.5" Margin="22,0,0,2" IsChecked="{Binding HideFirstPage}" IsEnabled="{Binding IsFromStart}" />
+          </StackPanel>
+        </Border>
+        <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10">
+          <StackPanel>
+            <RadioButton GroupName="PageNumberModeGroup" Content="Đánh số từ trang tùy chọn (Bỏ qua các trang đầu):" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,8" IsChecked="{Binding IsCustomStart, Mode=TwoWay}" />
+            <Grid Margin="22,0,0,6">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="80" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Text="Trang bắt đầu đánh số:" FontSize="11.5" VerticalAlignment="Center" Foreground="{StaticResource BrushTextPrimary}" />
+              <TextBox Grid.Column="1" Style="{StaticResource FluentTextBox}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Padding="4,2" Text="{Binding CustomStartPage, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <Grid Margin="22,0,0,8">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="80" />
+              </Grid.ColumnDefinitions>
+              <TextBlock Text="Số bắt đầu đánh:" FontSize="11.5" VerticalAlignment="Center" Foreground="{StaticResource BrushTextPrimary}" />
+              <TextBox Grid.Column="1" Style="{StaticResource FluentTextBox}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Padding="4,2" Text="{Binding CustomStartNumber, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+            <CheckBox Content="Đánh số trang liên tục từ trang 1" FontSize="11.5" Margin="22,0,0,2" IsChecked="{Binding ContinuousNumbering}" />
+          </StackPanel>
+        </Border>
+        <Border Style="{StaticResource FluentCard}" Margin="0,0,0,4">
+          <StackPanel>
+            <TextBlock Text="VỊ TRÍ ĐẶT SỐ TRANG:" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,6" />
+            <RadioButton GroupName="PageNumberPositionGroup" Content="Lề trên, chính giữa (Top Center - Chuẩn Quốc gia)" FontSize="11.5" Margin="0,0,0,5" IsChecked="{Binding IsTopCenter}" />
+            <RadioButton GroupName="PageNumberPositionGroup" Content="Lề dưới, chính giữa (Bottom Center)" FontSize="11.5" Margin="0,0,0,5" IsChecked="{Binding IsBottomCenter}" />
+            <RadioButton GroupName="PageNumberPositionGroup" Content="Lề dưới, bên phải (Bottom Right)" FontSize="11.5" IsChecked="{Binding IsBottomRight}" />
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </ScrollViewer>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="16,10">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="8" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Name="btnRemove" Grid.Column="0" Content="BỎ ĐÁNH SỐ" Style="{StaticResource FluentSecondaryButton}" Click="BtnRemove_Click" />
+        <Button Name="btnApply" Grid.Column="2" Content="ĐÁNH SỐ TRANG" Style="{StaticResource FluentPrimaryButton}" Click="BtnApply_Click" />
+        <Button Name="btnClose" Grid.Column="4" Content="Đóng" Style="{StaticResource FluentSecondaryButton}" Click="BtnClose_Click" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

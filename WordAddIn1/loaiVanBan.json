@@ -1,0 +1,28 @@
+{
+  "PhienBan": "1.0",
+  "MoTa": "Danh mục tên loại văn bản nhận diện tự động cho V-Format",
+  "DanhSachLoaiVanBan": [
+    "THÔNG BÁO",
+    "BÁO CÁO",
+    "QUYẾT ĐỊNH",
+    "KẾ HOẠCH",
+    "TỜ TRÌNH",
+    "CHỈ THỊ",
+    "NGHỊ QUYẾT",
+    "CÔNG VĂN",
+    "KẾT LUẬN",
+    "QUY ĐỊNH",
+    "QUY CHẾ",
+    "HƯỚNG DẪN",
+    "CHƯƠNG TRÌNH",
+    "ĐỀ ÁN",
+    "PHƯƠNG ÁN",
+    "BIÊN BẢN",
+    "GIẤY MỜI",
+    "GIẤY GIỚI THIỆU",
+    "PHIẾU GỬI",
+    "CÔNG ĐIỆN",
+    "THÔNG TƯ",
+    "ĐIỀU LỆ"
+  ]
+}

@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>VFormat.UI</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <UseWPF>True</UseWPF>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Page Remove="styles\fluentcolors.xaml" />
+    <Page Remove="styles\fluentcontrols.xaml" />
+    <Page Remove="styles\vectoricons.xaml" />
+    <Page Remove="VFormat.UI.Common\AuditReportDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\ModernMessageDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\PageMarginDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\PageNumberDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\ProgressDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\RegulationDetectDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\ReportDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\PrintDuplexDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\PdfConverterDialog.xaml" />
+    <Page Remove="VFormat.UI.Common\QrCodeDialog.xaml" />
+    <Page Remove="VFormat.UI.License\LicenseDialog.xaml" />
+    <Page Remove="VFormat.UI.Personalization\PersonalizationDialog.xaml" />
+    <Page Remove="VFormat.UI.SpellCheck\SpellCheckWindow.xaml" />
+    <Page Remove="VFormat.UI.TaskPane\TaskPaneView.xaml" />
+    <Page Remove="VFormat.UI.Templates\AddUserTemplateDialog.xaml" />
+    <Page Remove="VFormat.UI.Templates\MyTemplatesManagerWindow.xaml" />
+    <Page Remove="VFormat.UI.Templates\TemplateLibraryControl.xaml" />
+    <Page Remove="VFormat.UI.Templates\TemplateLibraryWindow.xaml" />
+    <Page Include="styles\fluentcolors.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="styles/fluentcolors.xaml" />
+    <Page Include="styles\fluentcontrols.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="styles/fluentcontrols.xaml" />
+    <Page Include="styles\vectoricons.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="styles/vectoricons.xaml" />
+    <Page Include="VFormat.UI.Common\AuditReportDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/auditreportdialog.xaml" />
+    <Page Include="VFormat.UI.Common\ModernMessageDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/modernmessagedialog.xaml" />
+    <Page Include="VFormat.UI.Common\PageMarginDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/pagemargindialog.xaml" />
+    <Page Include="VFormat.UI.Common\PageNumberDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/pagenumberdialog.xaml" />
+    <Page Include="VFormat.UI.Common\ProgressDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/progressdialog.xaml" />
+    <Page Include="VFormat.UI.Common\RegulationDetectDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/regulationdetectdialog.xaml" />
+    <Page Include="VFormat.UI.Common\ReportDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/reportdialog.xaml" />
+    <Page Include="VFormat.UI.Common\PrintDuplexDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/printduplexdialog.xaml" />
+    <Page Include="VFormat.UI.Common\PdfConverterDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/pdfconverterdialog.xaml" />
+    <Page Include="VFormat.UI.Common\QrCodeDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="common/qrcodedialog.xaml" />
+    <Page Include="VFormat.UI.License\LicenseDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="license/licensedialog.xaml" />
+    <Page Include="VFormat.UI.Personalization\PersonalizationDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="personalization/personalizationdialog.xaml" />
+    <Page Include="VFormat.UI.SpellCheck\SpellCheckWindow.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="spellcheck/spellcheckwindow.xaml" />
+    <Page Include="VFormat.UI.TaskPane\TaskPaneView.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="taskpane/taskpaneview.xaml" />
+    <Page Include="VFormat.UI.Templates\AddUserTemplateDialog.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="templates/addusertemplatedialog.xaml" />
+    <Page Include="VFormat.UI.Templates\MyTemplatesManagerWindow.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="templates/mytemplatesmanagerwindow.xaml" />
+    <Page Include="VFormat.UI.Templates\TemplateLibraryControl.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="templates/templatelibrarycontrol.xaml" />
+    <Page Include="VFormat.UI.Templates\TemplateLibraryWindow.xaml" Generator="MSBuild:Compile" SubType="Designer" LogicalName="templates/templatelibrarywindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VFormat.Core\VFormat.Core.csproj" />
+    <ProjectReference Include="..\VFormat.WordEngine\VFormat.WordEngine.csproj" />
+    <ProjectReference Include="..\VFormat.License\VFormat.License.csproj" />
+  </ItemGroup>
+</Project>

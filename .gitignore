@@ -30,3 +30,17 @@ venv.bak/
 *.log
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+## Build results
+[Bb]in/
+[Oo]bj/
+Output/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio cache
+.vs/
+.vscode/

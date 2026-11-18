@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Common.ModernMessageDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:version="clr-namespace:VFormat.Core.Common;assembly=VFormat.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Title="{x:Static version:Constants.AppDisplayName}" Width="460" SizeToContent="Height" MaxHeight="560" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" FontFamily="Segoe UI, Tahoma, Arial" xmlns:common="clr-namespace:VFormat.UI.Common;assembly=VFormat.UI">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/VectorIcons.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="18,14">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Name="borderIconBox" Grid.Column="0" Width="36" Height="36" CornerRadius="8" Background="#FFF1E6" Margin="0,0,12,0" VerticalAlignment="Center">
+          <Path Name="pathIcon" Data="{StaticResource IconInfo}" Fill="#E04F26" Width="18" Height="18" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+          <TextBlock Name="txtTitle" Text="Thông Báo OfficeFormat" FontWeight="Bold" FontSize="14" TextWrapping="Wrap" Foreground="{StaticResource BrushTextPrimary}" />
+          <TextBlock Name="txtCategory" Text="Thông tin hệ thống" FontSize="11" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+        </StackPanel>
+      </Grid>
+    </Border>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="20,16" MaxHeight="300">
+      <TextBox Name="txtMessage" Text="Nội dung thông báo..." IsReadOnly="True" Background="#00FFFFFF" BorderThickness="0" TextWrapping="Wrap" FontSize="12.5" Foreground="{StaticResource BrushTextPrimary}" Cursor="Arrow" />
+    </ScrollViewer>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="16,12">
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Button Name="btnCancel" Content="Hủy Bỏ" Style="{StaticResource FluentSecondaryButton}" MinHeight="38" Padding="16,8" MinWidth="85" Margin="0,0,10,0" Visibility="Collapsed" Click="BtnCancel_Click" />
+        <Button Name="btnOk" Content="Đóng" Style="{StaticResource FluentPrimaryButton}" MinHeight="38" Padding="16,8" MinWidth="85" Click="BtnOk_Click" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>

@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="VFormat.UI.Personalization.PersonalizationDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:version="clr-namespace:VFormat.Core.Common;assembly=VFormat.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Height="680" Width="1000" MinWidth="900" WindowStartupLocation="CenterScreen" FontFamily="Segoe UI, Tahoma, Arial" xmlns:personalization="clr-namespace:VFormat.UI.Personalization;assembly=VFormat.UI" Title="{Binding Source={x:Static version:Constants.AppDisplayName}, StringFormat=Cài Đặt Cá Nhân Hóa Dữ Liệu &amp; Thể Thức - {0}}">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VFormat.UI;component/Styles/FluentControls.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Background="{StaticResource BrushWindowBackground}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,0,0,1" Padding="20,12">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+          <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <Path Data="{StaticResource IconBolt}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,7,0" VerticalAlignment="Center" />
+            <TextBlock Text="CÀI ĐẶT CÁ NHÂN HÓA DỮ LIỆU &amp; THỂ THỨC" FontWeight="Bold" FontSize="13.5" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" />
+          </StackPanel>
+          <TextBlock FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="20,3,0,0" Text="{Binding Source={x:Static version:Constants.AppDisplayName}, StringFormat='Thiết lập Cơ quan ban hành, Người ký, Nơi nhận, Căn lề trang in và Cỡ chữ thể thức cho {0}.'}" />
+        </StackPanel>
+        <Border Grid.Column="1" Background="{StaticResource BrushPrimaryLight}" CornerRadius="12" Padding="12,4" VerticalAlignment="Center">
+          <TextBlock FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource BrushPrimary}" Text="Tác giả: Hà Xuân Vũ · 📞 SĐT/Zalo: 0865333079" />
+        </Border>
+      </Grid>
+    </Border>
+    <Grid Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="225" />
+        <ColumnDefinition Width="1" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Border Grid.Column="0" Background="{StaticResource BrushSubtle}" Padding="10,14">
+        <DockPanel LastChildFill="False">
+          <TextBlock DockPanel.Dock="Top" Text="DANH MỤC THIẾT LẬP" FontWeight="Bold" FontSize="10.5" Foreground="{StaticResource BrushTextMuted}" Margin="8,0,0,10" />
+          <RadioButton DockPanel.Dock="Top" GroupName="NavSections" Style="{StaticResource FluentNavRadioButton}" IsChecked="{Binding IsSectionAgency}">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Path Grid.Column="0" Data="{StaticResource IconBuilding}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="Cơ quan Ban hành" FontWeight="SemiBold" FontSize="12.5" />
+                <TextBlock FontSize="10.5" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" Text="{Binding AgencyBadgeText}" />
+              </StackPanel>
+            </Grid>
+          </RadioButton>
+          <RadioButton DockPanel.Dock="Top" GroupName="NavSections" Style="{StaticResource FluentNavRadioButton}" IsChecked="{Binding IsSectionSigner}">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Path Grid.Column="0" Data="{StaticResource IconPen}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="Người Ký &amp; Nơi Nhận" FontWeight="SemiBold" FontSize="12.5" />
+                <TextBlock FontSize="10.5" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" Text="{Binding SignerBadgeText}" />
+              </StackPanel>
+            </Grid>
+          </RadioButton>
+          <RadioButton DockPanel.Dock="Top" GroupName="NavSections" Style="{StaticResource FluentNavRadioButton}" IsChecked="{Binding IsSectionMargins}">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Path Grid.Column="0" Data="{StaticResource IconRulerCombined}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="Căn Lề &amp; Đoạn Văn" FontWeight="SemiBold" FontSize="12.5" />
+                <TextBlock FontSize="10.5" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" Text="{Binding MarginBadgeText}" />
+              </StackPanel>
+            </Grid>
+          </RadioButton>
+          <RadioButton DockPanel.Dock="Top" GroupName="NavSections" Style="{StaticResource FluentNavRadioButton}" IsChecked="{Binding IsSectionTypography}">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Path Grid.Column="0" Data="{StaticResource IconFont}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="Cỡ Chữ Thể Thức" FontWeight="SemiBold" FontSize="12.5" />
+                <TextBlock FontSize="10.5" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" Text="{Binding TypographyBadgeText}" />
+              </StackPanel>
+            </Grid>
+          </RadioButton>
+          <RadioButton DockPanel.Dock="Top" GroupName="NavSections" Style="{StaticResource FluentNavRadioButton}" IsChecked="{Binding IsSectionTextTools}">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="26" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Path Grid.Column="0" Data="{StaticResource IconToolbox}" Fill="{StaticResource BrushPrimary}" Width="14" Height="14" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Left" />
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="Công Cụ Văn Bản" FontWeight="SemiBold" FontSize="12.5" />
+                <TextBlock FontSize="10.5" Foreground="{StaticResource BrushPrimary}" FontWeight="SemiBold" Text="{Binding TextToolsBadgeText}" />
+              </StackPanel>
+            </Grid>
+          </RadioButton>
+          <Border DockPanel.Dock="Bottom" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="8" Padding="10,8" Margin="0,16,0,0">
+            <StackPanel>
+              <TextBlock Text="💡 Bảo toàn cấu hình" FontWeight="SemiBold" FontSize="11" Foreground="{StaticResource BrushPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Mọi thiết lập của bạn được lưu an toàn tại %AppData% và được giữ nguyên 100% khi nâng cấp phiên bản mới." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" />
+            </StackPanel>
+          </Border>
+        </DockPanel>
+      </Border>
+      <Border Grid.Column="1" Background="{StaticResource BrushSeparator}" />
+      <TabControl Grid.Column="2" Style="{StaticResource FluentTabControl}" Margin="16,12,16,8" SelectedIndex="{Binding SelectedSectionIndex}">
+        <ItemsControl.ItemContainerStyle>
+          <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Visibility" Value="Collapsed" />
+          </Style>
+        </ItemsControl.ItemContainerStyle>
+        <TabItem>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,8,0">
+            <StackPanel>
+              <TextBlock Text="🏛️ THIẾT LẬP CƠ QUAN BAN HÀNH VĂN BẢN" FontWeight="Bold" FontSize="13" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Chọn quy chuẩn áp dụng và chỉnh sửa mẫu cơ quan ban hành văn bản:" FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,10" />
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,12" Padding="12,10">
+                <StackPanel>
+                  <TextBlock Text="📐 VỊ TRÍ ĐỊA DANH, NGÀY THÁNG TRONG BẢNG TIÊU ĐỀ ĐẦU TRANG (1. TIÊU ĐỀ ĐẦU TRANG)" FontWeight="Bold" FontSize="12" Foreground="{StaticResource BrushPrimary}" Margin="0,0,0,4" />
+                  <TextBlock Text="Tùy chọn bố cục ô chứa dòng Địa danh, ngày... tháng... năm... khi chuẩn hóa &quot;1. Tiêu đề Đầu trang&quot; và chèn tiêu đề:" FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,8" TextWrapping="Wrap" />
+                  <RadioButton GroupName="HeaderDateLayoutGroup" IsChecked="{Binding IsHeaderDateSeparateCell}" Margin="0,0,0,6" VerticalContentAlignment="Top">
+                    <StackPanel Margin="4,0,0,0">
+                      <TextBlock Text="Tùy chọn 1: Phần địa danh nằm ở 1 ô riêng phía dưới (ngang hàng với Số, ký hiệu)" FontWeight="SemiBold" FontSize="11.5" Foreground="{StaticResource BrushTextPrimary}" />
+                      <TextBlock Text="Ô trên chứa Quốc hiệu/Tiêu ngữ (hoặc Tiêu đề Đảng); phần Địa danh, ngày tháng nằm ở ô riêng hàng dưới." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,1,0,0" />
+                    </StackPanel>
+                  </RadioButton>
+                  <RadioButton GroupName="HeaderDateLayoutGroup" IsChecked="{Binding IsHeaderDateInTopCell}" VerticalContentAlignment="Top">
+                    <StackPanel Margin="4,0,0,0">
+                      <TextBlock Text="Tùy chọn 2: Phần địa danh nằm chung ở trong ô trên và ô dưới bỏ trống" FontWeight="SemiBold" FontSize="11.5" Foreground="{StaticResource BrushTextPrimary}" />
+                      <TextBlock Text="Ô trên bên phải chứa cả Quốc hiệu/Tiêu ngữ (hoặc Tiêu đề Đảng) và dòng Địa danh, ngày tháng ngay bên dưới; ô dưới bên phải bỏ trống." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,1,0,0" />
+                    </StackPanel>
+                  </RadioButton>
+                </StackPanel>
+              </Border>
+              <Border Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="8" Padding="6" Margin="0,0,0,12">
+                <WrapPanel>
+                  <RadioButton Content="🏛️ Nghị định 30" GroupName="AgencyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsAgencyND30}" />
+                  <RadioButton Content="🚩 Hướng dẫn 05" GroupName="AgencyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsAgencyHD05}" />
+                  <RadioButton Content="🎖️ Thông tư 68" GroupName="AgencyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsAgencyTT68}" />
+                  <RadioButton Content="🌟 HD 29 - Đoàn" GroupName="AgencyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" ToolTip="Hướng dẫn 29-HD/TWĐTN-VP - Thể thức văn bản của Đoàn TNCS Hồ Chí Minh" IsChecked="{Binding IsAgencyHD29}" />
+                  <RadioButton Content="⚙️ Cá nhân" GroupName="AgencyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsAgencyCustom}" />
+                </WrapPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,12" Padding="12,10" Visibility="{Binding AgencyDefaultVisibility}">
+                <StackPanel>
+                  <CheckBox Style="{StaticResource FluentCheckBox}" Margin="0,0,0,4" IsChecked="{Binding UseCustomAgency}">
+                    <StackPanel>
+                      <TextBlock Text="Dùng làm mặc định khi chuẩn hóa văn bản" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" FontSize="12" />
+                      <TextBlock Text="Áp dụng mẫu cơ quan cá nhân này khi chèn khối Quốc hiệu, Tiêu đề và Chuẩn hóa văn bản" FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+                    </StackPanel>
+                  </CheckBox>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,8" Margin="0,6,0,0">
+                    <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11.5" TextWrapping="Wrap" Text="{Binding AgencyStatusDetail}" />
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}">
+                <StackPanel>
+                  <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="140" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Chọn mẫu lưu:" FontWeight="SemiBold" FontSize="11.5" VerticalAlignment="Center" />
+                    <ComboBox Grid.Column="1" Height="28" FontSize="11.5" ItemsSource="{Binding SlotOptions}" SelectedIndex="{Binding AgencySlotIndex}" />
+                  </Grid>
+                  <TextBlock Text="Tên gợi nhớ cơ quan:" FontSize="11.5" FontWeight="SemiBold" Margin="0,0,0,3" />
+                  <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,10" Text="{Binding AgencyAlias, UpdateSourceTrigger=PropertyChanged}" />
+                  <TextBlock Text="Đơn vị / Cơ quan cấp trên (Ví dụ: UBND TỈNH..., BỘ QUỐC PHÒNG...):" FontSize="11.5" FontWeight="SemiBold" Margin="0,0,0,3" />
+                  <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,10" Text="{Binding ParentAgency, UpdateSourceTrigger=PropertyChanged}" />
+                  <TextBlock Text="Đơn vị / Cơ quan ban hành (Ví dụ: SỞ KHOA HỌC VÀ CÔNG NGHỆ, ĐẢNG ỦY...):" FontSize="11.5" FontWeight="SemiBold" Margin="0,0,0,3" />
+                  <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,10" Text="{Binding AgencyName, UpdateSourceTrigger=PropertyChanged}" />
+                  <Grid Margin="0,0,0,4">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="12" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Địa danh hành chính:" FontSize="11.5" FontWeight="SemiBold" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding Location, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                      <TextBlock Text="Ký hiệu số văn bản (Viết tắt):" FontSize="11.5" FontWeight="SemiBold" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding CodePrefix, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                  </Grid>
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,8,0">
+            <StackPanel>
+              <TextBlock Text="✍️ THIẾT LẬP THẨM QUYỀN KÝ &amp; KHỐI NƠI NHẬN" FontWeight="Bold" FontSize="13" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Cấu hình thông tin người ký và khối nơi nhận văn bản (đồng bộ 100% theo mẫu hồ sơ):" FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,10" />
+              <Border Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="8" Padding="6" Margin="0,0,0,10">
+                <WrapPanel>
+                  <RadioButton Content="🏛️ Nghị định 30" GroupName="SignerStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsSignerND30}" />
+                  <RadioButton Content="🚩 Hướng dẫn 05" GroupName="SignerStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsSignerHD05}" />
+                  <RadioButton Content="🎖️ Thông tư 68" GroupName="SignerStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsSignerTT68}" />
+                  <RadioButton Content="🌟 HD 29 - Đoàn" GroupName="SignerStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" ToolTip="Hướng dẫn 29-HD/TWĐTN-VP - Thể thức văn bản của Đoàn TNCS Hồ Chí Minh" IsChecked="{Binding IsSignerHD29}" />
+                  <RadioButton Content="⚙️ Cá nhân" GroupName="SignerStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsSignerCustom}" />
+                </WrapPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10" Padding="12,10" Visibility="{Binding SignerDefaultVisibility}">
+                <StackPanel>
+                  <CheckBox Style="{StaticResource FluentCheckBox}" Margin="0,0,0,4" IsChecked="{Binding UseCustomSigner}">
+                    <StackPanel>
+                      <TextBlock Text="Dùng làm mặc định khi chuẩn hóa văn bản" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" FontSize="12" />
+                      <TextBlock Text="Áp dụng mẫu người ký và khối nơi nhận cá nhân này khi chèn chữ ký và Chuẩn hóa văn bản" FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+                    </StackPanel>
+                  </CheckBox>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,8" Margin="0,6,0,0">
+                    <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11.5" TextWrapping="Wrap" Text="{Binding SignerStatusDetail}" />
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,10" Padding="12,10">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,16,0">
+                    <TextBlock Text="📁" FontSize="13" Margin="0,0,6,0" VerticalAlignment="Center" />
+                    <TextBlock Text="Chọn mẫu hồ sơ lưu (Đồng bộ Người ký &amp; Nơi nhận):" FontWeight="SemiBold" FontSize="11.5" VerticalAlignment="Center" />
+                  </StackPanel>
+                  <ComboBox Grid.Column="1" Height="28" FontSize="11.5" ItemsSource="{Binding SlotOptions}" SelectedIndex="{Binding SignerSlotIndex}" />
+                </Grid>
+              </Border>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="1.05*" />
+                  <ColumnDefinition Width="12" />
+                  <ColumnDefinition Width="0.95*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{StaticResource FluentCard}">
+                  <StackPanel>
+                    <TextBlock Text="THÔNG TIN NGƯỜI KÝ" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,8" />
+                    <TextBlock Text="Quyền hạn ký (TM. UBND, KT. GIÁM ĐỐC...):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding AuthorityPrefix, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Chức vụ (CHỦ TỊCH, GIÁM ĐỐC...):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Cấp bậc quân hàm (Nếu là TT 68):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding MilitaryRank, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Họ và tên người ký (Chữ in thường, đứng đậm 14pt):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding SignerName, UpdateSourceTrigger=PropertyChanged}" />
+                  </StackPanel>
+                </Border>
+                <Border Grid.Column="2" Style="{StaticResource FluentCard}">
+                  <StackPanel>
+                    <TextBlock Text="KHỐI NƠI NHẬN VĂN BẢN &amp; LƯU BẢN SAO" FontWeight="Bold" FontSize="11" Foreground="{StaticResource BrushTextMuted}" Margin="0,0,0,8" />
+                    <TextBlock Text="Danh sách đơn vị nhận (mỗi đơn vị 1 dòng):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Height="140" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,0,0,8" Text="{Binding RecipientList, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Text="Dòng lưu bản sao (Cuối danh sách):" FontSize="11" FontWeight="SemiBold" Margin="0,0,0,3" />
+                    <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding Storage, UpdateSourceTrigger=PropertyChanged}" />
+                  </StackPanel>
+                </Border>
+              </Grid>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,8,0">
+            <StackPanel>
+              <TextBlock Text="📐 THIẾT LẬP CĂN LỀ TRANG IN &amp; ĐOẠN VĂN" FontWeight="Bold" FontSize="13" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Tùy chỉnh khoảng cách lề theo quy chế nội bộ của cơ quan hoặc áp dụng chuẩn Nhà nước:" FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,10" />
+              <Border Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="8" Padding="6" Margin="0,0,0,12">
+                <WrapPanel>
+                  <RadioButton Content="🏛️ Nghị định 30" GroupName="MarginStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsMarginND30}" />
+                  <RadioButton Content="🚩 Hướng dẫn 05" GroupName="MarginStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsMarginHD05}" />
+                  <RadioButton Content="🎖️ Thông tư 68" GroupName="MarginStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsMarginTT68}" />
+                  <RadioButton Content="🌟 HD 29 - Đoàn" GroupName="MarginStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" ToolTip="Hướng dẫn 29-HD/TWĐTN-VP - Thể thức văn bản của Đoàn TNCS Hồ Chí Minh" IsChecked="{Binding IsMarginHD29}" />
+                  <RadioButton Content="⚙️ Cá nhân" GroupName="MarginStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsMarginCustom}" />
+                </WrapPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Margin="0,0,0,12">
+                <StackPanel>
+                  <StackPanel Margin="0,0,0,12" Visibility="{Binding MarginDefaultVisibility}">
+                    <CheckBox Style="{StaticResource FluentCheckBox}" Margin="0,0,0,8" IsChecked="{Binding UseCustomMargins}">
+                      <StackPanel>
+                        <TextBlock Text="Dùng làm mặc định khi chuẩn hóa văn bản" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" FontSize="12" />
+                        <TextBlock Text="Áp dụng cho toàn bộ nút Chuẩn hóa tự động, Căn lề tự động, Rà soát thể thức..." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+                      </StackPanel>
+                    </CheckBox>
+                    <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,8">
+                      <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11.5" TextWrapping="Wrap" Text="{Binding MarginStatusDetail}" />
+                    </Border>
+                  </StackPanel>
+                  <Grid Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="14" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Lề trên (Top mm):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding MarginTopMm, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                      <TextBlock Text="Lề dưới (Bottom mm):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding MarginBottomMm, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                  </Grid>
+                  <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="14" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Lề trái (Left mm):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding MarginLeftMm, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                      <TextBlock Text="Lề phải (Right mm):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding MarginRightMm, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                  </Grid>
+                  <Button Style="{StaticResource FluentActionButton}" HorizontalAlignment="Left" Content="{Binding ResetMarginStandardText}" Command="{Binding ResetCurrentMarginStandardCommand}" />
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}">
+                <StackPanel>
+                  <CheckBox Content="Áp dụng thụt đầu dòng &amp; khoảng cách đoạn cá nhân hóa" Style="{StaticResource FluentCheckBox}" FontWeight="SemiBold" Margin="0,0,0,10" IsChecked="{Binding UseCustomParagraph}" />
+                  <Grid Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="14" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Thụt đầu dòng đoạn văn (cm):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding FirstLineIndentCmText, UpdateSourceTrigger=PropertyChanged}" LostFocus="IndentTextBox_LostFocus" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                      <TextBlock Text="Khoảng cách trước đoạn (Spacing Before pt):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding SpacingBeforePtText, UpdateSourceTrigger=PropertyChanged}" LostFocus="SpacingBeforeTextBox_LostFocus" />
+                    </StackPanel>
+                  </Grid>
+
+                  <Grid Margin="0,0,0,8">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="14" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Khoảng cách sau đoạn (Spacing After pt):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding SpacingAfterPtText, UpdateSourceTrigger=PropertyChanged}" LostFocus="SpacingAfterTextBox_LostFocus" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                      <TextBlock Text="Giãn dòng (Line spacing):" FontSize="11.5" Margin="0,0,0,3" />
+                      <ComboBox Height="28" FontSize="11.5" ItemsSource="{Binding LineSpacingRuleList}" SelectedItem="{Binding LineSpacingRule, UpdateSourceTrigger=PropertyChanged}" IsEditable="True" />
+                    </StackPanel>
+                  </Grid>
+
+                  <Grid Margin="0,0,0,6">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="14" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                      <TextBlock Text="Độ rộng giãn dòng (At pt / lines):" FontSize="11.5" Margin="0,0,0,3" />
+                      <TextBox Style="{StaticResource FluentTextBox}" Text="{Binding LineSpacingAtPtText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsLineSpacingAtEnabled}" LostFocus="LineSpacingAtTextBox_LostFocus" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" VerticalAlignment="Bottom" Margin="0,0,0,4">
+                      <CheckBox Style="{StaticResource FluentCheckBox}" IsChecked="{Binding NoSpaceBetweenParagraphsOfSameStyle}">
+                        <TextBlock Text="Không thêm khoảng cách giữa các đoạn cùng kiểu (Don't add space between paragraphs of the same style)" FontSize="10.5" TextWrapping="Wrap" />
+                      </CheckBox>
+                    </StackPanel>
+                  </Grid>
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,8,0">
+            <StackPanel>
+              <TextBlock Text="🔤 QUY ĐỊNH KÍCH THƯỚC CHỮ THỂ THỨC (TYPOGRAPHY)" FontWeight="Bold" FontSize="13" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Kiểm soát kích cỡ chữ cho từng thành phần thể thức văn bản theo quy chế riêng:" FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,0,0,10" />
+              <Border Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="8" Padding="6" Margin="0,0,0,12">
+                <WrapPanel>
+                  <RadioButton Content="🏛️ Nghị định 30" GroupName="TypographyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsTypographyND30}" />
+                  <RadioButton Content="🚩 Hướng dẫn 05" GroupName="TypographyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsTypographyHD05}" />
+                  <RadioButton Content="🎖️ Thông tư 68" GroupName="TypographyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsTypographyTT68}" />
+                  <RadioButton Content="🌟 HD 29 - Đoàn" GroupName="TypographyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" ToolTip="Hướng dẫn 29-HD/TWĐTN-VP - Thể thức văn bản của Đoàn TNCS Hồ Chí Minh" IsChecked="{Binding IsTypographyHD29}" />
+                  <RadioButton Content="⚙️ Cá nhân" GroupName="TypographyStandardGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding IsTypographyCustom}" />
+                </WrapPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}">
+                <StackPanel>
+                  <StackPanel Margin="0,0,0,12" Visibility="{Binding TypographyDefaultVisibility}">
+                    <CheckBox Style="{StaticResource FluentCheckBox}" Margin="0,0,0,8" IsChecked="{Binding UseCustomTypography}">
+                      <StackPanel>
+                        <TextBlock Text="Dùng làm mặc định khi chuẩn hóa văn bản" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" FontSize="12" />
+                        <TextBlock Text="Áp dụng cho toàn bộ nút Chuẩn hóa tự động, Rà soát thể thức, Chuẩn hóa tiêu đề..." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+                      </StackPanel>
+                    </CheckBox>
+                    <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,8">
+                      <TextBlock Foreground="{StaticResource BrushTextPrimary}" FontSize="11.5" TextWrapping="Wrap" Text="{Binding TypographyStatusDetail}" />
+                    </Border>
+                  </StackPanel>
+                  <StackPanel>
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelQuocHieu}" ToolTip="{Binding LabelQuocHieu}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeQuocHieu, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldQuocHieu}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicQuocHieu}" />
+                        </Grid>
+                      </StackPanel>
+                      <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelTieuNgu}" ToolTip="{Binding LabelTieuNgu}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeTieuNgu, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldTieuNgu}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicTieuNgu}" />
+                        </Grid>
+                      </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelCoQuan}" ToolTip="{Binding LabelCoQuan}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeCoQuan, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldCoQuan}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicCoQuan}" />
+                        </Grid>
+                      </StackPanel>
+                      <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelSoKyHieu}" ToolTip="{Binding LabelSoKyHieu}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeSoKyHieu, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldSoKyHieu}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicSoKyHieu}" />
+                        </Grid>
+                      </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelDiaDanh}" ToolTip="{Binding LabelDiaDanh}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeDiaDanh, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldDiaDanh}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicDiaDanh}" />
+                        </Grid>
+                      </StackPanel>
+                      <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelTrichYeuCongVan}" ToolTip="{Binding LabelTrichYeuCongVan}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeTrichYeuCongVan, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldTrichYeuCongVan}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicTrichYeuCongVan}" />
+                        </Grid>
+                      </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelTenLoai}" ToolTip="{Binding LabelTenLoai}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeTenLoai, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldTenLoai}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicTenLoai}" />
+                        </Grid>
+                      </StackPanel>
+                      <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelTrichYeu}" ToolTip="{Binding LabelTrichYeu}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeTrichYeu, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldTrichYeu}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicTrichYeu}" />
+                        </Grid>
+                      </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelThanBai}" ToolTip="{Binding LabelThanBai}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeThanBai, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldThanBai}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicThanBai}" />
+                        </Grid>
+                      </StackPanel>
+                      <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelNoiNhan}" ToolTip="{Binding LabelNoiNhan}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeNoiNhan, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldNoiNhan}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicNoiNhan}" />
+                        </Grid>
+                      </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,0,0,10">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="14" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="11.5" Margin="0,0,0,3" TextTrimming="CharacterEllipsis" Text="{Binding LabelChuKy}" ToolTip="{Binding LabelChuKy}" />
+                        <Grid>
+                          <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4" />
+                            <ColumnDefinition Width="Auto" />
+                          </Grid.ColumnDefinitions>
+                          <TextBox Grid.Column="0" Style="{StaticResource FluentTextBox}" Text="{Binding SizeChuKy, UpdateSourceTrigger=PropertyChanged}" />
+                          <ToggleButton Grid.Column="2" Style="{StaticResource FluentMiniToggleButton}" Content="B" FontWeight="Bold" ToolTip="In đậm" IsChecked="{Binding BoldChuKy}" />
+                          <ToggleButton Grid.Column="4" Style="{StaticResource FluentMiniToggleButton}" Content="I" FontStyle="Italic" FontFamily="Times New Roman" FontWeight="SemiBold" ToolTip="In nghiêng" IsChecked="{Binding ItalicChuKy}" />
+                        </Grid>
+                      </StackPanel>
+                      <Border Grid.Column="2" VerticalAlignment="Center" Background="{StaticResource BrushSubtle}" CornerRadius="6" Padding="10,6">
+                        <TextBlock Text="💡 B: Đậm  •  I: Nghiêng. Cỡ chữ luôn tự động chuẩn hóa về số nguyên." FontSize="11" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" />
+                      </Border>
+                    </Grid>
+                    <Button Style="{StaticResource FluentActionButton}" HorizontalAlignment="Left" Content="{Binding ResetTypographyStandardText}" Command="{Binding ResetCurrentTypographyStandardCommand}" />
+                  </StackPanel>
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,8,0">
+            <StackPanel>
+              <TextBlock Text="🧰 CÔNG CỤ VĂN BẢN — CHUYỂN SỐ TIỀN SANG CHỮ (VND)" FontWeight="Bold" FontSize="13" Foreground="{StaticResource BrushTextPrimary}" Margin="0,0,0,3" />
+              <TextBlock Text="Thiết lập cách đọc cho nút &quot;Chuyển số tiền sang chữ (VND)&quot; trong menu Công cụ Văn bản. Bấm &quot;Lưu cấu hình&quot; để áp dụng." FontSize="11.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,0,0,10" />
+              <Border Style="{StaticResource FluentCard}" Padding="12,10">
+                <StackPanel>
+                  <TextBlock Text="Cách đọc số 4 ở hàng đơn vị" FontWeight="Bold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Áp dụng cho các số từ 24 trở lên (24, 34, 44...). Số 14 luôn đọc là &quot;mười bốn&quot;." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,2,0,8" />
+                  <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="Bốn (mặc định)" GroupName="AmountFourGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountFourAsBon}" />
+                    <RadioButton Content="Tư" GroupName="AmountFourGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountFourAsTu}" />
+                  </StackPanel>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,7" Margin="0,8,0,0">
+                    <StackPanel>
+                      <TextBlock Text="Ví dụ: 24 → Bốn: &quot;Hai mươi bốn đồng&quot;  ·  Tư: &quot;Hai mươi tư đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                      <TextBlock Text="Ví dụ: 1.044 → Bốn: &quot;Một nghìn không trăm bốn mươi bốn đồng&quot;  ·  Tư: &quot;…bốn mươi tư đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Padding="12,10">
+                <StackPanel>
+                  <CheckBox Style="{StaticResource FluentCheckBox}" Margin="0,0,0,4" IsChecked="{Binding AmountCapitalizeFirst}">
+                    <StackPanel>
+                      <TextBlock Text="Viết hoa chữ cái đầu" FontWeight="Bold" Foreground="{StaticResource BrushPrimary}" FontSize="12" />
+                      <TextBlock Text="Bỏ chọn nếu thường chèn số tiền bằng chữ vào giữa câu." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,0" />
+                    </StackPanel>
+                  </CheckBox>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,7" Margin="0,6,0,0">
+                    <StackPanel>
+                      <TextBlock Text="Ví dụ: 2.345 → Bật: &quot;Hai nghìn ba trăm bốn mươi lăm đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                      <TextBlock Text="              Tắt: &quot;hai nghìn ba trăm bốn mươi lăm đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Padding="12,10">
+                <StackPanel>
+                  <TextBlock Text="Cách đọc hàng chục bằng 0" FontWeight="Bold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Dùng khi hàng chục là 0 nhưng hàng đơn vị khác 0 (105, 2.007...)." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,2,0,8" />
+                  <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="linh (mặc định)" GroupName="AmountZeroTensGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountZeroTensAsLinh}" />
+                    <RadioButton Content="lẻ" GroupName="AmountZeroTensGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountZeroTensAsLe}" />
+                  </StackPanel>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,7" Margin="0,8,0,0">
+                    <StackPanel>
+                      <TextBlock Text="Ví dụ: 105 → linh: &quot;Một trăm linh năm đồng&quot;  ·  lẻ: &quot;Một trăm lẻ năm đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                      <TextBlock Text="Ví dụ: 1.005 → linh: &quot;Một nghìn không trăm linh năm đồng&quot;  ·  lẻ: &quot;…không trăm lẻ năm đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Padding="12,10">
+                <StackPanel>
+                  <TextBlock Text="Cách đọc hàng nghìn" FontWeight="Bold" FontSize="12" Foreground="{StaticResource BrushTextPrimary}" />
+                  <TextBlock Text="Áp dụng cho mọi hàng nghìn, kể cả &quot;nghìn tỷ&quot;." FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" TextWrapping="Wrap" Margin="0,2,0,8" />
+                  <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="nghìn (mặc định)" GroupName="AmountThousandGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountThousandAsNghin}" />
+                    <RadioButton Content="ngàn" GroupName="AmountThousandGroup" Style="{StaticResource FluentSegmentedRadioButton}" IsChecked="{Binding AmountThousandAsNgan}" />
+                  </StackPanel>
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,7" Margin="0,8,0,0">
+                    <StackPanel>
+                      <TextBlock Text="Ví dụ: 2.000 → nghìn: &quot;Hai nghìn đồng&quot;  ·  ngàn: &quot;Hai ngàn đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                      <TextBlock Text="Ví dụ: 500.000 → nghìn: &quot;Năm trăm nghìn đồng&quot;  ·  ngàn: &quot;Năm trăm ngàn đồng&quot;" FontSize="11" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Margin="0,1" />
+                    </StackPanel>
+                  </Border>
+                </StackPanel>
+              </Border>
+              <Border Style="{StaticResource FluentCard}" Padding="12,10">
+                <StackPanel>
+                  <TextBlock Text="👁️ Xem trước theo thiết lập hiện tại" FontWeight="Bold" FontSize="12" Foreground="{StaticResource BrushPrimary}" />
+                  <TextBlock Text="Nhập một số tiền bất kỳ (ví dụ 2.345.000 hoặc 1.024):" FontSize="10.5" Foreground="{StaticResource BrushTextSecondary}" Margin="0,2,0,6" />
+                  <TextBox Style="{StaticResource FluentTextBox}" Margin="0,0,0,8" Text="{Binding AmountPreviewInput, UpdateSourceTrigger=PropertyChanged}" />
+                  <Border Background="{StaticResource BrushPrimaryLight}" BorderBrush="{StaticResource BrushBorderLight}" BorderThickness="1" CornerRadius="6" Padding="10,8">
+                    <TextBlock FontSize="12.5" FontWeight="SemiBold" Foreground="{StaticResource BrushTextPrimary}" TextWrapping="Wrap" Text="{Binding AmountPreviewText}" />
+                  </Border>
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+      </TabControl>
+    </Grid>
+    <Border Grid.Row="2" Background="{StaticResource BrushCardBackground}" BorderBrush="{StaticResource BrushSeparator}" BorderThickness="0,1,0,0" Padding="20,12">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="10" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Content="Khôi phục mặc định" Style="{StaticResource FluentSecondaryButton}" Command="{Binding ResetCommand}" />
+        <TextBlock Grid.Column="1" FontSize="11.5" Foreground="{StaticResource BrushPrimary}" VerticalAlignment="Center" Margin="16,0" TextTrimming="CharacterEllipsis" Text="{Binding StatusMessage}" />
+        <Button Grid.Column="2" Content="💾 Lưu cấu hình" Style="{StaticResource FluentPrimaryButton}" Command="{Binding SaveCommand}" />
+        <Button Grid.Column="4" Content="Đóng" Style="{StaticResource FluentSecondaryButton}" Command="{Binding CloseCommand}" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

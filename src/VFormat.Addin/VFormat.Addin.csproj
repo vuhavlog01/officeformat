@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>VFormat.Addin</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\Microsoft Office\Root\Office16\WINWORD.EXE</StartProgram>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\Microsoft Office\Root\Office16\WINWORD.EXE</StartProgram>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\Microsoft Office\Root\Office16\WINWORD.EXE</StartProgram>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
+    <Reference Include="Office">
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Office\15.0.0.0__71e9bce111e9429c\OFFICE.DLL</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="extensibility">
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\extensibility.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VFormat.Core\VFormat.Core.csproj" />
+    <ProjectReference Include="..\VFormat.License\VFormat.License.csproj" />
+    <ProjectReference Include="..\VFormat.UI\VFormat.UI.csproj" />
+    <ProjectReference Include="..\VFormat.WordEngine\VFormat.WordEngine.csproj" />
+  </ItemGroup>
+
+  <Target Name="AutoDeployToAppFolder" AfterTargets="Build">
+    <ItemGroup>
+      <OutputDlls Include="$(TargetDir)VFormat.*.dll" />
+      <OutputPdbs Include="$(TargetDir)VFormat.*.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputDlls)" DestinationFolder="$(MSBuildProjectDirectory)\..\..\App_VFormat_2.2.9" ContinueOnError="true" />
+    <Copy SourceFiles="@(OutputPdbs)" DestinationFolder="$(MSBuildProjectDirectory)\..\..\App_VFormat_2.2.9" ContinueOnError="true" />
+    <Exec Command="reg delete &quot;HKCU\Software\Microsoft\Office\16.0\Word\Resiliency\DisabledItems&quot; /f &gt;nul 2&gt;&amp;1 &amp; reg add &quot;HKCU\Software\Microsoft\Office\16.0\Word\Resiliency\DisabledItems&quot; /f &gt;nul 2&gt;&amp;1 &amp; reg delete &quot;HKCU\Software\Microsoft\Office\16.0\Word\Resiliency\StartupItems&quot; /f &gt;nul 2&gt;&amp;1 &amp; reg add &quot;HKCU\Software\Microsoft\Office\16.0\Word\Resiliency\StartupItems&quot; /f &gt;nul 2&gt;&amp;1 &amp; reg add &quot;HKCU\Software\Microsoft\Office\Word\Addins\VFormat.Addin&quot; /v LoadBehavior /t REG_DWORD /d 3 /f &gt;nul 2&gt;&amp;1" IgnoreExitCode="true" />
+  </Target>
+  <ItemGroup>
+    <EmbeddedResource Include="VFormat.Addin.Ribbon.customUI14.xml">
+      <LogicalName>VFormat.Addin.Ribbon.customUI14.xml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

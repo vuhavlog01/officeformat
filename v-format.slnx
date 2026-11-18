@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="src/VFormat.Core/VFormat.Core.csproj" />
+  <Project Path="src/VFormat.WordEngine/VFormat.WordEngine.csproj" />
+  <Project Path="src/VFormat.License/VFormat.License.csproj" />
+  <Project Path="src/VFormat.UI/VFormat.UI.csproj" />
+  <Project Path="src/VFormat.Addin/VFormat.Addin.csproj" />
+  <Project Path="tests/VFormat.Tests/VFormat.Tests.csproj" />
+</Solution>

@@ -352,6 +352,7 @@ def oauth_authorization_server():
         "scopes_supported": ["read", "write", "officeformat:admin"],
         "poppy_domains": ["vuhait.io.vn"],
         "agent_auth": {
+            "skill": "https://vuhait.io.vn/auth.md",
             "register_uri": "https://vuhait.io.vn/auth.md",
             "supported_identity_types": ["agent", "user"],
             "credential_types": ["bearer_token", "api_key"],
@@ -387,6 +388,7 @@ def ai_catalog():
         },
         "entries": [
             {
+                "identifier": "urn:air:vuhait.io.vn:tool:format-doc",
                 "id": "urn:air:vuhait.io.vn:tool:format-doc",
                 "displayName": "OfficeFormat Document Standardizer",
                 "type": "application/json",
@@ -399,6 +401,7 @@ def ai_catalog():
                 ]
             },
             {
+                "identifier": "urn:air:vuhait.io.vn:mcp:server",
                 "id": "urn:air:vuhait.io.vn:mcp:server",
                 "displayName": "OfficeFormat MCP Server",
                 "type": "application/json",
@@ -417,16 +420,15 @@ def ai_catalog():
 
 @app.route("/.well-known/poppy.json")
 def poppy_manifest():
-    """Personal Agent Protocol (Poppy) Discovery Manifest"""
+    """Personal Agent Protocol (Poppy) Discovery Manifest (Website-only declaration)"""
     poppy = {
         "protocol_version": "0.1",
         "organization": {
             "name": "OfficeFormat",
             "domain": "vuhait.io.vn"
         },
-        "web": {},
-        "apis": {
-            "openapi": "https://vuhait.io.vn/openapi.json"
+        "web": {
+            "description": "OfficeFormat Platform"
         }
     }
     resp = jsonify(poppy)
@@ -437,23 +439,52 @@ def poppy_manifest():
 @app.route("/auth.md")
 @app.route("/.well-known/auth.md")
 def auth_md():
-    """Agent Authentication & Registration Guide (auth.md)"""
-    md = """# OfficeFormat Agent Authentication Guide (auth.md)
+    """Agent Authentication & Registration Guide (auth.md) with self-contained flow"""
+    md = """# OfficeFormat Agent Registration and Authentication (auth.md)
 
-This site supports autonomous AI agent interaction and registration.
+Welcome AI Agent. This document defines the registration flow and access guidelines for interacting with OfficeFormat.
 
-## Public Endpoints
-No authentication is required for:
-- Discoverability (`/llms.txt`, `/openapi.json`, `/.well-known/api-catalog`, `/.well-known/mcp.json`)
-- Document templates and weekly schedule generator (`/api/export-docx`, `/api/parse-word`)
+## Autonomous Agent Registration Flow
 
-## Agent Registration & Authorization
-Autonomous agents can register for authorized API access:
-- **Registration URI**: `https://vuhait.io.vn/oauth/register`
-- **Token Endpoint**: `https://vuhait.io.vn/oauth/token`
-- **Supported Identity Types**: `agent`, `user`
-- **Supported Credential Types**: `bearer_token`, `api_key`
-- **Supported Grant Types**: `client_credentials`, `authorization_code`
+To register your agent session and obtain an API token:
+
+### Step 1: Agent Identification
+Send a `POST` request to register your agent:
+```http
+POST /oauth/register HTTP/1.1
+Host: vuhait.io.vn
+Content-Type: application/json
+
+{
+  "client_name": "MyAutonomousAgent",
+  "grant_types": ["client_credentials"],
+  "response_types": ["token"],
+  "scope": "read write"
+}
+```
+
+### Step 2: Acquire Token
+Exchange client credentials for an access token:
+```http
+POST /oauth/token HTTP/1.1
+Host: vuhait.io.vn
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET
+```
+
+### Step 3: Call Protected APIs
+Include the token in subsequent API requests:
+```http
+GET /api/history HTTP/1.1
+Host: vuhait.io.vn
+Authorization: Bearer <access_token>
+```
+
+## Public Non-Authenticated Endpoints
+The following endpoints require NO authentication and are openly accessible:
+- Discoverability: `/llms.txt`, `/openapi.json`, `/.well-known/mcp.json`, `/.well-known/api-catalog`
+- Core Functionality: `/api/export-docx`, `/api/parse-word`
 """
     resp = Response(md, mimetype="text/markdown; charset=utf-8")
     resp.headers["Access-Control-Allow-Origin"] = "*"

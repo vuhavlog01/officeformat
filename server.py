@@ -354,7 +354,9 @@ def oauth_authorization_server():
         "agent_auth": {
             "skill": "https://vuhait.io.vn/auth.md",
             "register_uri": "https://vuhait.io.vn/auth.md",
-            "supported_identity_types": ["agent", "user"],
+            "identity_endpoint": "https://vuhait.io.vn/agent/identity",
+            "claim_endpoint": "https://vuhait.io.vn/agent-auth/claim",
+            "supported_identity_types": ["anonymous", "service_auth"],
             "credential_types": ["bearer_token", "api_key"],
             "claims_supported": ["sub", "iss", "aud", "agent_id"]
         }
@@ -439,52 +441,64 @@ def poppy_manifest():
 @app.route("/auth.md")
 @app.route("/.well-known/auth.md")
 def auth_md():
-    """Agent Authentication & Registration Guide (auth.md) with self-contained flow"""
-    md = """# OfficeFormat Agent Registration and Authentication (auth.md)
+    """WorkOS Auth.md Agent Registration Specification with complete autonomous flow"""
+    md = """# Agent Registration
 
-Welcome AI Agent. This document defines the registration flow and access guidelines for interacting with OfficeFormat.
+This service implements the Auth.md specification for autonomous AI agent discovery, registration, and session authentication.
+
+## Supported Identity Types
+- `anonymous`: Used when an agent has no initial human user context and provisions trial access tokens.
+- `service_auth`: Pre-provisioned API credentials for autonomous server-to-server agents.
 
 ## Autonomous Agent Registration Flow
 
-To register your agent session and obtain an API token:
+To register an autonomous agent session, send a `POST` request to the identity endpoint:
 
-### Step 1: Agent Identification
-Send a `POST` request to register your agent:
 ```http
-POST /oauth/register HTTP/1.1
+POST /agent/identity HTTP/1.1
 Host: vuhait.io.vn
 Content-Type: application/json
 
 {
-  "client_name": "MyAutonomousAgent",
-  "grant_types": ["client_credentials"],
-  "response_types": ["token"],
-  "scope": "read write"
+  "identity_type": "anonymous",
+  "client_name": "AutonomousAgent"
 }
 ```
 
-### Step 2: Acquire Token
-Exchange client credentials for an access token:
-```http
-POST /oauth/token HTTP/1.1
-Host: vuhait.io.vn
-Content-Type: application/x-www-form-urlencoded
+The service responds with pre-claim credentials and a claim payload:
 
-grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET
+```json
+{
+  "access_token": "agent_token_preclaim_example",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "claim": {
+    "url": "https://vuhait.io.vn/agent-auth/claim",
+    "user_code": "WDJB-NXKJ",
+    "token": "claim_token_example"
+  }
+}
 ```
 
-### Step 3: Call Protected APIs
-Include the token in subsequent API requests:
+## Claim Ceremony
+
+If an agent starts anonymously, a human user can claim the agent session by visiting the claim URL (`/agent-auth/claim`) and entering the short `user_code` to elevate permissions to full account scopes.
+
+## Authenticated API Calls
+
+Agents authenticate subsequent API requests by passing the bearer token:
+
 ```http
 GET /api/history HTTP/1.1
 Host: vuhait.io.vn
 Authorization: Bearer <access_token>
 ```
 
-## Public Non-Authenticated Endpoints
-The following endpoints require NO authentication and are openly accessible:
-- Discoverability: `/llms.txt`, `/openapi.json`, `/.well-known/mcp.json`, `/.well-known/api-catalog`
-- Core Functionality: `/api/export-docx`, `/api/parse-word`
+## Public Non-Authenticated Resources
+
+The following endpoints do not require authentication:
+- Discovery: `/llms.txt`, `/openapi.json`, `/.well-known/mcp.json`, `/.well-known/api-catalog`
+- Document generator: `/api/export-docx`, `/api/parse-word`
 """
     resp = Response(md, mimetype="text/markdown; charset=utf-8")
     resp.headers["Access-Control-Allow-Origin"] = "*"

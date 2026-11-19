@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# Content Signals for AI Agents (contentsignals.org)
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
+
+# ARD (Agentic Resource Discovery)
+Agentmap: https://vuhait.io.vn/.well-known/ai-catalog.json
+
 # AI Crawlers & Agents
 User-agent: GPTBot
 Allow: /

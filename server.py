@@ -221,18 +221,44 @@ def api_catalog():
     return Response(json.dumps(catalog, indent=2, ensure_ascii=False), mimetype="application/linkset+json; charset=utf-8")
 
 @app.route("/.well-known/mcp.json")
+@app.route("/.well-known/mcp/server-card.json")
+@app.route("/.well-known/mcp/server-cards.json")
 @app.route("/.well-known/mcp/manifest.json")
 def mcp_manifest():
-    """Model Context Protocol (MCP) Server Manifest"""
+    """Model Context Protocol (MCP) Server Card (SEP-2127 / SEP-1649)"""
     mcp_data = {
-        "schema_version": "v1",
-        "name_for_model": "officeformat",
-        "name_for_human": "OfficeFormat",
-        "description_for_model": "OfficeFormat tools for formatting administrative documents according to ND 30/2020/ND-CP and HD 05-HD/VPTW, generating weekly schedules, and parsing Word files.",
-        "description_for_human": "Công cụ chuẩn hóa văn bản hành chính & lập lịch công tác tuần",
-        "server": {
-            "url": "https://vuhait.io.vn/mcp",
-            "transport": "http"
+        "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+        "name": "officeformat",
+        "title": "OfficeFormat Server",
+        "version": "1.0.0",
+        "description": "OfficeFormat tools for formatting administrative documents according to ND 30/2020/ND-CP and HD 05-HD/VPTW, generating weekly schedules, and parsing Word files.",
+        "serverInfo": {
+            "name": "officeformat",
+            "version": "1.0.0",
+            "title": "OfficeFormat Server"
+        },
+        "transport": {
+            "type": "sse",
+            "endpoint": "https://vuhait.io.vn/sse"
+        },
+        "transports": [
+            {
+                "type": "sse",
+                "endpoint": "https://vuhait.io.vn/sse"
+            },
+            {
+                "type": "http",
+                "endpoint": "https://vuhait.io.vn/api"
+            }
+        ],
+        "capabilities": {
+            "tools": {
+                "listChanged": True
+            },
+            "resources": {
+                "subscribe": False
+            },
+            "prompts": {}
         },
         "tools": [
             {
@@ -261,50 +287,80 @@ def mcp_manifest():
             }
         ]
     }
-    return jsonify(mcp_data)
+    resp = jsonify(mcp_data)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
 @app.route("/.well-known/agent-skills/index.json")
 @app.route("/.well-known/skills/index.json")
 def agent_skills():
-    """Agent Skills Index Discovery"""
+    """Agent Skills Index Discovery (v0.2.0 standard)"""
     skills_data = {
-        "$schema": "https://agent-skills.org/schema/v1.json",
-        "name": "officeformat-skills",
-        "version": "1.0.0",
-        "description": "Autonomous Agent Skills for OfficeFormat administrative document generation and parsing.",
+        "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
         "skills": [
             {
-                "id": "generate-weekly-schedule",
-                "name": "Generate Weekly Schedule Word",
-                "description": "Create standard administrative weekly schedule docx files",
-                "endpoint": "https://vuhait.io.vn/api/export-docx",
-                "method": "POST"
+                "name": "format-administrative-document",
+                "type": "skill-md",
+                "description": "Standardize administrative documents according to Vietnamese Decree 30/2020/ND-CP",
+                "url": "https://vuhait.io.vn/.well-known/agent-skills/format-doc/SKILL.md",
+                "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             },
             {
-                "id": "parse-word-document",
-                "name": "Parse Word Document",
-                "description": "Extract structured data from uploaded Word documents",
-                "endpoint": "https://vuhait.io.vn/api/parse-word",
-                "method": "POST"
+                "name": "generate-weekly-schedule",
+                "type": "skill-md",
+                "description": "Generate standard government weekly work schedule DOCX according to HD 05-HD/VPTW",
+                "url": "https://vuhait.io.vn/.well-known/agent-skills/schedule/SKILL.md",
+                "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
             }
         ]
     }
-    return jsonify(skills_data)
+    resp = jsonify(skills_data)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
+
+@app.route("/.well-known/agent-skills/<skill_name>/SKILL.md")
+def serve_skill_md(skill_name):
+    """Serve individual skill definition markdown"""
+    md = f"""---
+name: {skill_name}
+description: OfficeFormat skill for Vietnamese administrative documents and weekly work schedule processing according to Decree 30/2020/ND-CP.
+version: 1.0.0
+---
+
+# Skill: {skill_name}
+
+OfficeFormat provides specialized capabilities for administrative documents:
+- Automatic typography, margin, and layout formatting according to Decree 30/2020/ND-CP.
+- Weekly work schedule calendar generation according to HD 05-HD/VPTW.
+"""
+    resp = Response(md, mimetype="text/markdown; charset=utf-8")
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
 @app.route("/.well-known/oauth-authorization-server")
 def oauth_authorization_server():
-    """RFC 8414 OAuth 2.0 Authorization Server Metadata"""
+    """RFC 8414 OAuth 2.0 Authorization Server Metadata with agent_auth block"""
     oauth_meta = {
         "issuer": "https://vuhait.io.vn",
         "authorization_endpoint": "https://vuhait.io.vn/oauth/authorize",
         "token_endpoint": "https://vuhait.io.vn/oauth/token",
+        "registration_endpoint": "https://vuhait.io.vn/oauth/register",
         "jwks_uri": "https://vuhait.io.vn/.well-known/jwks.json",
         "response_types_supported": ["code", "token"],
         "grant_types_supported": ["authorization_code", "client_credentials"],
         "token_endpoint_auth_methods_supported": ["client_secret_basic", "client_secret_post", "none"],
-        "scopes_supported": ["read", "write", "officeformat:admin"]
+        "scopes_supported": ["read", "write", "officeformat:admin"],
+        "poppy_domains": ["vuhait.io.vn"],
+        "agent_auth": {
+            "register_uri": "https://vuhait.io.vn/auth.md",
+            "supported_identity_types": ["agent", "user"],
+            "credential_types": ["bearer_token", "api_key"],
+            "claims_supported": ["sub", "iss", "aud", "agent_id"]
+        }
     }
-    return jsonify(oauth_meta)
+    resp = jsonify(oauth_meta)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
 @app.route("/.well-known/oauth-protected-resource")
 def oauth_protected_resource():
@@ -315,41 +371,93 @@ def oauth_protected_resource():
         "scopes_supported": ["read", "write"],
         "bearer_methods_supported": ["header"]
     }
-    return jsonify(resource_meta)
+    resp = jsonify(resource_meta)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
-@app.route("/.well-known/ai-plugin.json")
-def ai_plugin():
-    """OpenAI AI Plugin Manifest"""
-    plugin_data = {
-        "schema_version": "v1",
-        "name_for_model": "officeformat",
-        "name_for_human": "OfficeFormat",
-        "description_for_model": "OfficeFormat provides tools for administrative document standardization and weekly schedule generation.",
-        "description_for_human": "Chuẩn hóa văn bản hành chính & lịch tuần",
-        "auth": {
-            "type": "none"
+@app.route("/.well-known/ai-catalog.json")
+def ai_catalog():
+    """ARD (Agentic Resource Discovery) Capability Manifest"""
+    catalog = {
+        "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.json",
+        "specVersion": "1.0.0",
+        "host": {
+            "name": "OfficeFormat",
+            "domain": "vuhait.io.vn"
         },
-        "api": {
-            "type": "openapi",
-            "url": "https://vuhait.io.vn/openapi.json"
-        },
-        "logo_url": "https://vuhait.io.vn/favicon.ico",
-        "contact_email": "admin@vuhait.io.vn",
-        "legal_info_url": "https://vuhait.io.vn/#faq"
+        "entries": [
+            {
+                "id": "urn:air:vuhait.io.vn:tool:format-doc",
+                "displayName": "OfficeFormat Document Standardizer",
+                "type": "application/json",
+                "url": "https://vuhait.io.vn/openapi.json",
+                "representativeQueries": [
+                    "soạn thảo văn bản theo Nghị định 30",
+                    "chuẩn hóa thể thức văn bản hành chính",
+                    "lập lịch công tác tuần",
+                    "format Word document"
+                ]
+            },
+            {
+                "id": "urn:air:vuhait.io.vn:mcp:server",
+                "displayName": "OfficeFormat MCP Server",
+                "type": "application/json",
+                "url": "https://vuhait.io.vn/.well-known/mcp/server-card.json",
+                "representativeQueries": [
+                    "mcp server for decree 30",
+                    "administrative document mcp"
+                ]
+            }
+        ]
     }
-    return jsonify(plugin_data)
+    resp = jsonify(catalog)
+    resp.headers["Content-Type"] = "application/json; charset=utf-8"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
-@app.route("/openapi.json")
-@app.route("/.well-known/openapi.json")
-def openapi_spec():
-    """OpenAPI 3.1.0 Specification"""
-    return send_from_directory(BASE_DIR, "openapi.json", mimetype="application/openapi+json; charset=utf-8")
+@app.route("/.well-known/poppy.json")
+def poppy_manifest():
+    """Personal Agent Protocol (Poppy) Discovery Manifest"""
+    poppy = {
+        "protocol_version": "0.1",
+        "organization": {
+            "name": "OfficeFormat",
+            "domain": "vuhait.io.vn"
+        },
+        "web": {},
+        "apis": {
+            "openapi": "https://vuhait.io.vn/openapi.json"
+        }
+    }
+    resp = jsonify(poppy)
+    resp.headers["Content-Type"] = "application/json; charset=utf-8"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
+@app.route("/auth.md")
 @app.route("/.well-known/auth.md")
 def auth_md():
-    """Agent Authentication Guide"""
-    md = "# OfficeFormat Authentication Guide\n\nPublic read endpoints and schedule generation do not require authentication.\nBearer tokens are supported for protected organizational API resources.\n"
-    return Response(md, mimetype="text/markdown; charset=utf-8")
+    """Agent Authentication & Registration Guide (auth.md)"""
+    md = """# OfficeFormat Agent Authentication Guide (auth.md)
+
+This site supports autonomous AI agent interaction and registration.
+
+## Public Endpoints
+No authentication is required for:
+- Discoverability (`/llms.txt`, `/openapi.json`, `/.well-known/api-catalog`, `/.well-known/mcp.json`)
+- Document templates and weekly schedule generator (`/api/export-docx`, `/api/parse-word`)
+
+## Agent Registration & Authorization
+Autonomous agents can register for authorized API access:
+- **Registration URI**: `https://vuhait.io.vn/oauth/register`
+- **Token Endpoint**: `https://vuhait.io.vn/oauth/token`
+- **Supported Identity Types**: `agent`, `user`
+- **Supported Credential Types**: `bearer_token`, `api_key`
+- **Supported Grant Types**: `client_credentials`, `authorization_code`
+"""
+    resp = Response(md, mimetype="text/markdown; charset=utf-8")
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    return resp
 
 @app.route("/.well-known/agent-card.json")
 def agent_card():

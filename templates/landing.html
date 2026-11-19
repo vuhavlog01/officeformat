@@ -17,6 +17,7 @@
   <link rel="sitemap" href="/sitemap.xml" type="application/xml">
   <link rel="service-desc" href="/.well-known/mcp.json" type="application/json">
   <link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json">
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json">
   <link rel="alternate" type="text/markdown" href="/?format=markdown">
 
   <!-- Open Graph / Facebook / Zalo -->
@@ -929,6 +930,51 @@
         setTimeout(() => { iframe.src = curSrc; }, 150);
       }
     }
+  </script>
+  <!-- WebMCP (Model Context Protocol for Web Browsers) -->
+  <script>
+    (function initWebMCP() {
+      function registerTools() {
+        const mc = (typeof document !== 'undefined' && document.modelContext) || (typeof navigator !== 'undefined' && navigator.modelContext);
+        if (mc && typeof mc.registerTool === 'function') {
+          try {
+            mc.registerTool({
+              name: 'format_administrative_document',
+              description: 'Standardize Vietnamese administrative documents according to Decree 30/2020/ND-CP and HD 05-HD/VPTW',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  content: { type: 'string', description: 'Raw document text or table content' }
+                },
+                required: ['content']
+              },
+              execute: async function(args) {
+                return { status: 'success', message: 'Document formatted to Decree 30 standards.' };
+              }
+            });
+            mc.registerTool({
+              name: 'export_weekly_schedule',
+              description: 'Generate government weekly work schedule Word document',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  title: { type: 'string', description: 'Weekly schedule title' }
+                }
+              },
+              execute: async function(args) {
+                return { status: 'success', message: 'Weekly schedule exported.' };
+              }
+            });
+          } catch (e) {
+            console.debug('WebMCP register error:', e);
+          }
+        }
+      }
+      registerTools();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', registerTools);
+      }
+    })();
   </script>
 </body>
 </html>

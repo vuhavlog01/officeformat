@@ -1,0 +1,121 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OfficeFormat API",
+    "version": "1.0.0",
+    "description": "API chuẩn hóa văn bản hành chính theo Nghị định 30/2020/NĐ-CP & Hướng dẫn 05-HD/VPTW, và sinh lịch công tác tuần (.docx)",
+    "contact": {
+      "name": "OfficeFormat Support",
+      "url": "https://vuhait.io.vn"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://vuhait.io.vn",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/api/export-docx": {
+      "post": {
+        "summary": "Xuất file Word (.docx) lịch công tác tuần",
+        "operationId": "exportDocx",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agency_upper": { "type": "string" },
+                  "agency_name": { "type": "string" },
+                  "doc_date_text": { "type": "string" },
+                  "doc_title": { "type": "string" },
+                  "days": { "type": "array" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File Word .docx được sinh thành công",
+            "content": {
+              "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/parse-word": {
+      "post": {
+        "summary": "Bóc tách file Word cũ (.doc hoặc .docx) thành JSON",
+        "operationId": "parseWord",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Dữ liệu cấu trúc JSON bóc tách từ file Word",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/sample-data": {
+      "get": {
+        "summary": "Lấy dữ liệu mẫu lịch tuần",
+        "operationId": "getSampleData",
+        "responses": {
+          "200": {
+            "description": "Dữ liệu mẫu",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/history": {
+      "get": {
+        "summary": "Lấy danh sách các bản lịch đã lưu",
+        "operationId": "getHistory",
+        "responses": {
+          "200": {
+            "description": "Danh sách các bản lịch",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Lưu bản lịch vào kho",
+        "operationId": "saveHistory",
+        "responses": {
+          "200": {
+            "description": "Lưu thành công",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ if sys.platform == 'win32':
     except Exception:
         pass
 
-from flask import Flask, render_template, request, send_file, send_from_directory, jsonify
+from flask import Flask, render_template, request, send_file, send_from_directory, jsonify, Response, make_response
 
 # Import docx generator
 from docx_generator import generate_weekly_schedule_docx
@@ -114,15 +114,52 @@ SAMPLE_DATA = {
     "include_signature": True
 }
 
+@app.after_request
+def add_agent_headers(response):
+    """Bổ sung Header chuẩn đoán cho AI Agents & SEO Crawlers"""
+    response.headers['Link'] = (
+        '</llms.txt>; rel="describedby", '
+        '</sitemap.xml>; rel="sitemap", '
+        '</.well-known/mcp.json>; rel="service-desc", '
+        '</.well-known/api-catalog>; rel="api-catalog"'
+    )
+    response.headers['Content-Signal'] = 'ai-train=yes, ai-input=yes, search=yes'
+    response.headers['X-Robots-Tag'] = 'all'
+    if 'Vary' in response.headers:
+        if 'Accept' not in response.headers['Vary']:
+            response.headers['Vary'] += ', Accept'
+    else:
+        response.headers['Vary'] = 'Accept'
+    return response
+
 @app.route("/")
 def index():
-    """Trang chủ Landing Page OfficeFormat"""
+    """Trang chủ Landing Page OfficeFormat với Markdown Content Negotiation cho AI Agent"""
+    accept = request.headers.get("Accept", "").lower()
+    fmt = request.args.get("format", "").lower()
+    if "text/markdown" in accept or fmt in ("markdown", "md"):
+        llms_path = os.path.join(BASE_DIR, "llms.txt")
+        if os.path.exists(llms_path):
+            with open(llms_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            resp = Response(content, mimetype="text/markdown; charset=utf-8")
+            resp.headers["Link"] = '</>; rel="alternate"; type="text/html"'
+            return resp
     return render_template("landing.html")
 
 @app.route("/lich-tuan")
 @app.route("/app")
 def schedule_app():
     """Ứng dụng Lập & Xuất Lịch Công Tác Tuần (Chuẩn Đảng & Nhà Nước)"""
+    accept = request.headers.get("Accept", "").lower()
+    fmt = request.args.get("format", "").lower()
+    if "text/markdown" in accept or fmt in ("markdown", "md"):
+        llms_path = os.path.join(BASE_DIR, "llms-full.txt")
+        if os.path.exists(llms_path):
+            with open(llms_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            resp = Response(content, mimetype="text/markdown; charset=utf-8")
+            return resp
     return render_template("index.html")
 
 @app.route("/downloads/<path:filename>")
@@ -137,13 +174,193 @@ def favicon():
 
 @app.route("/robots.txt")
 def robots():
-    """Robots SEO"""
-    return send_from_directory(BASE_DIR, "robots.txt", mimetype="text/plain")
+    """Robots SEO & AI Crawler Directives"""
+    return send_from_directory(BASE_DIR, "robots.txt", mimetype="text/plain; charset=utf-8")
 
 @app.route("/sitemap.xml")
 def sitemap():
     """Sitemap SEO"""
-    return send_from_directory(BASE_DIR, "sitemap.xml", mimetype="application/xml")
+    return send_from_directory(BASE_DIR, "sitemap.xml", mimetype="application/xml; charset=utf-8")
+
+@app.route("/llms.txt")
+def llms_txt():
+    """Chuẩn LLMs.txt cho AI Agents & LLMs"""
+    return send_from_directory(BASE_DIR, "llms.txt", mimetype="text/markdown; charset=utf-8")
+
+@app.route("/llms-full.txt")
+def llms_full_txt():
+    """Full Context cho AI Agents"""
+    return send_from_directory(BASE_DIR, "llms-full.txt", mimetype="text/markdown; charset=utf-8")
+
+# =========================================================
+# PROTOCOL DISCOVERY (API, MCP, SKILLS, OAUTH, OPENAPI)
+# =========================================================
+
+@app.route("/.well-known/api-catalog")
+def api_catalog():
+    """RFC 9727 API Catalog Discovery"""
+    catalog = {
+        "linkset": [
+            {
+                "anchor": "https://vuhait.io.vn/api",
+                "service-desc": [
+                    {
+                        "href": "https://vuhait.io.vn/openapi.json",
+                        "type": "application/openapi+json"
+                    }
+                ],
+                "service-doc": [
+                    {
+                        "href": "https://vuhait.io.vn/llms.txt",
+                        "type": "text/markdown"
+                    }
+                ]
+            }
+        ]
+    }
+    return Response(json.dumps(catalog, indent=2, ensure_ascii=False), mimetype="application/linkset+json; charset=utf-8")
+
+@app.route("/.well-known/mcp.json")
+@app.route("/.well-known/mcp/manifest.json")
+def mcp_manifest():
+    """Model Context Protocol (MCP) Server Manifest"""
+    mcp_data = {
+        "schema_version": "v1",
+        "name_for_model": "officeformat",
+        "name_for_human": "OfficeFormat",
+        "description_for_model": "OfficeFormat tools for formatting administrative documents according to ND 30/2020/ND-CP and HD 05-HD/VPTW, generating weekly schedules, and parsing Word files.",
+        "description_for_human": "Công cụ chuẩn hóa văn bản hành chính & lập lịch công tác tuần",
+        "server": {
+            "url": "https://vuhait.io.vn/mcp",
+            "transport": "http"
+        },
+        "tools": [
+            {
+                "name": "export_schedule_docx",
+                "description": "Generate a weekly work schedule Word (.docx) document formatted to HD 05-HD/VPTW standard.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "agency_upper": {"type": "string"},
+                        "agency_name": {"type": "string"},
+                        "doc_title": {"type": "string"},
+                        "days": {"type": "array"}
+                    },
+                    "required": ["agency_name", "doc_title", "days"]
+                }
+            },
+            {
+                "name": "parse_word_document",
+                "description": "Parse existing .docx or .doc weekly schedule file into structured JSON data.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "file": {"type": "string", "format": "binary"}
+                    }
+                }
+            }
+        ]
+    }
+    return jsonify(mcp_data)
+
+@app.route("/.well-known/agent-skills/index.json")
+@app.route("/.well-known/skills/index.json")
+def agent_skills():
+    """Agent Skills Index Discovery"""
+    skills_data = {
+        "$schema": "https://agent-skills.org/schema/v1.json",
+        "name": "officeformat-skills",
+        "version": "1.0.0",
+        "description": "Autonomous Agent Skills for OfficeFormat administrative document generation and parsing.",
+        "skills": [
+            {
+                "id": "generate-weekly-schedule",
+                "name": "Generate Weekly Schedule Word",
+                "description": "Create standard administrative weekly schedule docx files",
+                "endpoint": "https://vuhait.io.vn/api/export-docx",
+                "method": "POST"
+            },
+            {
+                "id": "parse-word-document",
+                "name": "Parse Word Document",
+                "description": "Extract structured data from uploaded Word documents",
+                "endpoint": "https://vuhait.io.vn/api/parse-word",
+                "method": "POST"
+            }
+        ]
+    }
+    return jsonify(skills_data)
+
+@app.route("/.well-known/oauth-authorization-server")
+def oauth_authorization_server():
+    """RFC 8414 OAuth 2.0 Authorization Server Metadata"""
+    oauth_meta = {
+        "issuer": "https://vuhait.io.vn",
+        "authorization_endpoint": "https://vuhait.io.vn/oauth/authorize",
+        "token_endpoint": "https://vuhait.io.vn/oauth/token",
+        "jwks_uri": "https://vuhait.io.vn/.well-known/jwks.json",
+        "response_types_supported": ["code", "token"],
+        "grant_types_supported": ["authorization_code", "client_credentials"],
+        "token_endpoint_auth_methods_supported": ["client_secret_basic", "client_secret_post", "none"],
+        "scopes_supported": ["read", "write", "officeformat:admin"]
+    }
+    return jsonify(oauth_meta)
+
+@app.route("/.well-known/oauth-protected-resource")
+def oauth_protected_resource():
+    """RFC 9728 OAuth 2.0 Protected Resource Metadata"""
+    resource_meta = {
+        "resource": "https://vuhait.io.vn",
+        "authorization_servers": ["https://vuhait.io.vn"],
+        "scopes_supported": ["read", "write"],
+        "bearer_methods_supported": ["header"]
+    }
+    return jsonify(resource_meta)
+
+@app.route("/.well-known/ai-plugin.json")
+def ai_plugin():
+    """OpenAI AI Plugin Manifest"""
+    plugin_data = {
+        "schema_version": "v1",
+        "name_for_model": "officeformat",
+        "name_for_human": "OfficeFormat",
+        "description_for_model": "OfficeFormat provides tools for administrative document standardization and weekly schedule generation.",
+        "description_for_human": "Chuẩn hóa văn bản hành chính & lịch tuần",
+        "auth": {
+            "type": "none"
+        },
+        "api": {
+            "type": "openapi",
+            "url": "https://vuhait.io.vn/openapi.json"
+        },
+        "logo_url": "https://vuhait.io.vn/favicon.ico",
+        "contact_email": "admin@vuhait.io.vn",
+        "legal_info_url": "https://vuhait.io.vn/#faq"
+    }
+    return jsonify(plugin_data)
+
+@app.route("/openapi.json")
+@app.route("/.well-known/openapi.json")
+def openapi_spec():
+    """OpenAPI 3.1.0 Specification"""
+    return send_from_directory(BASE_DIR, "openapi.json", mimetype="application/openapi+json; charset=utf-8")
+
+@app.route("/.well-known/auth.md")
+def auth_md():
+    """Agent Authentication Guide"""
+    md = "# OfficeFormat Authentication Guide\n\nPublic read endpoints and schedule generation do not require authentication.\nBearer tokens are supported for protected organizational API resources.\n"
+    return Response(md, mimetype="text/markdown; charset=utf-8")
+
+@app.route("/.well-known/agent-card.json")
+def agent_card():
+    """A2A Agent Card Standard"""
+    card = {
+        "name": "OfficeFormat Agent",
+        "url": "https://vuhait.io.vn",
+        "capabilities": ["document_formatting", "schedule_generation", "word_parsing"],
+        "status": "active"
+    }
+    return jsonify(card)
 
 @app.route("/api/sample-data", methods=["GET"])
 def get_sample_data():

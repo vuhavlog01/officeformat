@@ -1,0 +1,25 @@
+# OfficeFormat - Chuẩn Hóa Văn Bản & Lập Lịch Công Tác Tuần
+
+> OfficeFormat là nền tảng trực tuyến và tiện ích mở rộng Microsoft Word hỗ trợ chuẩn hóa thể thức văn bản hành chính theo Nghị định 30/2020/NĐ-CP và Hướng dẫn 05-HD/VPTW, kiểm tra chính tả tiếng Việt và lập lịch công tác tuần tự động.
+
+## Core Services
+
+- [Trang Chủ](https://vuhait.io.vn/): Giới thiệu tiện ích OfficeFormat và kho phần mềm, driver chữ ký số đồng bộ từ Google Drive.
+- [Lập Lịch Công Tác Tuần](https://vuhait.io.vn/lich-tuan): Ứng dụng web soạn thảo, xem trước A4 trực quan thời gian thực và xuất file Word (.docx) chuẩn thể thức.
+- [Kho Phần Mềm & Driver Ký Số](https://vuhait.io.vn/#ky-so): Bộ nguồn cài đặt phần mềm và driver USB Token từ Google Drive.
+- [OpenAPI Specification](https://vuhait.io.vn/openapi.json): Machine-readable API specification for automated integration.
+- [Model Context Protocol (MCP)](https://vuhait.io.vn/.well-known/mcp.json): Manifest for AI agents and LLM tool integration.
+
+## API Endpoints for AI Agents
+
+- `POST /api/generate-docx`: Sinh file Word (.docx) lịch công tác tuần chuẩn thể thức Hướng dẫn 05-HD/VPTW từ JSON payload.
+- `POST /api/parse-word`: Bóc tách file Word (.docx hoặc .doc) lịch công tác cũ thành dữ liệu cấu trúc JSON.
+- `GET /api/history`: Lấy danh sách lịch đã lưu trong hệ thống.
+- `POST /api/history`: Lưu bản lịch công tác mới vào cơ sở dữ liệu.
+- `DELETE /api/history/{id}`: Xóa bản lịch theo ID.
+
+## Optional & Full Documentation
+
+- [Full LLM Context](https://vuhait.io.vn/llms-full.txt): Toàn bộ tài liệu chi tiết quy chuẩn thể thức và tài liệu API.
+- [API Catalog (RFC 9727)](https://vuhait.io.vn/.well-known/api-catalog): Danh mục máy đọc cho các API dịch vụ.
+- [Agent Skills](https://vuhait.io.vn/.well-known/agent-skills/index.json): Bộ kỹ năng tương tác tác tử tự động.

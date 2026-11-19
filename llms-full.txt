@@ -1,0 +1,60 @@
+# OfficeFormat - Toàn Bộ Tài Liệu Chi Tiết Cho AI Agents & LLMs
+
+## 1. Tổng Quan Dự Án
+OfficeFormat là giải pháp hỗ trợ văn phòng công vụ tại Việt Nam, bao gồm:
+1. Ứng dụng Web Lập & Xuất Lịch Công Tác Tuần (Online):
+   - Chuẩn hóa thể thức theo Nghị định 30/2020/NĐ-CP và Hướng dẫn 05-HD/VPTW.
+   - Live Preview tỷ lệ A4 chuẩn.
+   - Nhận diện sự kiện quan trọng in màu đỏ theo quy định.
+   - Tự động gộp ô (merged cells) theo thứ trong tuần và buổi sáng / chiều.
+   - Bóc tách dữ liệu từ file Word cũ (.doc và .docx).
+2. Tiện ích Add-in Microsoft Word (V-Format 2.2.9):
+   - Căn lề chuẩn A4: Trên 20-25mm, Dưới 20-25mm, Trái 30-35mm, Phải 15-20mm.
+   - Tiêu ngữ, Quốc hiệu, Số ký hiệu, Trích yếu nội dung.
+   - Soát lỗi chính tả tiếng Việt tự động.
+3. Kho Phần Mềm & Driver Ký Số:
+   - Đồng bộ tự động 2 chiều từ Google Drive lưu trữ phần mềm.
+
+## 2. Thông Số API (REST API)
+
+### 2.1. Sinh file Word Lịch Tuần
+- **Endpoint:** `POST /api/generate-docx`
+- **Content-Type:** `application/json`
+- **Payload Schema:**
+```json
+{
+  "agency_upper": "ĐẢNG BỘ THÀNH PHỐ ĐÀ NẴNG",
+  "agency_name": "ĐẢNG UỶ XÃ QUẾ SƠN",
+  "doc_date_text": "Quế Sơn, ngày 25 tháng 10 năm 2026",
+  "doc_title": "lịch công tác của Ban Thường vụ Đảng ủy từ ngày 26/10/2026 đến ngày 01/11/2026",
+  "days": [
+    {
+      "day_name": "Thứ Hai",
+      "date_str": "26/10",
+      "morning": [
+        {
+          "leader": "TT.ĐU, C.Hằng",
+          "content": "- 08h00: Họp Thường trực Đảng ủy.",
+          "location": "Phòng họp số 1",
+          "staff": "A.Tâm",
+          "is_red": false
+        }
+      ],
+      "afternoon": []
+    }
+  ]
+}
+```
+- **Response:** File nhị phân `.docx` đính kèm trong Content-Disposition.
+
+### 2.2. Bóc Tách File Word Cũ
+- **Endpoint:** `POST /api/parse-word`
+- **Content-Type:** `multipart/form-data`
+- **Form field:** `file` (File Word `.docx` hoặc `.doc`)
+- **Response:** JSON cấu trúc chứa `days`, `agency_upper`, `agency_name`, `doc_title`.
+
+## 3. Giao Thức AI Agent
+- Model Context Protocol: `https://vuhait.io.vn/.well-known/mcp.json`
+- API Catalog RFC 9727: `https://vuhait.io.vn/.well-known/api-catalog`
+- OAuth Protected Resource RFC 9728: `https://vuhait.io.vn/.well-known/oauth-protected-resource`
+- Agent Skills: `https://vuhait.io.vn/.well-known/agent-skills/index.json`
